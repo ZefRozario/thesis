@@ -31,13 +31,13 @@
 
 %% Doc-specific PDF metadata
 \makeatletter
-\@ifpackageloaded{hyperref}{%
-\hypersetup{%
+\usepackage[hidelinks]{hyperref}
+\hypersetup{%}
   pdftitle = {ttbar differential cross section with ATLAS},
   pdfsubject = {Jonathan Jamieson's PhD thesis},
   pdfkeywords = {ATLAS, Top, physics, LHC, Boosted, Cross-Section},
   pdfauthor = {\textcopyright\ Jonathan Jamieson}
-}}{}
+}{}
 \makeatother
 
 
@@ -54,6 +54,7 @@
   %% Actually, more semantic chapter filenames are better, like "chap-bgtheory.tex"
   \input{Section_Introduction/Introduction}
   \input{Section_Detector/Detector}
+  \input{Section_theory/theory}
   %% To ignore a specific chapter while working on another, making the build faster, comment it out:
 \end{mainmatter}
 
