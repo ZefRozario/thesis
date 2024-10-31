@@ -14,7 +14,9 @@
 %\usepackage{lmodern}
 \usepackage{mathpazo}
 %\usepackage{euler}
-
+\usepackage{lineno}
+\usepackage{amsmath}
+\linenumbers
 \newcommand*{\BASEPATH}{./}
 
 %% Put package includes etc. into preamble.tex for convenience
@@ -32,12 +34,12 @@
 %% Doc-specific PDF metadata
 \makeatletter
 \usepackage[hidelinks]{hyperref}
-\hypersetup{%}
+
   pdftitle = {ttbar differential cross section with ATLAS},
-  pdfsubject = {Jonathan Jamieson's PhD thesis},
-  pdfkeywords = {ATLAS, Top, physics, LHC, Boosted, Cross-Section},
-  pdfauthor = {\textcopyright\ Jonathan Jamieson}
-}{}
+  pdfsubject = {Zefran Rozario's PhD thesis},
+  pdfkeywords = {ATLAS, Top, Higgs, physics, LHC, Boosted, Cross-Section},
+  pdfauthor = {\textcopyright\ Zefran Rozario}
+{}
 \makeatother
 
 
@@ -52,8 +54,8 @@
 %% Start the content body of the thesis
 \begin{mainmatter}
   %% Actually, more semantic chapter filenames are better, like "chap-bgtheory.tex"
-  \input{Section_Introduction/Introduction}
-  \input{Section_Detector/Detector}
+  % \input{Section_Introduction/Introduction}
+  % \input{Section_Detector/Detector}
   \input{Section_theory/theory}
   %% To ignore a specific chapter while working on another, making the build faster, comment it out:
 \end{mainmatter}

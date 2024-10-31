@@ -1,10 +1,34 @@
 \chapter{Theory}
 \label{chap::Theory}
 
-\chapterquote{you gonna eat that?}%
-{Bennie the cat}
-
-just talk about the most elegant marriage of mathematics and physics ever cooked up, no biggie.
+\chapterquote{The discography of ABBA.}%
+{Unknow, when asked about the greatest works of human history.}
 
 \section{something about the standard model }
- 
+The standard model (SM) of particle physics is the most robust fundamental description of modern day particle physics. It is the cumulations of over half-century's  intellectual efforts and perfectly describes, all known, particle interaction. However, it is not without its shortfalls in order to understand these short falls lets us begin to describe the theory.
+\\
+\\
+The standard model is a relativistic quantum field theory (QFT) and is made up of three generations of fundamental particles\textcolor{red}{add particle picture}, we can describe it as a gauge group, meaning it is invariant under non-local (gauge) transformations and has the gauge group structure of:
+\begin{equation}
+        \mathcal{G}_\text{SM} = SU(3)_C \otimes SU(2)_L \otimes U(1)_Y.
+\end{equation}
+
+According to Noether's theorem \textcolor{red}{ref it}: for every symmetry there is a corresponding conserved quantity. Here, $SU(3)_C$ is the gauge group for quantum chromodynamics, where the conserved quantity is colour charge, $C$. $SU(2)_L$, encapsulates the weak interactions and its generators, here the conserved quantity is weak isospin, L. Finally we have $U(1)_Y$ which describes the electromagnetic interactions in the SM and the conserved quantity is hypercharge, Y. The combination of gauge groups describe the weak interaciton and electromagnetic sector, namley: $SU(2)_L \otimes U(1)_Y$ is know as electroweak unification. 
+
+\section{Gauge fields}
+To account for these gauge symmetries in a locally invariant manner, we introduce gauge fields associated with each component of the gauge group. These gauge fields are responsible for mediating the interactions of the Standard Model and correspond to the bosonic force carriers. Each gauge group contributes its own field: 
+\begin{equation}
+\begin{split}
+    SU(3) : G^{a}_{\mu}, \;  {a=1,2,3...,8,}
+    \\
+    SU(2)\otimes U(1): W^{J}_{\mu}, \;{J=1,2,3}; \;B_{\mu}
+\end{split}
+\end{equation}
+Where $G^{a}_{\mu}$ denotes the 8 independent gluon fields and $a$ the eight gluons, they are also the generators of the $SU(3)$ group. $ W^{J}_{\mu}$, where $J=1,2,3$, represents the three gauge fields. These gauge fields are of spin-1 which are said to facilitate the interactions of the SM. We can use these gague fields to construct the Yang-Mills Lagrangian and thus capture the dynamics of these fields. The Yang-Mills Lagrangian takes the form:
+\begin{equation}
+    \mathcal{L}_{gauge} = -\frac{1}{4}F^{a\mu\nu}F^{a}_{\mu\nu},
+\end{equation}
+where $F^{a}_{\mu\nu}$ is the field strength tensor. Accepting the definitions of: $A_{\mu} = A^{a}_{\mu}T_a$ and $F_{\mu\nu}= F^{a}_{\mu\nu}T_a$
+% The combination of the gague groups for  electromagnetic  and weak interactions, namely,  $SU(2)_L \otimes U(1)_Y$ is known as the electroweak unification.
+
+ \section{}
