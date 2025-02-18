@@ -10,13 +10,35 @@
 %% For Cambridge hard-bound version (must be one-sided)
 \documentclass[hyperpdf,oneside]{hepthesis}
 
+
 %% Load special font packages here if you wish
-%\usepackage{lmodern}
-\usepackage{mathpazo}
+\usepackage{svg}
+\usepackage{graphicx}
+% \usepackage{feynmp}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[dvipsnames]{xcolor}
+\usepackage[bottom]{footmisc}
+\renewcommand{\thefootnote}{\roman{footnote}}
+\usepackage{cancel}
+\usepackage{feynmp}
+\usepackage{pgfgantt}
+\usepackage{rotating}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{lmodern}
+% \usepackage{mathpazo}
 %\usepackage{euler}
 \usepackage{lineno}
 \usepackage{amsmath}
 \linenumbers
+\usepackage[dvipsnames]{xcolor}
+
 \newcommand*{\BASEPATH}{./}
 
 %% Put package includes etc. into preamble.tex for convenience
@@ -32,14 +54,14 @@
 
 
 %% Doc-specific PDF metadata
-\makeatletter
+% \makeatletter
 \usepackage[hidelinks]{hyperref}
 
-  pdftitle = {ttbar differential cross section with ATLAS},
-  pdfsubject = {Zefran Rozario's PhD thesis},
-  pdfkeywords = {ATLAS, Top, Higgs, physics, LHC, Boosted, Cross-Section},
-  pdfauthor = {\textcopyright\ Zefran Rozario}
-{}
+% pdftitle = {ttbar differential cross section with ATLAS},
+%   pdfsubject = {Zefran Rozario's PhD thesis},
+%   pdfkeywords = {ATLAS, Top, Higgs, physics, LHC, Boosted, Cross-Section},
+%   pdfauthor = {\textcopyright\ Zefran Rozario}
+
 \makeatother
 
 
@@ -56,7 +78,8 @@
   %% Actually, more semantic chapter filenames are better, like "chap-bgtheory.tex"
   % \input{Section_Introduction/Introduction}
   % \input{Section_Detector/Detector}
-  \input{Section_theory/theory}
+  % \input{Section_theory/theory}
+  \input{Section_ATLAS_dect/LHC}
   %% To ignore a specific chapter while working on another, making the build faster, comment it out:
 \end{mainmatter}
 
