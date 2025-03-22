@@ -20,6 +20,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 
+
+
 \usepackage{graphicx} % takes care of graphic including machinery
 \usepackage[dvipsnames]{xcolor}
 \usepackage[bottom]{footmisc}
@@ -56,6 +58,10 @@
 %% Doc-specific PDF metadata
 % \makeatletter
 \usepackage[hidelinks]{hyperref}
+
+\usepackage[backend=biber, style=numeric, sorting=none, url=true,backref=true]{biblatex}
+\usepackage[backref=true]{atlasbiblatex} 
+\addbibresource{Bibliography/JJthesis.bib}
 
 % pdftitle = {ttbar differential cross section with ATLAS},
 %   pdfsubject = {Zefran Rozario's PhD thesis},
