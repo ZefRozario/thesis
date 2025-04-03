@@ -19,6 +19,8 @@
 \usepackage{subcaption}
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
+\usepackage{multirow}
+\usepackage{tabularx}
 
 
 
@@ -60,7 +62,7 @@
 \usepackage[hidelinks]{hyperref}
 
 \usepackage[backend=biber, style=numeric, sorting=none, url=true,backref=true]{biblatex}
-\usepackage[backref=true]{atlasbiblatex} 
+\usepackage[backref=true, doi=true]{atlasbiblatex} 
 \addbibresource{Bibliography/JJthesis.bib}
 
 % pdftitle = {ttbar differential cross section with ATLAS},
@@ -83,9 +85,10 @@
 \begin{mainmatter}
   %% Actually, more semantic chapter filenames are better, like "chap-bgtheory.tex"
   % \input{Section_Introduction/Introduction}
-  % \input{Section_Detector/Detector}
-  % \input{Section_theory/theory}
-  \input{Section_ATLAS_dect/LHC}
+    \input{Section_theory/theory}
+    \input{Section_ATLAS_dect/LHC}
+    \input{Section_QT/itk_qt}
+
   %% To ignore a specific chapter while working on another, making the build faster, comment it out:
 \end{mainmatter}
 
@@ -101,4 +104,4 @@
 \end{backmatter}
 
 %% Close
-\end{document}
+\end{document}}
