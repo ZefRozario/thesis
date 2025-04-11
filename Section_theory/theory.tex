@@ -47,7 +47,7 @@ Where. The gauge covariant derivative, allows the gauge field to interact with m
 
  \section{$\mathcal{L}_\text{Fermion}$}
  As stated earlier, the covariant derivative allows for the interactions of gauge fields and matter fields. Consider a set of matter fields, $\Psi=\{\psi\}$ that transform under a representation of the gauge groups. These represent the fermionic fields that house the quarks and leptons that fundamental matter is made out of. The SM fermionic fields can be summarised by,
-\begin{equation}
+\begin{equation}\label{lepsandqs}
     L_i= \begin{pmatrix} \nu_e \\ 
     e^- \end{pmatrix}_L,\; e^-_{Ri}, \; Q_i= \begin{pmatrix} u \\ d \end{pmatrix}_L, \: u_{Ri}, \: d_{Ri},\;  i=\{1,2,3\},
 \end{equation}
@@ -92,10 +92,10 @@ The Higgs mechanism is also responsible for generating the masses of most\footno
 \section{${\mathcal{L}_{Yukawa}}$}
 Yukawa interactions\cite{Yukawa:1935xg} describe the interaction between  fermions and a scalar field. Adapting this to the idea of the SM we can generate mass terms for fermions (with both left and right handed chirality) as they interact with the Higgs field (a scalar field) via Yukawa interactions. Let us now consider the full unabridged Yukawa lagrangian for the Higgs field and first generation fermions:  
 \begin{equation}
-    \mathcal{L}_{Yukawa} =-\lambda_e \bar{L}\phi e_R -\lambda_d \bar{Q}\phi d_R -\lambda_u \bar{Q} \phi u_R + h.c.
+    \mathcal{L}_{Yukawa} =-\lambda_e \bar{L}\phi e_R -\lambda_d \bar{Q}\phi d_R -\lambda_u \bar{Q} \tilde{\phi} u_R + h.c.
 \end{equation}
 
-The Higgs effective lagrangian will now contain the fermionic mass terms. Thus, the full effective lagrangian is:
+Where $\bar{L}$ and $\bar{Q}$ are the dirac ajoin of the left handed lepton and quark doublets from Equation \ref{lepsandqs}, respectively, and defined as  $\bar{L}=L^\dagger \gamma^0$ and $\bar{Q}=Q^\dagger \gamma^0$ and $\tilde{\phi}$ is the conjugate Higgs doublet. The Higgs effective lagrangian will now contain the fermionic mass terms. Thus, the full effective lagrangian is:
 \begin{equation}\label{efflag}
     \mathcal{L}_{Higgs}= g_{hWW}hW^{+}_\mu W^{-\mu} + g_{hZZ}hZ_\mu Z^{\mu} + \sum_f g_{hff}h\bar{f}_L f_R.
 \end{equation}
@@ -289,7 +289,7 @@ where $\Lambda$ is the energy scale at which new physics (NP) sits at. If we set
 the $t\bar{t}H$ process, as seen in Figure \ref{fig:tth},  plays a special role in the SM as it allows for direct tree-level measurement of the top quark Yukawa coupling, $y_t$, whose importance we have laid out in Section \ref{sec::higgs_yt}. We see that from Figure \ref{fig:production_cross_sectio} that the $t\bar{t}H$ process is the least favoured production mode and so we expect the rate at which we observe the the $t\bar{t}H$ process to be much lower than all the other leading production modes. Even with this limitation, the $t\bar{t}H$ production was observed by ATLAS \cite{tth-atlas-2018} and CMS\cite{tth-cms-2018}in 2018 by the combining various decay channels. As we see from Figure \ref{fig:branching_ratio}, $H \rightarrow b\bar{b}$ is the dominant decay mode of the Higgs. So it stand to reason, that its most likely that if a $t\bar{t}H$ event occurred, the Higgs boson would most likely decay into a $b\bar{b}$ pair and so in order to have a statistical advantage in observing $t\bar{t}H$ one would only require to look here \footnote{The best laid schemes o' mice an' men / Gang aft agley, / An' lea'e us nought but grief an' pain}. As simple as this plan is, it is fraught with difficulty, namely $H\rightarrow b\bar{b}$ does not have a clear signal to trigger on and so makes signal extraction, from its almost identical background, extremely difficult. There have been a few attempts at a $t\bar{t}H(b\bar{b})$ analysis in the past by both ATLAS \cite{tth-atlas-2018} and CMS \cite{tth-cms-2019} these analyses were later combined to reach the 5$\sigma$ threshold for discovery, these were based on partial Run-2 data sets. Later, ATLAS had released a full Run-2 analysis \cite{ATLAS:2022tthbb} however there has since been a reinterpretation of the full Run-2 ATLAS data set, a so-called $t\bar{t}H(b\bar{b})$ legacy analysis. This is where most of my contributions lie for the duration of my PhD and I lay these out in Section \ref{chap::analysis}.
 % For large values of $y_t$, this would drive the Higgs self coupling $\lambda$ to negative values at high energies, resulting in a new electro-weak vacuum, with a lower potential than the vacuum after EWSB. For even larger values of $y_t$, the lifetime of the current vaccum is smaller than the lifetime of the universe, this is currently in contradiction of the what we believe as we have data that indicates that the current electro-weak vacuum we describe in the SM is meta-stable, with a life-time greater than the lifetime of the universe. Hence, a precise measurement of $y_t$ is important to check the validity of the SM in a cosmological context, and can point us in the direction of potential beyond the standard model (BSM) effects. 
 \section{Beyond the Standard Model: Effective Field Theories}
-As we begin our journey in physics, we are told that: Isaac Newton \textit{discovered} gravity or Christiaan Huygens \textit{discovered} that light is a wave. Regarding the idea of discovery with the same verve as that of a curios child spotting insects under a rock for this first time. Later in our journey, once we are shown vector calculus for possibly the third time in what seems to be unrelated university modules, it clicks: We as physicists we only describe the world around us and hope to do it in a tidy enough package that our work can be considered fundamental. Returning to Issac and his apple, a correct statement would be: Newtons laws of motion and universal law of gravity correctly \textit{describes} bodies in motion. We know that, although brilliant, Newtons works doesn’t describe everything, such as: Black-holes, Gravitational lensing, the behaviour of fast moving objects, the list goes on. The solution to all of this is of course the work of Einstein and his general theory of relativity. This of course doesn’t make Newtons laws obsolete, they still \textit{effectively} describe the motion of bodies up to a certain point. These two theories are a good example of how we can use different dynamics for different energy scales, we can also recover newtons laws (the effective theory) form general relativity (the full theory) by removing heavy degrees of freedom while still \textit{effectively} describing the dynamics at play (provided you're not moving any where near the speed of light).
+As we begin our journey in physics, we are told that: Isaac Newton \textit{discovered} gravity or Christiaan Huygens \textit{discovered} that light is a wave. Regarding the idea of discovery with the same verve as that of a curios child spotting insects under a rock for the first time. Later in our journey, once we are shown vector calculus for possibly the third time in what seems to be unrelated university modules, it clicks: We as physicists we only describe the world around us and hope to do it in a tidy enough package that our work can be considered fundamental. Returning to Issac and his apple, a correct statement would be: Newtons laws of motion and universal law of gravity correctly \textit{describes} bodies in motion. We know that, although brilliant, Newtons works doesn’t describe everything, such as: Black-holes, Gravitational lensing, the behaviour of fast moving objects, the list goes on. The solution to all of this is of course the work of Einstein and his general theory of relativity. This of course doesn’t make Newtons laws obsolete, they still \textit{effectively} describe the motion of bodies up to a certain point. These two theories are a good example of how we can use different dynamics for different energy scales, we can also recover newtons laws (the effective theory) form general relativity (the full theory) by removing heavy degrees of freedom while still \textit{effectively} describing the dynamics at play (provided you're not moving any where near the speed of light).
 \\
 \\
 I raise the points above as we can define the SM as an effective theory which works at a lower energy scale than the a full theory which sits at a higher energy scale. I refer of course to the Standard Model Effective Field Theory\footnote{There are of course other effective field theories that are floating around in modern day particle physics such as Heavy Quark Effective Field Theory \cite{HQEFT} designed to limit the dynamic of heavy quark interactions, for the scope of this work we will focus on the SMEFT.} (SMEFT) \cite{SMEFT} where we can extend the SM with higher dimension operators constructed from SM parameters, $\mathcal{O}$ and Wilson coefficients, $c_i$ that modify the contributions of the operators. Allowing us to quantify the possible effects of new physics that sit at a higher energy scale, $\Lambda$. The SMEFT allows for a model independent approach, we can define the SMEFT lagrangain as:
@@ -302,24 +302,33 @@ Where the scale of the new physics suppress the BSM effects. As nice as a lagran
 \end{equation}
 Where $\sigma_i^{\text{interf.}}$ is the interference term between the SM and the BSM, and $\sigma_i^{\text{quad.}}$ is a term that is purely dependent on BSM effects. Using Equation \ref{xs-smeft} we can see how powerful a reinterpretation of particle physics analysis' using this frame work could be, allowing us to gain hints of potential BSM effects in our SM measurements, as opposed to feeling around in the dark or lifting up a rock and surprised to not find any insects. 
 \subsection{$t\bar{t}H$ SMEFT} 
-As said earlier in this work we focus on the ATLAS Run-2 $t\bar{t}H(b\bar{b})$ legacy analysis, later we will do a reinterpretation of this analyses' results with the SMEFT framework. There are three main operators that govern the $t\bar{t}H$ process, as show in table \ref{table:ttheft}.
+As said earlier in this work we focus on the ATLAS Run-2 $t\bar{t}H(b\bar{b})$ legacy analysis, later we will do a reinterpretation of this analyses' results with the SMEFT framework. There are three main operators that govern the $t\bar{t}H$ process, as show in table \ref{table:ttheft}. The definition of the operators are made from components form the SM and so have the have their usual SM definitions. Our convention is such that for each operator we will add its Hermitian conjugate, even if it is already Hermitian. We want to conserve CP-symmetry and so consider $c_{t\phi}$ and $c_{tG}$ to be real. $c_{\phi G}$ is always real as the operator is, $\mathcal{O}_{\phi G}$, is hermitian.   
 
-\begin{table}[h!]\label{table:ttheft}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
 
-\begin{tabular}{|c|c|c|}
+
+\begin{table}[h!]
+
+\begin{tabular}{|M{4cm}|M{10cm}|N}
 
 \hline
-Operator & Definition  & Diagram \\ \hline
-                       $\mathcal{O}_{t\phi}$& $y_t^3 (\phi^\dagger\phi)(\bar{Q}t)\tilde{\phi}$ & 
-\begin{fmffile}{tth1}
+\textbf{Operator}  & \textbf{Diagrams} \\ \hline
+\vspace{17px}
+                       $\mathcal{O}_{t\phi}=y_t^3 (\phi^\dagger\phi)(\bar{Q}t)\tilde{\phi}$& \vspace{17px}
+                           
+
+
+\begin{fmffile}{ttheft_th_1}
   \begin{fmfgraph*}(80,60)
+  \fmfstraight
     \fmfleft{i1,i3}
     \fmfright{o1,o2,o3}
     \fmffreeze
     % Positioning vertices manually
     \fmf{gluon,tension=1.5}{i1,v1}
     \fmf{gluon,tension=1.5}{i3,v3}
-    \fmf{fermion,tension=1.5}{v1,o1}
+    \fmf{fermion,tension=1.5}{o1,v1}
     \fmf{fermion,tension=1.5}{v3,o3}
     
     % Internal loop
@@ -330,27 +339,78 @@ Operator & Definition  & Diagram \\ \hline
     \fmf{dashes,tension=1.2}{v2,o2}
     \fmfblob{20}{v2}
     % Labels
-    \fmflabel{$g$}{i1}
-    \fmflabel{$g$}{i3}
-    \fmflabel{$\bar{t}$}{o1}
-    \fmflabel{$t$}{o3}
-    \fmflabel{$H$}{o2}
+
   \end{fmfgraph*}
 \end{fmffile}
-                     \\
-                       $\mathcal{O}_{\phi G}$& $y^2_t(\phi^{\dagger}\phi) G^{a}_{\mu\nu} G^{a\mu\nu}$   &                       \\
-                       $\mathcal{O}_{tG}$& $y_t g_s (\bar{Q} \sigma^{\mu\nu}T^A t)\tilde{\phi}G^{a}_{\mu\nu}$ & 
 
-\begin{fmffile}{tth}
-  \begin{fmfgraph*}(120,80)
+\begin{fmffile}{ttheft_th_2}
+  \begin{fmfgraph*}(80,40)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion}{o3,v2}
+    \fmf{phantom}{v2,b1,o1}
+    \fmf{fermion}{v2,b1,o1}
+    \fmf{gluon}{v1,i1}
+    \fmf{gluon}{v1,i2}
+    \fmf{gluon}{v1,v2}
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{10}{b1}
+    \fmf{dashes}{b1,o2}
+    
+    
+    % labels
+ 
+  \end{fmfgraph*}
+\end{fmffile}
+
+
+
+                     \\ [50pt]
+                      \vspace{17px} $\mathcal{O}_{\phi G}=y^2_t(\phi^{\dagger}\phi) G^{a}_{\mu\nu} G^{a\mu\nu}$&  \vspace{17px}
+                       \begin{fmffile}{tth2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i1,i3}
+    \fmfright{o1,o2,o3}
+    
+    \fmffreeze
+    % Positioning vertices manually
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i3,v3}
+    \fmf{dashes,tension=1.5}{v1,o1}
+    \fmf{fermion,tension=1.5}{v3,o3}
+    
+    
+    % Internal loop
+    \fmffreeze
+    \fmf{fermion,tension=0.4}{v2,v3}
+    \fmf{gluon,tension=0.4}{v1,v2}
+    \fmffreeze
+    % Higgs
+    \fmf{fermion,tension=1.2}{o2,v2}
+    \fmfstraight
+    \fmfblob{20}{v1}
+    % Labels
+
+  \end{fmfgraph*}
+\end{fmffile}                     \\ [50pt]
+                       \vspace{12px}$\mathcal{O}_{tG}=y_t g_s (\bar{Q} \sigma^{\mu\nu}T^A t)\tilde{\phi}G^{a}_{\mu\nu}$ & \vspace{20px}
+
+\begin{fmffile}{tth3}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
     \fmfleft{i1,i3}
     \fmfright{o1,o2,o3}
     \fmffreeze
     % Positioning vertices manually
     \fmf{gluon,tension=1.5}{i1,v1}
     \fmf{gluon,tension=1.5}{i3,v3}
-    \fmf{fermion,tension=1.5}{v1,o1}
+    \fmf{fermion,tension=1.5}{o1,v1}
     \fmf{fermion,tension=1.5}{v3,o3}
+    \fmfstraight
     
     % Internal loop
     \fmffreeze
@@ -360,49 +420,67 @@ Operator & Definition  & Diagram \\ \hline
     \fmf{dashes,tension=1.2}{v2,o2}
     \fmfblob{20}{v1}
     % Labels
-    \fmflabel{$g$}{i1}
-    \fmflabel{$g$}{i3}
-    \fmflabel{$\bar{t}$}{o1}
-    \fmflabel{$t$}{o3}
-    \fmflabel{$H$}{o2}
+
   \end{fmfgraph*}
 \end{fmffile}
 
-                     \\ \hline
+                     \\  \hline
 
 \end{tabular}
-\caption{tth eft}
+
+\caption{The three main SMEFT operators for the $t\bar{t}H$ production, their definitions and Feynman diagrams showing which vertex they modify.}\label{table:ttheft}
 \end{table}
 
-% \begin{figure}
-% \centering
-% \vspace{4ex}
-% \begin{fmffile}{tth}
-%   \begin{fmfgraph*}(120,60)
-%     \fmfleft{i1,i3}
-%     \fmfright{o1,o2,o3}
-%     \fmf{gluon}{i1,v1}
-%     \fmf{gluon}{i3,v3}
-%     \fmf{fermion}{o1,v1}
-%     \fmf{fermion}{v3,o3}
-%     \fmf{phantom}{v1,v3}
-%     \fmffreeze
-%     \fmf{fermion,tension=0.3}{v1,v2,v3}
-%     \fmffreeze
-%     \fmf{dashes}{v2,o2}
-%     \fmflabel{$g$}{i3}
-%     \fmflabel{$g$}{i1}
-%     \fmflabel{$t$}{o3}
-%     \fmflabel{$\bar{t}$}{o1}
-%     \fmflabel{H}{o2}
-%   \end{fmfgraph*}
-% \end{fmffile}
-% \vspace{3ex}
-% \caption{Top quark associated production ($t\bar{t}H$)}\label{fig:tth}
-% \end{figure}
+
+\begin{fmffile}{tth5}
+  \begin{fmfgraph*}(110,90)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    % \fmffreeze
+    % \fmfshift{2 left}{i1}
+
+    
+    \fmf{gluon}{v1,i1}
+    \fmf{gluon}{v1,i2}
+
+        
+    \fmf{gluon,tension=2}{v1,v2}
+     % \fmfi{fermion}{vpath(i2,v1)}
 
 
+    \fmf{fermion}{o3,v2,v3,o1}
+    \fmfstraight
+    \fmfblob{9}{v3}
+    \fmf{dashes}{o2,v3}
+    
+    % labels
 
+  \end{fmfgraph*}
+\end{fmffile}
+
+\begin{fmffile}{ttheft_th_2}
+  \begin{fmfgraph*}(110,70)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion}{o3,v2}
+    \fmf{phantom}{v2,b1,o1}
+    \fmf{fermion}{v2,b1,o1}
+    \fmf{gluon}{v1,i1}
+    \fmf{gluon}{v1,i2}
+    \fmf{gluon}{v1,v2}
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{10}{b1}
+    \fmf{dashes}{b1,o2}
+    
+    
+    % labels
+ 
+  \end{fmfgraph*}
+\end{fmffile}
 
 
 

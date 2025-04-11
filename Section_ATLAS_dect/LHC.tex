@@ -94,11 +94,21 @@ After the ID, the next main set of layers in the ATLAS detector are the calorime
 There are two properties that is fundamental to the design of the calorimeter systems: the radiation length, $X_0$, which is a characteristic of a material, related to the energy loss of high energy particles electromagnetically interacting with it. And for hadronic interactions we consider the nuclear interaction length, $\lambda_I$, of a material. For a normal calorimeter material choice $\lambda_I >> X_0$. This means that electrons and photons interact much closer to the beam pipe than hadrons. So as a result, the ATLAS detector uses two calorimeters: and electromagnetic calorimeter and hadronic calorimeter. A cross section showing the layout of the calorimeters is shown in Figure \ref{fig:atlas-cals}
 
 \subsubsection{Electromagnetic calorimeter}
-The electromagnetic calorimeter (ECal) \cite{ecal} uses liquid Argon (LAr) in its active layers and lead (Pb) in its absorbing layers. The lead layers are designed to cause showering, the resulting particles then enter a LAr layer where ionisation occurs, resulting in electronic signals. The ECal is designed to provide a consistent amount of material in all directions, corresponding to an interaction length of $22X_0$, covering a pseudo rapidity range of $|\eta| < 3.2$ and the full range of $\phi$. The ECal is also split into the barrel region and endcap region. The barrel region starts with an active layer, called the pre-sampler. This is designed to measure the energy lost in the ID, after this there are then three finely granulated layers. In the endcap region there are only two, coarser, layers. \textcolor{red}{resolution of ECAL?}
+The electromagnetic calorimeter (ECal) \cite{ecal} uses liquid Argon (LAr) in its active layers and lead (Pb) in its absorbing layers. The lead layers are designed to cause showering, the resulting particles then enter a LAr layer where ionisation occurs, resulting in electronic signals. The ECal is designed to provide a consistent amount of material in all directions, corresponding to an interaction length of $22X_0$, covering a pseudo rapidity range of $|\eta| < 3.2$ and the full range of $\phi$. The ECal is also split into the barrel region and endcap region. The barrel region starts with an active layer, called the pre-sampler. This is designed to measure the energy lost in the ID, after this there are then three finely granulated layers. In the endcap region there are only two, coarser, layers. The resolution of the ECal is:
+\begin{equation}
+    \frac{\sigma_E}{E}=\frac{10\%\text{GeV}^{\frac{1}{2}}}{\sqrt{E}}\oplus 0.7\%,
+\end{equation}
+Where the first term is the stochastic term which dominates at low energies and the second term is the constant term which dominates at high energies.
 \subsubsection{Hadronic calorimeter}
-Following the ECal we have the Hadronic Calorimeter (HCal). The HCal uses steel in the barrel region and copper in the endcap region, as the absorber layers, and scintillating tiles \cite{hcal} in the barrel region and LAr in the endcap for the active layers. \textcolor{red}{resolution of HCal?}
+Following the ECal we have the Hadronic Calorimeter (HCal). The HCal uses steel in the barrel region and copper in the endcap region, as the absorber layers, and scintillating tiles \cite{hcal} in the barrel region and LAr in the endcap for the active layers. The resolution of the HCal is:
+\begin{equation}
+    \frac{\sigma_E}{E}=\frac{50\%\text{GeV}^{\frac{1}{2}}}{\sqrt{E}}\oplus 3\%,
+\end{equation}
 \subsubsection{Forward calorimeter}
-The Forward Calorimeter (FCal) is used to increase the precision of measuring missing transverse energy and naturally covers a higher range of pseudo-rapidity, $3.2<|\eta|<4.9$, compared to the barrel or endcap regions. The sampling is done using LAr for the active layers and copper and tungsten for absorbing layers. The FCal has three layers the first is designed to sample  electromagnetic showers and the other tow are designed to sample hadronic showers.  
+The Forward Calorimeter (FCal) is used to increase the precision of measuring missing transverse energy and naturally covers a higher range of pseudo-rapidity, $3.2<|\eta|<4.9$, compared to the barrel or endcap regions. The sampling is done using LAr for the active layers and copper and tungsten for absorbing layers. The FCal has three layers the first is designed to sample  electromagnetic showers and the other tow are designed to sample hadronic showers. The resolution of the FCal is:
+\begin{equation}
+    \frac{\sigma_E}{E}=\frac{100\%\text{GeV}^{\frac{1}{2}}}{\sqrt{E}}\oplus 10\%,
+\end{equation}
 \begin{figure}[h!]
     \centering
 \includegraphics[scale=0.1]{Section_ATLAS_dect/cals.jpg}
