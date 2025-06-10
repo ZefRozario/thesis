@@ -1,0 +1,224 @@
+\chapter{tth eft}
+\label{chap::tth_eft}
+\chapterquote{The S\&P 500 is my favourite meme coin.}%
+{Hannah Mehravari, after the Trump tariffs, Aprill 2025.}
+With the $t\bar{t}H(b\bar{b})$ legacy analysis producing the most precise measurement of its kind to date, we believe it would be prevalent to re-interpret it with the SMEFT framework inorder to test for potential presence BSM effects. Using this analysis we can update the precision on the Wilson Coefficients (WC), which that dictate the strength of the SMEFT operators.   
+\subsection{$t\bar{t}H$ SMEFT} 
+Following the framework in Section \ref{sec:SMEFT}, there are three main operators that govern the $t\bar{t}H$ process, as show in table \ref{table:ttheft}. The definition of the operators are made from components form the SM and so have the have their usual SM definitions. Our convention is such that for each operator we will add its Hermitian conjugate, even if it is already Hermitian. We want to conserve CP-symmetry and so consider $c_{t\phi}$ and $c_{tG}$ to be real. $c_{\phi G}$ is always real as the operator is, $\mathcal{O}_{\phi G}$, is hermitian. $\mathcal{O}_{t\phi}$ rescales the top Yukawa coupling in the SM, while also giving rise to a new $ttHH$ coupling, this contributes to Higgs pair production. $\mathcal{O}_{tG}$ is the chromomagnetic-dipole operator, introducing a magnetic style dipole interaction with the top quark and gluons, it modifies the $gtt$ vertex in the SM and introduces new four-point vertices: $ggtt$ and $gttH$ as well as a five-point vertex $ggttH$. These vertex modifications and introductions are momentum dependent and are most likely only relevant at high-$p_T$. $\mathcal{O}_{\phi G}$ is the Higgs-gluon contact term 
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+
+\begin{table}[h!]
+
+\begin{tabular}{|M{6cm}|M{8cm}|N}
+
+\hline
+\textbf{Operator}  & \textbf{Diagrams} \\ \hline
+\vspace{17px}
+                       $\mathcal{O}_{t\phi}=y_t^3 (\phi^\dagger\phi)(\bar{Q}t)\tilde{\phi}$& \vspace{17px}
+                           
+
+
+\begin{fmffile}{ttheft_th_1}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i1,i3}
+    \fmfright{o1,o2,o3}
+    \fmffreeze
+    % Positioning vertices manually
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i3,v3}
+    \fmf{fermion,tension=1.5}{o1,v1}
+    \fmf{fermion,tension=1.5}{v3,o3}
+    
+    % Internal loop
+    \fmffreeze
+    \fmf{fermion,tension=0.4}{v1,v2,v3}
+    \fmffreeze
+    % Higgs
+    \fmf{dashes,tension=1.2}{v2,o2}
+    \fmfblob{15}{v2}
+    % Labels
+
+  \end{fmfgraph*}
+\end{fmffile}
+\hspace{1cm}
+\vspace{25px}
+\begin{fmffile}{ttheft_th_2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion}{o3,v2}
+    \fmf{phantom}{v2,b1,o1}
+    \fmf{fermion}{v2,b1,o1}
+    \fmf{gluon}{v1,i1}
+    \fmf{gluon}{v1,i2}
+    \fmf{gluon}{v1,v2}
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{15}{b1}
+    \fmf{dashes}{b1,o2}
+    
+    
+    % labels
+ 
+  \end{fmfgraph*}
+\end{fmffile}
+
+
+
+                     \\ [50pt]
+                      \vspace{17px} $\mathcal{O}_{\phi G}=y^2_t(\phi^{\dagger}\phi) G^{a}_{\mu\nu} G^{a\mu\nu}$&  \vspace{17px}
+                       \begin{fmffile}{tth2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i1,i3}
+    \fmfright{o1,o2,o3}
+    
+    \fmffreeze
+    % Positioning vertices manually
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i3,v3}
+    \fmf{dashes,tension=1.5}{v1,o1}
+    \fmf{fermion,tension=1.5}{v3,o3}
+    
+    
+    % Internal loop
+    \fmffreeze
+    \fmf{fermion,tension=0.4}{v2,v3}
+    \fmf{gluon,tension=0.4}{v1,v2}
+    \fmffreeze
+    % Higgs
+    \fmf{fermion,tension=1.2}{o2,v2}
+    \fmfstraight
+    \fmfblob{15}{v1}
+    % Labels
+
+  \end{fmfgraph*}
+\end{fmffile}   
+\hspace{1cm}
+\vspace{25px}
+\begin{fmffile}{ttheft_tg_2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion,tension=0.5}{o2,v2}
+    \fmf{fermion,tension=1.1}{v2,o1}
+    \fmf{dashes}{v1,o3}
+    \fmfstraight
+    \fmf{gluon,tension=2}{v1,i1}
+    \fmf{gluon,tension=2}{v1,i2}
+    \fmf{gluon}{v1,v2}
+    \fmfstraight
+    
+    
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{15}{v1}
+    
+      \end{fmfgraph*}
+\end{fmffile}
+
+
+
+
+\\ [50pt]
+                       \vspace{12px}$\mathcal{O}_{tG}=y_t g_s (\bar{Q} \sigma^{\mu\nu}T^A t)\tilde{\phi}G^{a}_{\mu\nu}$ & \vspace{20px}
+
+\begin{fmffile}{tth3}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i1,i3}
+    \fmfright{o1,o2,o3}
+    \fmffreeze
+    % Positioning vertices manually
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i3,v3}
+    \fmf{fermion,tension=1.5}{o1,v1}
+    \fmf{fermion,tension=1.5}{v3,o3}
+    \fmfstraight
+    
+    % Internal loop
+    \fmffreeze
+    \fmf{fermion,tension=0.4}{v1,v2,v3}
+    \fmffreeze
+    % Higgs
+    \fmf{dashes,tension=1.2}{v2,o2}
+    \fmfblob{15}{v1}
+    % Labels
+
+  \end{fmfgraph*}
+\end{fmffile}
+\hspace{1cm}
+\vspace{25px}
+\begin{fmffile}{ttheft_hg_2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion}{o3,v1}
+
+    \fmf{fermion}{v1,o1}
+    \fmf{gluon}{v1,i1}
+    \fmf{gluon}{v1,i2}
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{15}{v1}
+    \fmf{dashes}{v1,o2}
+    
+    
+    % labels
+ 
+  \end{fmfgraph*}
+\end{fmffile}
+
+                     \\  \hline
+
+\end{tabular}
+
+\caption{The three main SMEFT operators for the $t\bar{t}H$ production, their definitions and Feynman diagrams showing which vertex they modify.}\label{table:ttheft}
+\end{table}
+\section{Early Run-2 Results}
+Before we proceed with the analysis, we should probably stop and take in the $t\bar{t}H$ EFT precision measurement landscape. Our main point of comparison for our results will be a early run-2 result from 2016 \cite{Maltoni:2016yxb}. The analysis in question used a combination of results from both the CMS and ATLAS detector. In order to break the degeneracy between the operators they use $H$, $H + j$ and $t\bar{t}H$ analyses: The $pp \to H$ measurements we are going to use are the following: in the diphoton channel we use \cite{ATLAS_2014,CMS_2014} at 8~TeV and \cite{CMS_2016_gg} at 13~TeV; in the $WW/ZZ/\tau\tau$ channels we use \cite{ATLAS_WW_2015,CMS_WW_2014,ATLAS_ZZ_2015,CMS_ZZ_2014,ATLAS_tau_2015,CMS_tau_2014}; measurements of $pp \to t\bar{t}H$ at 8~TeV in the diphoton channel are given in \cite{CMS_ttH_2014,ATLAS_ttH_2015_gamma}, while in the multilepton and $b\bar{b}$ channels we use \cite{CMS_ttH_2014,ATLAS_ttH_2015_multilepton,ATLAS_ttH_2015_bb}. Finally, 13~TeV measurements of $t\bar{t}H$ in the multilepton and $b\bar{b}$ channels are also included \cite{CMS_ttH_2016_multilepton,CMS_ttH_2016_bb}. Both processes depend on all three operators. The result of this combination and re-interpretation is shown in Table \ref{table:earlyrun2eft}. From these results we observe constraints of $c_{t\phi}$,  $c_{\phi G}$ and $c_{tG}$ from individual fits and combined. Comparing individual and combinations we see that there is loss in precisions when trying to fit more than one WC at a time, This can be attributed to the inherent degeneracy between the WCs. This degeneracy occurs when there is a set of observables and a set of operators that modify the observables in the same direction. This leads to a loss in precision as we don't have the statistical power to correctly separate the effects of each operator. With the addition of $H$ and $H+j$ data, this study managed to fit the WCs in combination without a total loss in precision\footnote{A total loss in precision would be a statement like: I have 15 coins in my hand $\pm 500$. A physicists guttural reaction would of course be: negative coins are unphysical and not even a gorilla could hold 500 coins in their hand.}. 
+\begin{table}
+    \centering
+    \begin{tabular}{cccc}
+    \hline
+    \hline
+         & Individual & Combined & $c_{tG}$ Fixed \\
+         \hline
+        $c_{t\phi}$ & [-3.9,4.0] & [14,31] & -[12,20]\\
+         $c_{\phi G}$& [-0.0072,-0.0063] & [-0.021,0.054] &[-0.022,0.031] \\
+         $c_{tG}$& [-0.68,0.62] &[-1.8,1.6]  & - \\
+         \hline
+         \hline
+    \end{tabular}
+    \caption{Caption}
+    \label{table:earlyrun2eft}
+\end{table}
+\section{Analysis methodology}
+For any EFT fit we first need a Monte Carlo sample with an EFT prediction in order to fit our data on to it. This is usually a dedicated samples created using your generator of choice. However, as we are using a finalised published analysis we need a way to modify the provided SM samples to include an EFT prediction. We plan to re-interpret our SM result in the SMEFT frame work, which can be summarised as: a change of basis from $\mu$ (Signal strength) to our desired WC and so our WC becomes our POI. Using cross-section weights, which provide different values per STXS region, provided by the ATLAS global EFT analysis we can read these into to our signal samples and create an EFT prediction for our desired EFT WC per STXS bin. A raw plot of these weights for each WC can be see in Fig \ref{fig:eft_weigh} With these predictions in hand we can then fit our data and extract the values our WC or multiple WCs in a combined fit. A flow diagram of this workflow can be seen in Fig. \ref{fig:EFT_workflow}.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Section_eft_tth/EFT_workflow.png}
+    \caption{Enter Caption}
+    \label{fig:EFT_workflow}
+\end{figure}
+\subsection{EFT Weights}
+The EFT weights that we read into the SM sample are split by STXS bin and if they are linear or quadratic in nature. The linear weights only include the SM-EFT mixing contributions where as the quadratic weights include contributions from both the mixing term and pure BSM term.
+\subsection{Exploiting the Higgs $p_T$ spectrum}
+As the weights provided are split by STXS region, the created predictions are also split into STXS regions. Doing so reveals how each region evolves and their regime changes form being dominated by the linear coefficient to quadratic coefficient becoming more present. Thus, how different STXS regions contribute to the sensitivity of the fitted WC. Intuition would suggest that the higher STXS region EFT predictions would contain a more dominant quadratic regime and hence these regions would be a more sensitive. A quick test for this would be to remove these regions from our fit and see if the effect on the central value and precision of our fitted WC. \textcolor{red}{ask tony how many plots to show, 3 for each WC?}
+\section{Results}
+\subsection{$c_{\phi G}$
+\subsection{$c_{tG}$}
+\subsection{$c_{t\phi}$}
+\subsection{Dropping STXS 5 and 6}
+\subsection{Combined Results}
+\section{Discussion}
