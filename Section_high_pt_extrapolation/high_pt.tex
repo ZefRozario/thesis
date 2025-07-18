@@ -18,7 +18,7 @@ Flavour tagging requires the use of data-to-simulation scale factors because the
 \\
 \\
 In order to establish the data-to-simulation scale factor for a given flavour of jet we need an abundance of events within a given $p_T$ range. For example, to generate the efficiency scale factors used in $b$-tagging, both an enriched MC sample of $t\bar{t}$ events was used and well understood reference objects to provide in-situ calibration and uncertainties. However this approach sets a limit in which the efficiency scale factors can be reliably generated as the limited data statistics means there are $p_T$ regions beyond which the data-to-simulation scale factor cannot be reliably determined.
- For $b$-tagged Pflow jets the upper limit is $p_T$ = 400 GeV, this sets an in-stu calibration threshold on $b$-jets. The calibration threshold for each flavour of jet can be seen in \ref{tab:calibration_thresholds}. The uncertainties are then extrapolated to 3 TeV.
+ For $b$-tagged Pflow jets the upper limit is $p_T$ = 400 GeV, this sets an in-situ calibration threshold on $b$-jets. The calibration threshold for each flavour of jet can be seen in \ref{tab:calibration_thresholds}. The uncertainties are then extrapolated to 3 TeV.
 \\
 \\
 In order to effectively derive accurate systematic uncertainties that assume the scale factors are constant, beyond the calibration threshold, an extrapolation method must be used. The employed flavour tagging uncertainty extrapolation method for PCBT has a heavy reliance on data-to-simulation scale factors. Lets us briefly describe the extrapolation method for Pflow b-jets, a more detailed descriptions can be found here~\cite{ATL-PHYS-PUB-2021-003}. This method can be extended to all flavours of jets and jet types and for this study is extended to $c$ and $light$ jets. This method has already been used in the high-$p_T$ uncertainty extrapolation of VR-jets\cite{Ke:2023G/}.
@@ -94,7 +94,7 @@ Much like the tracking uncertainties, the jet calibration and jet calibration ex
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.15]{figures/App_btag_highpt_extrap/jet_detailed_1_uncs__1_.png}
-    \caption{The decomposed jet calibration uncertainty containing: The single particle at high $p_T$ (dark blue), the effective nuisance parameters (light blue), the jet energy resolution (JER), the jet eta intercalibrating (orange) and the combination of all jet calibration uncertainties (black)  }
+    \caption{The decomposed jet calibration uncertainty containing: The single particle at high $p_T$ (dark blue), the effective nuisance parameters (light blue) which is defined as the compressed representation of the full set of JES uncertainty components. JER, the jet eta inter calibrating (orange) and the combination of all jet calibration uncertainties (black)  }
         \label{fig:jetcal}
 \end{figure}
 
@@ -102,7 +102,7 @@ Much like the tracking uncertainties, the jet calibration and jet calibration ex
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.15]{figures/App_btag_highpt_extrap/jet_detailed_1_extrap_uncs.png}
-    \caption{The jet calibration extrapolation uncertainty containing: The single particle at high $p_T$ (dark blue), the effective nuisance parameters (light blue), the jet energy resolution (JER), the jet eta intercalibrating (orange) and the combination of all jet calibration uncertainties (black) }
+    \caption{The jet calibration extrapolation uncertainty containing: The single particle at high $p_T$ (dark blue), the effective nuisance parameters (light blue). JER, the jet eta inter calibrating (orange) and the combination of all jet calibration uncertainties (black) }
         \label{fig:jetextrap}
 \end{figure}
 

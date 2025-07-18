@@ -301,6 +301,187 @@ Where the scale of the new physics suppress the BSM effects. As nice as a lagran
     \sigma_{SMEFT} = \sigma_{SM}+\frac{c_i}{\Lambda^2}\sigma_i^{\text{interf.}}+\frac{c^2_i}{\Lambda^4}\sigma_i^{\text{quad.}}.
 \end{equation}
 Where $\sigma_i^{\text{interf.}}$ is the interference term between the SM and the BSM, and $\sigma_i^{\text{quad.}}$ is a term that is purely dependent on BSM effects. Using Equation \ref{xs-smeft} we can see how powerful a reinterpretation of particle physics analysis' using this frame work could be, allowing us to gain hints of potential BSM effects in our SM measurements, as opposed to feeling around in the dark or lifting up a rock and surprised to not find any insects. 
+\subsection{$t\bar{t}H$ SMEFT} 
+Following the framework in Section \ref{sec:SMEFT}, there are three main operators that govern the $t\bar{t}H$ process, as show in table \ref{table:ttheft}. The definition of the operators are made from components form the SM and so have the have their usual SM definitions. Our convention is such that for each operator we will add its Hermitian conjugate, even if it is already Hermitian. We want to conserve CP-symmetry and so consider $c_{t\phi}$ and $c_{tG}$ to be real. $c_{\phi G}$ is always real as the operator is, $\mathcal{O}_{\phi G}$, is hermitian. $\mathcal{O}_{t\phi}$ rescales the top Yukawa coupling in the SM, while also giving rise to a new $ttHH$ coupling, this contributes to Higgs pair production. $\mathcal{O}_{tG}$ is the chromomagnetic-dipole operator, introducing a magnetic style dipole interaction with the top quark and gluons, it modifies the $gtt$ vertex in the SM and introduces new four-point vertices: $ggtt$ and $gttH$ as well as a five-point vertex $ggttH$. These vertex modifications and introductions are momentum dependent and are most likely only relevant at high-$p_T$. $\mathcal{O}_{\phi G}$ is the Higgs-gluon contact term 
 
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+
+\begin{table}[h!]
+
+\begin{tabular}{|M{6cm}|M{8cm}|N}
+
+\hline
+\textbf{Operator}  & \textbf{Diagrams} \\ \hline
+\vspace{17px}
+                       $\mathcal{O}_{t\phi}=y_t^3 (\phi^\dagger\phi)(\bar{Q}t)\tilde{\phi}$& \vspace{17px}
+                           
+
+
+\begin{fmffile}{ttheft_th_1}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i1,i3}
+    \fmfright{o1,o2,o3}
+    \fmffreeze
+    % Positioning vertices manually
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i3,v3}
+    \fmf{fermion,tension=1.5}{o1,v1}
+    \fmf{fermion,tension=1.5}{v3,o3}
+    
+    % Internal loop
+    \fmffreeze
+    \fmf{fermion,tension=0.4}{v1,v2,v3}
+    \fmffreeze
+    % Higgs
+    \fmf{dashes,tension=1.2}{v2,o2}
+    \fmfblob{15}{v2}
+    % Labels
+
+  \end{fmfgraph*}
+\end{fmffile}
+\hspace{1cm}
+\vspace{25px}
+\begin{fmffile}{ttheft_th_2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion}{o3,v2}
+    \fmf{phantom}{v2,b1,o1}
+    \fmf{fermion}{v2,b1,o1}
+    \fmf{gluon}{v1,i1}
+    \fmf{gluon}{v1,i2}
+    \fmf{gluon}{v1,v2}
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{15}{b1}
+    \fmf{dashes}{b1,o2}
+    
+    
+    % labels
+ 
+  \end{fmfgraph*}
+\end{fmffile}
+
+
+
+                     \\ [50pt]
+                      \vspace{17px} $\mathcal{O}_{\phi G}=y^2_t(\phi^{\dagger}\phi) G^{a}_{\mu\nu} G^{a\mu\nu}$&  \vspace{17px}
+                       \begin{fmffile}{tth2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i1,i3}
+    \fmfright{o1,o2,o3}
+    
+    \fmffreeze
+    % Positioning vertices manually
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i3,v3}
+    \fmf{dashes,tension=1.5}{v1,o1}
+    \fmf{fermion,tension=1.5}{v3,o3}
+    
+    
+    % Internal loop
+    \fmffreeze
+    \fmf{fermion,tension=0.4}{v2,v3}
+    \fmf{gluon,tension=0.4}{v1,v2}
+    \fmffreeze
+    % Higgs
+    \fmf{fermion,tension=1.2}{o2,v2}
+    \fmfstraight
+    \fmfblob{15}{v1}
+    % Labels
+
+  \end{fmfgraph*}
+\end{fmffile}   
+\hspace{1cm}
+\vspace{25px}
+\begin{fmffile}{ttheft_tg_2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion,tension=0.5}{o2,v2}
+    \fmf{fermion,tension=1.1}{v2,o1}
+    \fmf{dashes}{v1,o3}
+    \fmfstraight
+    \fmf{gluon,tension=2}{v1,i1}
+    \fmf{gluon,tension=2}{v1,i2}
+    \fmf{gluon}{v1,v2}
+    \fmfstraight
+    
+    
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{15}{v1}
+    
+      \end{fmfgraph*}
+\end{fmffile}
+
+
+
+
+\\ [50pt]
+                       \vspace{12px}$\mathcal{O}_{tG}=y_t g_s (\bar{Q} \sigma^{\mu\nu}T^A t)\tilde{\phi}G^{a}_{\mu\nu}$ & \vspace{20px}
+
+\begin{fmffile}{tth3}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i1,i3}
+    \fmfright{o1,o2,o3}
+    \fmffreeze
+    % Positioning vertices manually
+    \fmf{gluon,tension=1.5}{i1,v1}
+    \fmf{gluon,tension=1.5}{i3,v3}
+    \fmf{fermion,tension=1.5}{o1,v1}
+    \fmf{fermion,tension=1.5}{v3,o3}
+    \fmfstraight
+    
+    % Internal loop
+    \fmffreeze
+    \fmf{fermion,tension=0.4}{v1,v2,v3}
+    \fmffreeze
+    % Higgs
+    \fmf{dashes,tension=1.2}{v2,o2}
+    \fmfblob{15}{v1}
+    % Labels
+
+  \end{fmfgraph*}
+\end{fmffile}
+\hspace{1cm}
+\vspace{25px}
+\begin{fmffile}{ttheft_hg_2}
+  \begin{fmfgraph*}(80,60)
+  \fmfstraight
+    \fmfleft{i2,i1}
+    \fmfright{o3,o2,o1}
+    \fmfshift{2 left}{i1}
+    \fmf{fermion}{o3,v1}
+
+    \fmf{fermion}{v1,o1}
+    \fmf{gluon}{v1,i1}
+    \fmf{gluon}{v1,i2}
+    \fmfstraight
+    \fmffreeze
+    \fmfblob{15}{v1}
+    \fmf{dashes}{v1,o2}
+    
+    
+    % labels
+ 
+  \end{fmfgraph*}
+\end{fmffile}
+
+                     \\  \hline
+
+\end{tabular}
+
+\caption{The three main SMEFT operators for the $t\bar{t}H$ production, their definitions and Feynman diagrams showing which vertex they modify.}\label{table:ttheft}
+\end{table}
 
 
