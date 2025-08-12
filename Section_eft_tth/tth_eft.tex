@@ -1,10 +1,10 @@
-\chapter{tth eft}
+\chapter{$t\bar{t}H(b\bar{b})$ EFT Interpretation}
 \label{chap::tth_eft}
 \chapterquote{The S\&P 500 is my favourite meme coin.}%
-{Hannah Mehravari, after the Trump tariffs, Aprill 2025.}
+{Hannah Mehravari, after the Trump tariffs, April 2025.}
 With the $t\bar{t}H(b\bar{b})$ legacy analysis producing the most precise measurement of its kind to date, we believe it would be prevalent to re-interpret it with the SMEFT framework inorder to test for potential presence BSM effects. Using this analysis we can update the precision on the Wilson Coefficients (WC), which that dictate the strength of the SMEFT operators.
 \section{Early Run-2 Results}
-Before we proceed with the analysis, we should probably stop and take in the $t\bar{t}H$ EFT precision measurement landscape. Our main point of comparison for our results will be a early run-2 result from 2016 \cite{Maltoni:2016yxb}. The analysis in question used a combination of results from both the CMS and ATLAS detector. In order to break the degeneracy between the operators they use $H$, $H + j$ and $t\bar{t}H$ analyses: The $pp \to H$ measurements we are going to use are the following: in the diphoton channel we use \cite{ATLAS_2014,CMS_2014} at 8~TeV and \cite{CMS_2016_gg} at 13~TeV; in the $WW/ZZ/\tau\tau$ channels we use \cite{ATLAS_WW_2015,CMS_WW_2014,ATLAS_ZZ_2015,CMS_ZZ_2014,ATLAS_tau_2015,CMS_tau_2014}; measurements of $pp \to t\bar{t}H$ at 8~TeV in the diphoton channel are given in \cite{CMS_ttH_2014,ATLAS_ttH_2015_gamma}, while in the multilepton and $b\bar{b}$ channels we use \cite{CMS_ttH_2014,ATLAS_ttH_2015_multilepton,ATLAS_ttH_2015_bb}. Finally, 13~TeV measurements of $t\bar{t}H$ in the multilepton and $b\bar{b}$ channels are also included \cite{CMS_ttH_2016_multilepton,CMS_ttH_2016_bb}. Both processes depend on all three operators. The result of this combination and re-interpretation is shown in Table \ref{table:earlyrun2eft}. From these results we observe constraints of $c_{t\phi}$,  $c_{\phi G}$ and $c_{tG}$ from individual fits and combined. Comparing individual and combinations we see that there is loss in precisions when trying to fit more than one WC at a time, This can be attributed to the inherent degeneracy between the WCs. This degeneracy occurs when there is a set of observables and a set of operators that modify the observables in the same direction. This leads to a loss in precision as we don't have the statistical power to correctly separate the effects of each operator. With the addition of $H$ and $H+j$ data, this study managed to fit the WCs in combination without a total loss in precision\footnote{A total loss in precision would be a statement like: I have 15 coins in my hand $\pm 500$. A physicists guttural reaction would of course be: negative coins are unphysical and not even a gorilla could hold 500 coins in their hand.}. 
+Before we proceed with the analysis, we should probably stop and take in the $t\bar{t}H$ EFT precision measurement landscape. Our main point of comparison for our results will be a early run-2 result from 2016 \cite{Maltoni:2016yxb}. The analysis in question used a combination of results from both the CMS and ATLAS detector. In order to break the degeneracy between the operators they use $H$, $H + j$ and $t\bar{t}H$ analyses: The $pp \to H$ measurements we are going to use are the following: in the diphoton channel we use \cite{ATLAS_2014,CMS_2014} at 8~TeV and \cite{CMS_2016_gg} at 13~TeV; in the $WW/ZZ/\tau\tau$ channels we use \cite{ATLAS_WW_2015,CMS_WW_2014,ATLAS_ZZ_2015,CMS_ZZ_2014,ATLAS_tau_2015,CMS_tau_2014}; measurements of $pp \to t\bar{t}H$ at 8~TeV in the diphoton channel are given in \cite{CMS_ttH_2014,ATLAS_ttH_2015_gamma}, while in the multilepton and $b\bar{b}$ channels we use \cite{CMS_ttH_2014,ATLAS_ttH_2015_multilepton,ATLAS_ttH_2015_bb}. Finally, 13~TeV measurements of $t\bar{t}H$ in the multilepton and $b\bar{b}$ channels are also included \cite{CMS_ttH_2016_multilepton,CMS_ttH_2016_bb}. Both processes depend on all three operators. The result of this combination and re-interpretation is shown in Table \ref{table:earlyrun2eft}. From these results we observe constraints of $c_{t\phi}$,  $c_{\phi G}$ and $c_{tG}$ from individual fits and combined. Comparing individual and combinations we see that there is loss in precisions when trying to fit more than one WC at a time, This can be attributed to the inherent degeneracy between the WCs. This degeneracy occurs when there is a set of observables and a set of operators that modify the observables in the same direction. This leads to a loss in precision as we don't have the statistical power to correctly separate the effects of each operator. With the addition of $H$ and $H+j$ data, this study managed to fit the WCs in combination without a total loss in precision\footnote{A total loss in precision would be a statement such as: I have 15 coins in my hand $\pm 500$. A physicists guttural reaction would of course be: negative coins are unphysical and not even a gorilla could hold 500 coins in their hand.}. 
 \begin{table}
     \centering
     \begin{tabular}{cccc}
@@ -21,8 +21,11 @@ Before we proceed with the analysis, we should probably stop and take in the $t\
     \caption{Caption}
     \label{table:earlyrun2eft}
 \end{table}
-\section{Analysis methodology}
-For any EFT fit we first need a Monte Carlo sample with an EFT prediction in order to fit our data on to it. This is usually a dedicated samples created using your generator of choice. However, as we are using a finalised published analysis we need a way to modify the provided SM samples to include an EFT prediction. We plan to re-interpret our SM result in the SMEFT frame work, which can be summarised as: a change of basis from $\mu$ (Signal strength) to our desired WC and so our WC becomes our POI. Using cross-section weights, which provide different values per STXS region, provided by the ATLAS global EFT analysis we can read these into to our signal samples and create an EFT prediction for our desired EFT WC per STXS bin. A raw plot of these weights for each WC can be see in Fig \ref{fig:eft_weigh} With these predictions in hand we can then fit our data and extract the values our WC or multiple WCs in a combined fit. A flow diagram of this workflow can be seen in Fig. \ref{fig:EFT_workflow}.
+\section{Analysis Methodology}
+For any EFT fit we first need a Monte Carlo sample with an EFT prediction in order to fit our data on to it. This is usually a dedicated samples created using your generator of choice. However, as we are using a finalised published analysis we need a way to modify the provided SM samples to include an EFT prediction. We plan to re-interpret our SM result in the SMEFT frame work, which can be summarised as: a change of basis from $\mu$ (Signal strength) to our desired WC and so our WC becomes our POI. Using cross-section weights, which provide different values per STXS region, provided by the ATLAS global EFT analysis we can read these into to our signal samples and create an EFT prediction for our desired EFT WC per STXS bin \cite{SMEFT_global}. With these predictions in hand we can then fit our data and extract the values our WC or multiple WCs in a combined fit. A flow diagram of this workflow can be seen in Figure \ref{fig:EFT_workflow}.
+\\
+\\
+When it comes to preforming the fit we use \verb|TRExFitter| just as in $t\bar{t}H(b\bar{b})$ legacy analysis. The same \verb|TRExFitter| configuration file is also used with minimal changes made to it inorder to incorporate the EFT weights and change of POI from $\mu$ to WC. 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{Section_eft_tth/EFT_workflow.png}
@@ -30,13 +33,178 @@ For any EFT fit we first need a Monte Carlo sample with an EFT prediction in ord
     \label{fig:EFT_workflow}
 \end{figure}
 \subsection{EFT Weights}
-The EFT weights that we read into the SM sample are split by STXS bin and if they are linear or quadratic in nature. The linear weights only include the SM-EFT mixing contributions where as the quadratic weights include contributions from both the mixing term and pure BSM term.
-\subsection{Exploiting the Higgs $p_T$ spectrum}
-As the weights provided are split by STXS region, the created predictions are also split into STXS regions. Doing so reveals how each region evolves and their regime changes form being dominated by the linear coefficient to quadratic coefficient becoming more present. Thus, how different STXS regions contribute to the sensitivity of the fitted WC. Intuition would suggest that the higher STXS region EFT predictions would contain a more dominant quadratic regime and hence these regions would be a more sensitive. A quick test for this would be to remove these regions from our fit and see if the effect on the central value and precision of our fitted WC. \textcolor{red}{ask tony how many plots to show, 3 for each WC?}
+The EFT weights that we read into the SM sample are split by STXS bin and if they are linear or quadratic in nature. The linear weights only include the SM-EFT mixing contributions where as the quadratic weights include contributions from both the mixing term and pure BSM term. The weights themselves are extracted from existing MC samples containing EFT predictions in them and are provided by the ATLAS global EFT analysis. The samples are generated using \verb|MadGraph5_aMC@NLO| with two different Universal FeynRules Output (UFO) models: \verb|SMEFTsim| for tree-level diagrams and most production/decay processes and \verb|SMEFTatNLO| for ggF, computed at NLO in QCD. \verb|Pythia8| is used for parton showering, hadronization, and Higgs decay modeling. A Rivet framework (with modifications) is used for the classification of events into STXS regions. The effects of each operator per STXS bin can be isolated and extracted as a weight on the SM STXS bin (either increasing or suppressing the cross-section).
+\subsubsection{A Comment on Compatibility with SM Analysis}
+
+
 \section{Results}
-\subsection{$c_{\phi G}$
-\subsection{$c_{tG}$}
-\subsection{$c_{t\phi}$}
+
+\subsection{Linear}
+The following results presented are the linear only fits for individual WCs and finally a combination of all three WCs. Each bin in each region requires a fit to prediction and then a fit to data to provide the final result. The EFT prediction is fit to a linear function in the form of $y = mx +c$, where $y$ is the ratio of EFT and SM cross-sections ($\frac{\sigma(\text{WC})}{\sigma(\text{SM}}$), $x$ is the WC, $m$ can be considered as the modification to the WC and $c$ is the $y$-axis intercept. For all linear fits $c$ will always be 1, simply as: $\frac{\sigma(\text{WC=0})}{\sigma(\text{SM})}=\frac{\sigma(\text{SM})}{\sigma(\text{SM}}=1$. An example plot of linear fit for a signal (background) region can be seen in Figure \ref{linear_EFT_exapmle_signal} (Figure \ref{linear_EFT_exapmle_background}. The results for these individual fits will be summarised in tables for the remainder of the linear results section. Background results will be omitted from this discussion as they aren't relevant to the discussion at hand. The linear fits will serve as a test as to weather or not we can resolve the contributions of the three main WCs in combination. 
+
+
+\subsubsection{$c_{\phi G}$}
+\begin{table}[htbp]
+
+
+\begin{tabular}{|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{$c_{\phi G}$}} & \textbf{Central Value} & \textbf{Uncertainty} \\
+\cline{2-3}
+& -0.50 & [-0.35, 0.40] \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+Figure \ref{fig:cHG_linear} shows the differential EFT prediction for each bin in each signal region, we observe the $c_{\phi G}$ modification term increasing as with the STXS regions (Higgs $p_T$) and even with in the STXS regions themselves as seen in STXS 5, 6 and the boosted selection. With this notion in hand we can begin to understand how the our sensitivity to the EFT regime increases with increasing Higgs $p_T$. As discussed earlier $c_{\phi G}$ isn't solely constrained by the $t\bar{t}H$ production process and can be more constrained further in global fits. \refs
+
+\subsubsection{$c_{tG}$}
+\begin{table}[htbp]
+
+\begin{tabular}{|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{$c_{t G}$}} & \textbf{Central Value} & \textbf{Uncertainty} \\
+\cline{2-3}
+& 0.35 & [-0.28, 0.40] \\
+\hline
+\end{tabular}
+
+    \caption{EFT fit to data for the $c_{t G}$ WC, central value and precision.}
+    \label{tab:c_tG_linear}
+\end{table}
+As with $c_{\phi G}$, $c_{t G}$ the precision is better served in global fits. \refs 
+\subsubsection{$c_{t\phi}$}
+\begin{table}[htbp]
+
+\begin{tabular}{|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{$c_{t \phi}$}} & \textbf{Central Value} & \textbf{Uncertainty} \\
+\cline{2-3}
+& 2.35 & [-1.95, 1.78] \\
+\hline
+\end{tabular}
+
+    \caption{EFT fit to data for the $c_{t G}$ WC, central value and precision.}
+    \label{tab:c_tG_linear}
+\end{table}
+\subsubsection{Combined Results}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+        \textbf{WC} &\textbf{Central Value} & \textbf{Uncertainty} \\
+        \hline
+        \textbf{$c_{\phi G}$} & 1.88 & [-7.57,7.64]\\
+        \hline
+        \textbf{$c_{t G}$} & 3.05 & [-0.50,0.50]\\
+        \hline
+        \textbf{$c_{t \phi}$} & -9.80 & [-31.70,31.18] \\
+        \hline
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+        \textbf{WC} &\textbf{Central Value} & \textbf{Uncertainty} \\
+        \hline
+        \textbf{$c_{\phi G}$} & 1.88 & [-7.57,7.64]\\
+        \hline
+        \textbf{$c_{t G}$} & 3.05 & [-0.50,0.50]\\
+        \hline
+        \textbf{$c_{t \phi}$} & -9.80 & [-31.70,31.18] \\
+        \hline
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
+\begin{figure}
+
+    \centering
+    % First image (A)
+    \includegraphics[width=0.5\textwidth]{Section_eft_tth/EFT_combo_linear_corr_matrix.png}
+    \caption{Caption}
+        \label{linear_EFT_exapmle_signal}
+    
+    \end{figure}
+\subsection{Degeneracy of the combination fit}
+\begin{figure}[htbp]
+
+    \centering
+    % First image (A)
+    \includegraphics[width=0.7\textwidth]{Section_eft_tth/higgs_pt_ratio_comparison_V3.png}
+    \caption{The EFT prediction for $c\phi G$ in the STXS 1 signal region, for each bin in the region.}
+        \label{linear_EFT_exapmle_signal}
+    
+    \end{figure}
+\subsection{Quadratic}
+comments on quad fit, its the full theory and so we should take these as the final value comparing to. As we saw in the comb fit we lose all precision due to the degenarcy as we dont have the stats compared to the early run 2 paper to break this and so will not present a combo fit. only individual WC fits comparing the precision from now and early run 2 paper.  
+\subsubsection{$c_{\phi G}$}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{$c_{\phi G}$}} & \textbf{Central Value} & \textbf{Uncertainty} \\
+\cline{2-3}
+& -0.16 & [-0.14, 0.23] \\
+\hline
+\end{tabular}
+
+    \caption{EFT fit to data for the $c_{t G}$ WC, central value and precision.}
+    \label{tab:c_tG_linear}
+\end{table}
+\subsubsection{$c_{tG}$}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{$c_{t G}$}} & \textbf{Central Value} & \textbf{Uncertainty} &\textbf{Stat.}&\textbf{Syst.}\\
+\cline{2-5}
+& 0.20 & [-0.21, 0.16] & [-0.195,0.133]
+&[-0.065,0.067]
+\\
+\hline
+\end{tabular}
+
+    \caption{EFT fit to data for the $c_{t G}$ WC, central value and precision.}
+    \label{tab:c_tG_linear}
+\end{table}
+\subsubsection{$c_{t\phi}$}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{$c_{t\phi }$}} & \textbf{Central Value} & \textbf{Uncertainty} &\textbf{Stat.}&\textbf{Syst.}\\
+\cline{2-5}
+& 2.55 & [-2.15, 2.22]& [-1.37,1.46]
+& [-1.60,1.61]
+\\
+\hline
+\end{tabular}
+
+    \caption{EFT fit to data for the $c_{t G}$ WC, central value and precision.}
+    \label{tab:c_tG_linear}
+\end{table}
+\subsection{Exploiting the Higgs $p_T$ spectrum}
+As the weights provided are split by STXS region, the created predictions are also split into STXS regions. Doing so reveals how each region evolves and their regime changes form being dominated by the linear coefficient to quadratic coefficient becoming more present. Thus, how different STXS regions contribute to the sensitivity of the fitted WC. Intuition would suggest that the higher STXS region EFT predictions would contain a more dominant quadratic regime and hence these regions would be a more sensitive. A quick test for this would be to remove these regions from our fit and see if the effect on the central value and precision of our fitted WC.
+    \begin{table}[htbp]
+        \centering
+        \input{Section_eft_tth/tables/big_quad_regions}
+        % \caption{$c_{HG}$ quadratic signal regions}
+        % \label{tab:cHG_quad}
+    \end{table}
+
+
+
+
+
 \subsection{Dropping STXS 5 and 6}
-\subsection{Combined Results}
+alkdjf
 \section{Discussion}
