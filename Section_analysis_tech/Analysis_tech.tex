@@ -86,9 +86,9 @@ HEP experiments produce vast and complex datasets describing the properties and 
 \\
 Transformers represent the next stage in this evolution. Originally developed for natural language processing, transformers replace sequential recurrence with a global attention mechanism, allowing the model to capture long-range and complex dependencies between input elements. This architecture is highly flexible: by treating the input as a set of feature vectors rather than an ordered sequence, transformers can naturally operate in a permutation-invariant fashion.\\
 \\
-In this Section, we present the core components of the transformer architecture, with emphasis on the attention mechanism and its adaptation to HEP data. We describe how input particle features are embedded, how self and cross-attention layers propagate information, and how the overall architecture can be constructed to preserve physical symmetries. The goal is to illustrate why transformers are a powerful and for the classification and reconstruction problems faced by the $t\bar{t}H(b\bar{b})$ Analysis. All components of this discussion are taken from \cite{UDL}.
+In this section, we present the core components of the transformer architecture, with emphasis on the attention mechanism and its adaptation to HEP data. We describe how input particle features are embedded, how self and cross-attention layers propagate information, and how the overall architecture can be constructed to preserve physical symmetries. The goal is to illustrate why transformers are a powerful method for the classification and reconstruction problems faced by the $t\bar{t}H(b\bar{b})$ analysis. All components of this discussion are taken from \cite{UDL}.
 \subsection{The Attention Mechanism}
-The Transformer architecture uses attention mechanisms to capture connection between the input representations\footnote{input representations are just input features, which is our raw data, post embedding.}. These connections are derived via dot-product self attention which transforms the input data in to Queries, Keys and Values, with attention weights to computed according to the feature in question. The final architecture for the transformer is represented by a stack of shallow networks with blocks of self attention to allow for the exchange of relevant information, giving rise to a more expressive model compare to traditional neural networks. Let us begin to build the concepts for this architecture and start with dot-product self attention.
+The Transformer architecture uses attention mechanisms to capture connection between the input representations\footnote{input representations are just input features, which is our raw data, post embedding.}. These connections are derived via dot-product self-attention which transforms the input data into \textit{queries}, \textit{keys} and \textit{values}, with attention weights to computed according to the feature in question. The final architecture for the transformer is represented by a stack of shallow networks with blocks of self-attention to allow for the exchange of relevant information, giving rise to a more expressive model compare to traditional neural networks. Let us begin to build the concepts for this architecture and start with dot-product self-attention.
 \subsubsection{Dot-Product Self-Attention}
 The core operation of self-attention, denoted \textbf{sa[$\bullet$]}, is to determine the relevance of one input object to another via a similarity measure. 
 Given a set of $N$ input vectors 
@@ -102,10 +102,9 @@ Similarly, a key can be thought of as ``what an input object has to offer'' for 
 \begin{equation}
 s_{nm} = \frac{q_n^\top k_m}{\sqrt{d_k}},
 \end{equation}
-where $d_k$ is the dimensionality of the keys. The scaling factor $1/\sqrt{d_k}$ prevents the dot products from becoming large in magnitude, which would otherwise push the softmax into regions with small gradients These similarity scores form the basis for computing attention weights, which determine how strongly each input object incorporates information from all others.
+where $d_k$ is the dimensionality of the keys. The scaling factor $1/\sqrt{d_k}$ prevents the dot products from becoming large in magnitude, which would otherwise push the softmax into regions with small gradients\footnote{The scaling factor $1/d_k$ prevents dot products from growing with $d_k$, which would otherwise drive the softmax into saturation, producing vanishing gradients through the attention weights.}. These similarity scores form the basis for computing attention weights, which determine how strongly each input object incorporates information from all others.
 
 \subsubsection{Computing the Attention Weights}
-
 The raw similarity scores $s_{nm}$ quantify how closely the query vector of object $n$ matches the key vector of object $m$. However, these scores are unbounded real numbers and cannot be used directly to weight the values. To convert them into a set of interpretable, non-negative coefficients that sum to one, we apply the softmax function across the $m$ index for each fixed $n$:
 \begin{equation}
 a[x_m, x_n] = \frac{\exp(s_{nm})}{\sum_{j=1}^N \exp(s_{nj})}.
@@ -116,22 +115,17 @@ a[x_m, x_n] \ge 0, \quad \sum_{m=1}^N a[x_m, x_n] = 1,
 \end{equation}
 meaning they can be interpreted as the fraction of ``attention'' that the updated representation of object $n$ assigns to the information coming from object $m$. 
 A large value of $a[x_m, x_n]$ indicates that the features of $m$ are highly relevant to updating $n$, whereas a small value indicates limited influence. 
-In the context of the $t\bar{t}H(b\bar{b})$ analysis, these weights encode learned, event-specific relationships between different reconstructed objects, enabling the network to dynamically decide which inputs are most informative for the task at hand.
+In the context of the $t\bar{t}H(b\bar{b})$ analysis, these weights encode learned, event-specific relationships between different reconstructed objects, enabling the network to dynamically decide which inputs are most informative for a given event interpretation.
 \subsubsection{From Dot-Product Attention to the Self-Attention Block}
 In addition to the queries and keys, each input object $x_m$ is also projected into a value vector:
 \begin{equation}
 v_m = b_v + \Omega_v x_m,
 \end{equation}
-where $\Omega_v \in \mathbb{R}^{D \times D}$ and $b_v \in \mathbb{R}^D$ are learnable parameters. This transformation is analogous to the affine mapping in a standard feed-forward layer, but here no non-linear activation is applied. 
-The values represent the raw information content associated with each input object that will be shared with others once the attention weights have been determined.The output representation for object $n$ is then computed as a weighted sum over the value vectors of all $N$ input objects:
+where $\Omega_v \in \mathbb{R}^{D \times D}$ and $b_v \in \mathbb{R}^D$ are learnable parameters. This transformation is analogous to the affine mapping in a standard feed-forward layer, but here no non-linear activation is applied. The values represent the raw information content associated with each input object that will be shared with others once the attention weights have been determined. The output representation for object $n$ is then computed as a weighted sum over the value vectors of all $N$ input objects:
 \begin{equation}
 \mathrm{sa}_n[x_1, \dots, x_N] = \sum_{m=1}^N a[x_m, x_n] \, v_m.
 \end{equation}
-Here, $a[x_m, x_n]$ controls how much of $v_m$ is incorporated into the updated representation of $x_n$. A high attention weight means that the information from object $m$ is strongly relevant to updating $n$, while a low weight means it contributes very little. 
-In this way, the self-attention block enables each object to gather contextual information from every other object in the set, producing context-aware representations that are dynamically tailored to the specific event being processed.\\
-\\
-Because the computation relies only on pairwise similarities between objects and not on their position in the input list, the self-attention operation is inherently permutation-invariant. This property is particularly advantageous in domains, such as the $t\bar{t}H(b\bar{b})$ analysis, where the ordering of reconstructed objects carries no physical meaning.
-\subsubsection{Multi-Headed Attention}
+Here, $a[x_m, x_n]$ controls how much of $v_m$ is incorporated into the updated representation of $x_n$. A high attention weight means that the information from object $m$ is strongly relevant to updating $n$, while a low weight means it contributes very little. In this way, the self-attention block enables each object to gather contextual information from every other object in the event, producing context-aware representations that are dynamically tailored to the specific event being processed.
 \subsection{Multi-Headed Attention and Matrix Formulation}
 Up to this point, the description of self-attention has been expressed in terms of individual input objects and their corresponding query, key, and value \emph{vectors}. 
 While this view is useful for building intuition, in practice the computation is implemented more efficiently using a \emph{matrix} representation. 
@@ -196,11 +190,9 @@ In this setting:
 \end{itemize}
 In the context of the $t\bar{t}H(b\bar{b})$ analysis, cross-attention provides a mechanism to relate two distinct representations of the event. The \emph{query-side} inputs can represent high-level event or hypothesis-level embeddings, such as a candidate $t\bar{t}H$ system formed from a preliminary aggregation of event features. The \emph{key/value-side} inputs are the set of reconstructed objects in the event for example, jets, leptons, and missing transverse energy each described by its own learned representation.\\
 \\
-In this setup, the query vectors pose the question: \emph{``Which reconstructed objects are most relevant for refining my current event-level hypothesis?''} 
-The keys encode each object's properties, allowing the network to determine their relevance, and the values carry the information that will be incorporated into the updated event-level representation.\\
+In this setup, the query vectors pose the question: \emph{``Which reconstructed objects are most relevant for refining my current event-level hypothesis?''} The keys encode each object's properties, allowing the network to determine their relevance, and the values carry the information that will be incorporated into the updated event-level representation.\\
 \\
-Through training, the attention mechanism learns to focus on objects that are most informative for distinguishing $t\bar{t}H(b\bar{b})$ signal events from background processes, such as identifying $b$-jets from the Higgs decay or leptons from top quark decays. 
-In this way, cross-attention enables a targeted, learned transfer of information from the object level to the hypothesis level, improving the network's discriminative power.
+Through training, the attention mechanism learns to focus on objects that are most informative for distinguishing $t\bar{t}H(b\bar{b})$ signal events from background processes, such as identifying $b$-jets from the Higgs decay or leptons from top quark decays. In this way, cross-attention enables a targeted, learned transfer of information from the object level to the hypothesis level, improving the network's discriminative power.
 
 \subsubsection{Multi-Headed Cross-Attention}
 As with self-attention, cross-attention can be extended to multiple heads, with each head using its own parameter set:
@@ -219,15 +211,12 @@ and the heads are concatenated and projected back to the model dimension:
 \end{equation}
 Multi-headed cross-attention allows the network to learn multiple complementary ways of relating the two input sets, which is especially useful when the sources encode different modalities or levels of abstraction. In the $t\bar{t}H(b\bar{b})$ analysis, each attention head can specialise in a different aspect of the relationship between the event-level hypothesis and the reconstructed object set. For example, one head may focus on identifying $b$-jets consistent from a Higgs boson decay, another may emphasise correlations between leptons and jets from top quark decays, while a third could capture global event features such as missing transverse momentum patterns. By combining these complementary attention patterns, multi-headed cross-attention allows the network to integrate diverse and potentially weak signals into a coherent, high-quality event-level representation, improving discrimination between $t\bar{t}H(b\bar{b})$ signal and background events.
 \subsubsection{Input Embedding}
-Before an event's reconstructed objects can be processed by the attention mechanism, their raw features must be transformed into a common \emph{embedding space} of dimension $D$. 
-Let $\mathbf{f}_m \in \mathbb{R}^F$ denote the raw feature vector of object $m$, where $F$ is the number of input features (e.g., $p_T$, mass, $\eta$, $\phi$, particle identification scores, categorical bins such as PCBT, etc.). 
-These features are mapped into the model space via a learned affine transformation:
+Before an event's reconstructed objects can be processed by the attention mechanism, their raw features must be transformed into a common \emph{embedding space} of dimension $D$. Let $\mathbf{f}_m \in \mathbb{R}^F$ denote the raw feature vector of object $m$, where $F$ is the number of input features (e.g., $p_T$, mass, $\eta$, $\phi$, particle identification scores, categorical bins such as PCBT, etc.). These features are mapped into the model space via a learned affine transformation:
 \begin{equation}
 \mathbf{x}_m = \mathbf{b}_{\text{emb}} + \mathbf{\Omega}_{\text{emb}} \, \mathbf{f}_m,
 \end{equation}
 where $\mathbf{\Omega}_{\text{emb}} \in \mathbb{R}^{F \times D}$ is the embedding \textbf{basis matrix} and $\mathbf{b}_{\text{emb}} \in \mathbb{R}^D$ is a bias vector. 
-The result $\mathbf{x}_m \in \mathbb{R}^D$ is the initial \emph{input representation} of object $m$ that will serve as the starting point for subsequent attention layers.
-This embedding step serves several purposes:
+The result $\mathbf{x}_m \in \mathbb{R}^D$ is the initial \emph{input representation} of object $m$ that will serve as the starting point for subsequent attention layers. This embedding step serves several purposes:
 \begin{itemize}
     \item It projects heterogeneous input features into a uniform representation space, enabling efficient batch processing.
     \item It allows the network to learn optimal combinations of raw features, rather than relying on fixed physics-derived variables.
@@ -240,8 +229,7 @@ The transformer architecture consists of stacked layers that combine multi-heade
 \\
 Within each layer, a multi-headed self-attention block updates each object's representation by aggregating information from all others, weighted according to learned attention scores. For tasks requiring integration between different levels of representation, such as refining an event-level hypothesis using object-level data, cross-attention is employed, with queries drawn from the hypothesis representation and keys/values from the object set.\\
 \\
-The output of the attention block is passed through a feed-forward sublayer, which applies an affine transformation and non-linear activation independently to each object representation. 
-Residual connections and layer normalisation are applied around both the attention and feed-forward sublayers to improve gradient flow and stabilise training. A visual representation of this work floe is shown in Figure \ref{fig:transformer}.
+The output of the attention block is passed through a feed-forward sublayer, which applies an affine transformation and non-linear activation independently to each object representation. Residual connections and layer normalisation are applied around both the attention and feed-forward sublayers to improve gradient flow and stabilise training. A visual representation of this work flow is shown in Figure \ref{fig:transformer}.
 \begin{figure}
     \centering
     \includegraphics[width=0.9\linewidth]{Section_analysis_tech/Screenshot 2025-08-12 at 14.49.22.png}

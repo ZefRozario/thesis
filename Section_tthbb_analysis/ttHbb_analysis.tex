@@ -2,11 +2,140 @@
 \label{chap::tth}
 \chapterquote{think of a quote}%
 {quote}
-We now arrive to the first of two main results and analyses presented in this thesis; the measurement of the Higgs boson production in association with a pair of top quarks ($t\bar{t}H$), focusing on the decay channel $H \to b\bar{b}$, using data recorded by the ATLAS detector. The analysis is based on the full Run~2 dataset, collected between 2015 and 2018, corresponding to an integrated luminosity of $140~\text{fb}^{-1}$ at a centre-of-mass energy of $\sqrt{s} = 13~\text{TeV}$. This same dataset was previously used to measure the $t\bar{t}H(b\bar{b})$ production cross-section~\cite{...}, which yielded a signal strength of $\mu_{t\bar{t}H} = 0.35^{+0.36}_{-0.34}$. That result indicated a shortfall in the $H \to b\bar{b}$ decay channel compared with expectations from other Higgs decays, creating some tension that motivated a more refined re-analysis.
-
-
-
+We now arrive to the first of two main results and analyses presented in this thesis; the measurement of the Higgs boson production in association with a pair of top quarks ($t\bar{t}H$), focusing on the decay channel $H \to b\bar{b}$, using data recorded by the ATLAS detector. The analysis is based on the full Run~2 dataset, collected between 2015 and 2018, corresponding to an integrated luminosity of $140~\text{fb}^{-1}$ at a centre-of-mass energy of $\sqrt{s} = 13~\text{TeV}$. This same dataset was previously used to measure the $t\bar{t}H(b\bar{b})$ production cross-section, which yielded a signal strength of $\mu_{t\bar{t}H} = 0.35^{+0.36}_{-0.34}$ \cite{tth-atlas-2018}. That result indicated a shortfall in the $H \to b\bar{b}$ decay channel compared with expectations from other Higgs decays, creating some tension that motivated a more refined re-analysis. We will refer to the current analysis as the legacy analysis and the previous analysis as the 2018 result.
 \section{Overview}
+Before we can delve into the legacy analysis lets take a brief recap of the 2018 result, this will allow us to discuss some of its shortfalls and how they are improved for the legacy analysis. Thus, giving an overview of the key features on the legacy analysis.
+\begin{figure}[t]
+  \centering
+\begin{fmffile}{tth_singlelep_hbb}
+  \begin{fmfgraph*}(370,290)
+    % spread inputs and outputs
+    \fmfleft{i1,d1,i2}
+    \fmfright{o1,o2,o3,o4,o5,o6,o7,o8}
+
+    % incoming gluons
+\fmfforce{(0,270)}{i2}   % gluon 1 entry
+\fmfforce{(0,0.3)}{i1}   % gluon 2 entry
+\fmfforce{(120,270)}{v3}   % attach to same x = 0.25
+\fmfforce{(120,0)}{v1}
+\fmfforce{(120,135)}{v2}
+\fmf{gluon}{i1,v1}
+\fmf{gluon}{i2,v3}
+    \fmflabel{$g$}{i1}
+    \fmflabel{$g$}{i2}
+
+
+    % ttbar line with Higgs
+    \fmf{fermion}{vtbar,v1,v2,v3,vt}
+    \fmf{phantom,tension=0.1}{v1,v3}
+
+    % Higgs decay
+    \fmf{dashes,label=$H$}{v2,h}
+    \fmf{fermion}{h,bh}
+    \fmf{fermion}{bhb,h}
+    \fmflabel{$b$}{bh}
+    \fmflabel{$\bar b$}{bhb}
+    % label Higgs at the emission vertex
+    % \fmfv{label=$H$,label.angle=90,label.side=left}{v2,h}
+
+    % top decay (hadronic W)
+    \fmf{fermion}{vt,bt}
+    \fmf{boson}{vt,wp}
+    \fmf{fermion}{q1,wp}
+    \fmf{fermion}{wp,q2}
+    \fmflabel{$b$}{bt}
+    \fmflabel{$q$}{q1}
+    \fmflabel{$\bar q'$}{q2}
+    % label W+ at vertex
+    \fmfv{label=$W^+$,label.angle=90,label.dist=5}{wp}
+
+    % antitop decay (leptonic W)
+    \fmf{fermion}{vb,vtbar}
+    \fmf{boson}{vtbar,wm}
+    \fmf{fermion}{ell,wm}
+    \fmf{fermion}{wm,anu}
+    \fmflabel{$\bar b$}{vb}
+    \fmflabel{$\ell^-$}{ell}
+    \fmflabel{$\bar\nu$}{anu}
+    % label W- at vertex
+    \fmfv{label=$W^-$,label.angle=90,label.dist=5}{wm}
+
+    % map final states to the right side (spread vertically)
+    \fmf{fermion}{vb,o1}
+    \fmf{fermion}{ell,o2}
+    \fmf{fermion}{anu,o3}
+    \fmf{fermion}{bh,o4}
+    \fmf{fermion}{o5,bhb}
+    \fmf{fermion}{q1,o6}
+    \fmf{fermion}{o7,q2}
+    \fmf{fermion}{bt,o8}
+
+    % put t and \bar t labels on the production vertices
+    \fmf{fermion,label=$t$}{v3,vt}
+    \fmf{fermion,label=$\bar t$}{vtbar,v1}
+
+    % dots for vertices
+    \fmfdot{v1,v2,v3,vt,vtbar,h,wp,wm}
+  \end{fmfgraph*}
+\end{fmffile}
+
+\vspace{5pt}
+  \caption{Single-lepton topology for $t\bar tH$ with $H\to b\bar b$.}
+  \label{fig:tth_singlelep}
+\end{figure}
+\input{Section_tthbb_analysis/ttH_ttbb_feynman.tex}
+
+\subsection{Previous Result}
+The 2018 result was given as an Inclusive measurement and a Simplified Template Cross-Section (STXS) result, where the signal event are split by Higgs $p_T$.
+\subsubsection{Inclusive Measurement}
+The $t\bar{t}H(b\bar{b})$ process has three main final states dictated by the decay modes of the $W^{\pm}$ bosons from the $t\bar{t}$ decay. The decay mode with the largest branching ratio (about 45.7\%) is the fully hadronic channel, where both $W^{\pm}$ bosons decay into quarks. Although this mode is the most common, it is also the hardest to analyse because of the overwhelming background from QCD-driven multi-jet production. For this reason, this final state has been excluded from both the 2018 result and the legacy analysis.\\
+\\
+The next mode is the semi-leptonic (or single-lepton) channel, in which one $W^{\pm}$ boson decays to quarks while the other decays to a lepton and a neutrino. This topology benefits from a high branching fraction (43.8\%) and the presence of a charged lepton, which helps separate signal from background. Since only one neutrino appears in the final state, its momentum can be inferred from the missing transverse energy ($E_T^{\text{miss}}$), making the reconstruction comparatively straightforward. The sizable branching ratio also ensures good statistics and a favourable signal-to-background ratio, even at high $p_T$. To optimize the analysis, this channel is divided into resolved and boosted categories, where reclustered jets are employed to capture both $b$-quarks from the Higgs decay within a single jet.\\
+\\
+Finally, the dileptonic (or di-lepton) channel involves both $W^{\pm}$ bosons decaying leptonically. This channel has the smallest branching fraction (around 10.5\%) and includes two neutrinos, which makes reconstruction more difficult. Nevertheless, it is still considered because the two final-state leptons strongly suppress multi-jet backgrounds, yielding the cleanest experimental signature of all the channels.\\
+\\
+The inclusive measurement of the 2018 result used single lepton resolved and boosted channels along with a di-lepton resolved channel. The final inclusive measurement was seen to be $\mu_{t\bar{t}H} = 0.35^{+0.36}_{-0.34}$ with an observed (expected) significance 1.0 (2.7) standard deviations. The per channel breakdown can be see in Figure \ref{old_anal_inclusive}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Section_tthbb_analysis//old_analysis_plots/inclusive.pdf}
+    \caption{Enter Caption}
+    \label{old_anal_inclusive}
+\end{figure}
+The overall uncertainty of the result is largely driven by systematic effects, with the dominant contribution originating from the modelling of the $t\bar{t} + \geq 1b$ background. A detailed decomposition of the uncertainties and their impact on $\mu_{t\bar{t}H}$ is presented in Table \ref{old_anal_uncs}.
+\begin{table}
+        \centering
+        \input{Section_tthbb_analysis/old_analysis_plots/old_unc_breakdown}
+        % \caption{$c_{HG}$ quadratic signal regions}
+        % \label{tab:cHG_quad}
+    \end{table}
+\subsubsection{Simplified Template Cross-Section}
+The STXS framework~\cite{STXS1,STXS2} was developed in close collaboration between theorists and the LHC experiments. It enables the measurement of signal strengths in exclusive kinematic regions of phase space, referred to as STXS bins. These bins are designed to minimise dependence on theoretical modelling assumptions while facilitating the combination of results across different experiments and analysis channels. In Higgs boson measurements, the framework is particularly useful because many decay channels can be fully reconstructed, allowing the transverse momentum of the Higgs boson ($p_T^H$) to be measured. Accordingly, STXS bins are typically defined as a function of $p_T^H$. To ensure compatibility across measurements, the classification is based on the truth-level $p_T^H$ ($\hat{p}_T^H$) from Monte Carlo predictions rather than the reconstructed $p_T^H$. For the measurement of $t\bar{t}H$, the LHC experiments have agreed upon the common set of STXS bins listed in Table~\ref{tab:stxs_bins}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c c}
+\hline
+\textbf{STXS Bin} & \textbf{$p_T^H$ range [GeV]} \\
+\hline
+STXS1 & $0 < p_T^H \leq 60$ \\
+STXS2 & $60 < p_T^H \leq 120$ \\
+STXS3 & $120 < p_T^H \leq 200$ \\
+STXS4 & $200 < p_T^H \leq 300$ \\
+STXS5 & $300 < p_T^H \leq 450$ \\
+STXS6 & $p_T^H > 450$ \\
+\hline
+\end{tabular}
+\caption{Commonly agreed STXS bins for $t\bar{t}H$ measurements, as defined by the LHC experiments.}
+\label{tab:stxs_bins}
+\end{table}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Section_tthbb_analysis//old_analysis_plots/STXS.pdf}
+    \caption{Enter Caption}
+    \label{old_anal_stxs}
+\end{figure}
+
+\subsection{Improvements On The Previous analysis}
 A number of significant updates have been introduced in this re-analysis compared to the most recent public ATLAS result~\cite{tth-atlas-2018}. These changes span detector reconstruction, event selection, signal discrimination, and background modelling, each contributing to improved sensitivity to the $t\bar{t}H(b\bar{b})$ process.\\
 \\
 First, the analysis is based on \texttt{Athena} release~21, which incorporates a new ATLAS detector reconstruction framework. This includes refined particle-flow (PFlow) jet reconstruction and the DL1r b-tagging algorithm, together with updated calibrations. As a consequence, the full jet energy resolution model is employed, accompanied by an improved treatment of b-tagging uncertainties, including the recommended high-$p_{T}$ extrapolations. \\
