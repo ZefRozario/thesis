@@ -156,13 +156,229 @@ Taken together, these methodological developments substantially improve both the
 
 
 \section{Event Selection}
+There are four main stage to the event selection that define the phase space for these analysis, these stages are designed to increase the selection for possible $t\bar{t}H$ events while also reducing the background. The four main stages are: the raw ATLAS Run-2 dataset, the trigger selection, objects definitions and finally channel and region definitions. This section provides an overview on these stages.
 
+\subsection{ATLAS Run-2 Dataset}
+This analysis uses the full ATLAS Run-2 dataset. The dataset was recorded during the 2015-2018 data taking stage and consists of propton-proton collision events at a centre of mass energy $\sqrt{s}=13$TeV with a total integrated luminosity of 140fb$^{-1}$. The events considered for analysis are required to pass the ATLAS data quality criteria, meaning that at the time of recording all detector subsystems were required to be operational and preforming at a high level. Runs that pass this criteria are consider for the Good Run List (GLR) which concatenates blocks of data together to be used in physics analyses.
+\subsection{Trigger Selection}
+The events selected for this analysis, for both the single and di-lepton channels, are required to pass a set of un-prescaled single-lepton triggers that have different $p_T$ thresholds. Only Single-lepton triggers are used in order to remain orthogonal with multi-lepton events. Un-prescaled refers to the absence of a trigger rate scale factor, so all events that pass the criteria are used.The trigger system employs a logical OR combination, allowing an event to be recorded if it satisfies at least one of the available triggers. This strategy maintains high efficiency across the relevant thresholds, ensuring, for instance, that high-$p_T$ leptons which do not meet isolation requirements are still retained. To be selected, an event must either pass a low-$p_T$ trigger with an isolation condition on the lepton, or a higher-$p_T$ trigger with looser identification and no isolation requirement. For electrons, the lowest threshold corresponds to $p_T = 24\ \mathrm{GeV}$, paired with a medium identification working point and no isolation. The highest electron threshold is $p_T = 120\ \mathrm{GeV}$, where a loose identification and no isolation are required. For muons, the lowest threshold is $p_T = 20\ \mathrm{GeV}$, with medium identification and a loose isolation requirement, while the highest threshold is $p_T = 50\ \mathrm{GeV}$, with medium identification and no isolation. Table \ref{tab:single_lepton_triggers} shows the summary of the single-lepton triggers used in the analysis on the Run-2 data.
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc|cc|cc}
+\hline\hline
+\multirow{2}{*}{lepton} & \multicolumn{2}{c|}{$p_{T}$ (GeV)} & \multicolumn{2}{c|}{Identification} & \multicolumn{2}{c}{Isolation} \\
+ & 2015 & 2016--2018 & 2015 & 2016--2018 & 2015 & 2016--2018 \\
+\hline
+electrons & 24  & 26  & medium & tight   & -- & loose \\
+          & 60  & 60  & medium & medium  & -- & -- \\
+          & 120 & 140 & loose  & loose   & -- & -- \\
+\hline
+muons     & 20  & 26  & medium & medium  & loose  & medium \\
+          & 50  & 50  & medium & medium  & --     & -- \\
+\hline\hline
+\end{tabular}
+\caption{Summary of the single-lepton triggers used in the analysis Run~2 data. The lower $p_{T}$ thresholds and looser identification and isolation requirements present for the 2015 data are due to the decreased pile-up conditions with respect to 2016--18 data.}
+\label{tab:single_lepton_triggers}
+\end{table}
+\subsection{Object Definitions}
+Events are required to contain at least one reconstructed vertex with at least two associated tracks of $p_{T} > 500$~MeV. The primary vertex is chosen as the one with the largest summed squared transverse momentum of its associated tracks, provided it is consistent with the average beam-spot position.  
+\\
+\\
+Electrons must have $p_{T} > 10$~GeV and be reconstructed within $|\eta| < 2.47$, excluding the transition region $1.37 < |\eta| < 1.52$. Muons are required to have $p_{T} > 10$~GeV and $|\eta| < 2.5$. Electron (muon) candidates must satisfy the MEDIUM (LOOSE) identification criteria. Impact parameter requirements are imposed: $|z_{0}| < 0.5$~mm for both, and $|d_{0}|/\sigma(d_{0}) < 5~(3)$ for electrons (muons), respectively.  
+\\
+\\
+Jets are reconstructed using the anti-$k_{T}$ algorithm with radius $R=0.4$ and must satisfy $p_{T} > 25$~GeV and $|\eta| < 2.5$. Events containing jets that fail quality requirements, designed to reject non-collision backgrounds or detector noise, are discarded. For jets with $p_{T} < 60$~GeV, the tight working point of the JVT algorithm is applied to suppress pile-up contributions.  
+\\
+\\
+$b$-jets are identified with the DL1r algorithm, a neural-network method that exploits track impact parameters, displaced vertices, and jet kinematics. Each jet is assigned a pseudo-continuous score, enabling classification at multiple efficiency working points (85\%, 77\%, 70\%, and 60\%). Scale factors are applied to simulation to correct for differences between data and Monte Carlo in tagging efficiencies and mis-tag rates.  
+\\
+\\
+In boosted single-lepton topologies, reclustered jets are built from the small-$R$ jets using the anti-$k_{T}$ algorithm with $R=1.0$. These jets are required to have $p_{T} > 200$~GeV and $|\eta| < 2.0$, an invariant mass $M > 50$~GeV, at least two constituent small-$R$ sub-jets, and an angular separation $\Delta R > 1.0$ from all selected electrons.
+\subsection{Channel Definitions}
+The final stage of event selections is categorising into channels based on the decay mode of the $W$-bosons produced in the top-quark decays. The relaxation of the $b$-tagging requirements on this iteration of the analysis, results in more signal and background events and to allow better control of their subsequent modelling, and improved statistics for the training of the machine-learning algorithms used to classify the events. The channel selection criteria is summarised in Table \ref{tab:selection_requirements}.
+\subsubsection{Di-lepton Channel}
+In the di-lepton channel, events must contain exactly two electrons or muons satisfying the baseline lepton criteria~\refs. At least one lepton is required to have $p_{T} > 27$~GeV and to match a trigger lepton within $\Delta R < 0.15$. The di-lepton invariant mass must exceed 15~GeV to suppress low-mass Drell-Yan backgrounds, and events with $83 < m_{\ell\ell} < 99$~GeV are excluded to reduce $Z$-boson contributions. In the $ee$ channel, the sub-leading electron must have $p_{T} > 15$~GeV, while for $\mu\mu$ and $\mu e$ channels the threshold is $p_{T} > 10$~GeV. Events containing hadronic $\tau$ candidates are vetoed to preserve orthogonality with other $t\bar{t}H$ analyses~\refs. Selected events must include at least three jets, with at least three $b$-tagged at the 85\% efficiency working point and at least two at the 70\% working point.  
+\subsubsection{Single-lepton Channel}
+The single-lepton channel, events are categorized into resolved and boosted topologies. The resolved selection requires at least five jets, with a minimum of three $b$-tagged at the 70\% efficiency working point, and exactly one electron or muon with $p_{T} > 27$~GeV. At most one hadronic $\tau$ candidate is allowed. The boosted selection requires at least four small-$R$ jets, one large-$R$ jet with $p_{T} > 300$~GeV, and at least three $b$-tagged jets at the 85\% efficiency working point. Events not satisfying the boosted criteria are assigned to the resolved category. These pre-selections are designed to enhance sensitivity to $t\bar{t}H$ events with leptonic $t\bar{t}$ decays and $H \to b\bar{b}$ final states. The selection efficiency for $t\bar{t}H(b\bar{b})$ is 6.3\%, corresponding to a signal acceptance more than three times larger than in the previous iteration of the analysis~\refs, while simultaneously suppressing the dominant Standard Model backgrounds.  
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcccccc}
+\hline\hline
+Channel & \# Jets & \multicolumn{2}{c}{\# $b$-tags (DL1r)} & \# $e/\mu$ & \# $\tau_{\text{had}}$ & \# RC Jets \\
+        &         & 70\% WP & 85\% WP &         &            &            \\
+\hline
+dilepton       & $\geq 3$ & $\geq 2$ & $\geq 3$ & 2 & 0   & -- \\
+$\ell$+jets resolved & $\geq 5$ & $\geq 3$ & $\geq 3$ & 1 & $\leq 1$ & -- \\
+$\ell$+jets boosted  & $\geq 4$ & --       & $\geq 3$ & 1 & $\leq 1$ & $\geq 1$ \\
+\hline\hline
+\end{tabular}
+\caption{Object selection requirements for both the di-lepton and single-lepton channels, with the latter divided into resolved and boosted categories. Shown are the minimum number of jets, the number of $b$-tagged jets at 70\% WP and 85\% WP, the number of selected electrons or muons ($e/\mu$), the number of hadronic tau candidates ($\tau_{\text{had}}$), and the number of RC jets. RC jets must additionally satisfy $p_{T} > 300$~GeV.}
+\label{tab:selection_requirements}
+\end{table}
 \section{Event Modeling}
+In order to model the signal and background events, MC generators are used. The generators that are used to create the particular MC sample are shown in Table \ref{tab:MC_samples}. This section shall highlight the differences of each MC sample and so provide some insight to their generation.
+\subsection{Signal Modeling}
+The $t\bar{t}H$ signal is modelled using the \textsc{Powheg-Box}~V2 generator~\refs at NLO accuracy with the NNPDF3.0NLO set of parton distribution functions~\refs in the five-flavour scheme. The $h_{\text{damp}}$ parameter is set to $\tfrac{3}{4}(m_{t}+\bar{m}_{t}+m_{H}) = 352.5$~GeV, while the renormalisation and factorisation scales are chosen as $\mu_{R}=\mu_{F}= \sqrt[3]{m_{T}(t)\,m_{T}(\bar{t})\,m_{T}(H)}$, where $m_{T}$ denotes the transverse mass. Parton showering and hadronisation are simulated with \textsc{Pythia}~8.230~\refs.  
+\\
+\\
+To evaluate systematic uncertainties associated with the parton shower and matching scheme, two alternative samples are produced. In one case, \textsc{Powheg-Box}~V2 is interfaced with \textsc{Herwig}~7.04~\refs instead of \textsc{Pythia}. In the other, the nominal generator settings are retained but interfaced with \textsc{Pythia}~8.230 using \texttt{pthard}=1, modifying the definition of the hardness scale in the matching procedure~\refs.  
+\\
+\\
+All $t\bar{t}H$ decay modes are generated, although only a small contribution from non-$H\to b\bar{b}$ channels survives the analysis selection. The simulated samples are normalised to the predicted inclusive $t\bar{t}H$ cross section, $\sigma_{t\bar{t}H} = 507^{+35}_{-50}$~fb~\refs, which includes both NLO QCD and electroweak corrections.  
+\subsection{Background Modeling}
+\subsubsection{$t\bar{t}+b\bar{b}$}
+To reduce the modelling uncertainties previously observed in the $t\bar{t}+1b$ processes~\refs, dedicated samples are generated at NLO in the four-flavour scheme using the \textsc{Powheg-Box Res} generator~\refs interfaced with \textsc{OpenLoops}~\refs. The \verb|NNPDF3.1nlo| $n_{f}=4$ PDF set is employed, and parton showering and hadronisation are provided by \textsc{Pythia}~8.244. Both the matrix-element and shower generators are configured with specialised settings to further constrain the associated uncertainties.The renormalisation and factorisation scales are defined as:
+\begin{equation}
+\mu_{R} = \tfrac{1}{2} \sum_{i=t,\bar{t},b,\bar{b},j} m_{T,i}
+\end{equation}
+\begin{equation}
+\mu_{F} = \tfrac{1}{2} \sqrt[4]{m_{T}(t)\, m_{T}(\bar{t})\, m_{T}(b)\, m_{T}(\bar{b}),}
+\end{equation}
+while the damping parameter is set to:
+\begin{equation}
+h_{\text{damp}} = \tfrac{1}{2} \sum_{i=t,\bar{t},b,\bar{b}} m_{T,i}.
+\end{equation}
+A $b$-quark mass of $m_{b}=4.95$~GeV is used to ensure consistency with $b$ quarks from top decays~\refs. In addition to the nominal sample, three dedicated variations are produced to assess systematic effects. These probe the choice of parton-shower and hadronisation model (using \textsc{Herwig}~7.04 instead of \textsc{Pythia}), the matrix-element–shower matching scheme (varying the \texttt{pthard} setting in \textsc{Pythia}~8.244 to 1), and the recoil model (switching from global to dipole recoil in \textsc{Pythia}~8.244).\\
+\\
+A $b$-quark mass of $m_{b}=4.95$~GeV is used, consistent with the $b$ quarks produced in top decays~\refs. A detailed description of the dedicated $t\bar{t}+b\bar{b}$ samples can be found in~\refs. In addition to the nominal sample, three variations are generated to probe systematic uncertainties. The first tests the parton-shower and hadronisation model by replacing \textsc{Pythia}~8.244 with \textsc{Herwig}~7.04. The second explores the matrix-element–parton-shower matching by setting \texttt{pthard}=1 in \textsc{Pythia}~8.244. The final variation alters the recoil scheme, switching from the global recoil configuration used in the nominal sample to the dipole recoil option in \textsc{Pythia}~8.244.  
+\subsubsection{$t\bar{t}$ Inclusive Modeling}
+In addition to the dedicated $t\bar{t}+b\bar{b}$ samples, the remaining $t\bar{t}+$jets background is taken from inclusive five-flavour scheme $t\bar{t}$ samples, excluding events classified as $t\bar{t}+1b$. The inclusive $t\bar{t}$ process is generated with \textsc{Powheg-Box}~V2 at NLO QCD accuracy and interfaced with \textsc{Pythia}~8.230 for parton showering and hadronisation, using settings similar to those of the $t\bar{t}H$ signal samples. The \texttt{hdamp} parameter is set to $1.5\,m_{t}$, and the renormalisation and factorisation scales are defined as:
+\begin{equation*}
+    \mu_{R} = \mu_{F} = \sqrt{m_{t}^{2} + p_{T}^{2}}.
+\end{equation*}
+Three additional variations are produced to assess modelling uncertainties. The first two test the parton-shower and hadronisation model (by replacing \textsc{Pythia} with \textsc{Herwig}) and the matching scheme between matrix element and shower (via the \texttt{pthard} setting), following the same strategy as for the signal process. The third variation changes the damping parameter to $h_{\text{damp}}=3\,m_{t}$ to probe its impact on the event kinematics.
 
+\input{Section_tthbb_analysis/tables/event_MC}
 
 \section{Multivariate Analysis Techniques}
+In order to classify events into signal or background, advanced Multivariate Analysis (MVA) techniques are used. Similar MVA techniques are used to reconstruct Higgs Boson candidate from the $b$-jets in an event through an
+explicit matching procedure. This allows us to then categories the Higgs events into STXS bins based on the reconstructed Higgs $p_T$. For the classification and reconstruction tasks required of this analysis, the transformer architecture outlined in Chapter \ref{chap:AnalTech}.
+\subsection{Event Classification and Higgs Reconstruction}
+\subsubsection{Network Overview Inputs}
+The multi-class classification transformer is trained to assign probabilities $p_i$ for an event to originate from either the $t\bar{t}H$ signal or one of five $t\bar{t}$ background categories, yielding six output classes: $t\bar{t}H$, $t\bar{t}+\geq2b$, $t\bar{t}+1b$, $t\bar{t}+1B$, $t\bar{t}+\geq1c$, and $t\bar{t}+$light. The flavour categories are defined according to the number of additional $b$-, $c$-, or light jets in the event.\\
+\\
+The network input consists of reconstructed physics objects such as: jets, leptons, and the missing transverse momentum $E_{T}^{\text{miss}}$. Each object is represented by a vector of low-level kinematic features, primarily its four-momentum, supplemented by additional information. The features include the Cartesian momentum components $(p_{x}, p_{y}, p_{z})$, the energy, transverse momentum $p_{T}$, mass, pseudorapidity $\eta$, and azimuthal angle $\phi$. To improve convergence, redundant features such as $\sin\phi$ and $\cos\phi$ are provided explicitly, encoding the periodicity of the azimuthal angle. Jet-specific inputs include the DL1r pseudo-continuous $b$-tagging score, while leptons are augmented with type, charge, and object-type flags. Where applicable, feature distributions are standardised to zero mean and unit variance, as summarised in Table~\refs.\\
+\\
+The classifier is trained on nominal $t\bar{t}H$ signal and $t\bar{t}+$jets background samples, supplemented with alternative simulated datasets to enhance training statistics and stabilise convergence. In parallel, a reconstruction network is trained exclusively on $t\bar{t}H$ events, requiring two jets to be truth-matched to the Higgs decay products.\\
+\\
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\hline\hline
+\textbf{Feature} & \textbf{Description} & \textbf{Standardisation} \\
+\hline
+\multicolumn{3}{l}{\textbf{Kinematics}}\\
+\hline
+$p_{x}$   & Object momentum in $x$-direction. & $\mu = 0, \ \sigma = 1.$ \\
+$p_{y}$   & Object momentum in $y$-direction. & $\mu = 0, \ \sigma = 1.$ \\
+$p_{z}$   & Object momentum in $z$-direction. & $\mu = 0, \ \sigma = 1.$ \\
+energy    & Object energy.                    & $\mu = 0, \ \sigma = 1.$ \\
+$p_{T}$   & Object transverse momentum.       & $\mu = 0, \ \sigma = 1.$ \\
+mass      & Object mass.                      & $\mu = 0, \ \sigma = 1.$ \\
+$\eta$    & Object pseudo-rapidity.           & $\mu = 0, \ \sigma = 1.$ \\
+$\phi$    & Object azimuthal angle.           & $\mu = 0, \ \sigma = 1.$ \\
+$\cos\phi$& Cosine of object azimuthal angle. & $\mu = 0, \ \sigma = 1.$ \\
+$\sin\phi$& Sine of object azimuthal angle.   & $\mu = 0, \ \sigma = 1.$ \\
+\hline
+\multicolumn{3}{l}{\textbf{Identification}}
+\\\hline
+PCBT score & DL1r pseudo-continuous $b$-tagging score assigned to jets. &
+None. \\
+\multicolumn{3}{c}{%
+\centering
+$
+\text{Score} =
+\begin{cases}
+1, & \text{if un-tagged}, \\
+2, & \text{if tagged at [85\%, 77\%]}, \\
+3, & \text{if tagged at [77\%, 70\%]}, \\
+4, & \text{if tagged at [70\%, 60\%]}, \\
+5, & \text{if tagged at 60\%}.
+\end{cases}
+$} \\
+lepton type   & Lepton type of input objects. ($e=1$, $\mu=2$). & None. \\
+lepton charge & Charge of lepton objects. & $\mu = 0, \ \sigma = 1.$ \\
+$E_{T}^{\text{miss}}$ flag & Whether input object is $E_{T}^{\text{miss}}$ (1) or not (0). & None. \\
+\hline\hline
+\end{tabular}
+\caption{Kinematic and identification features used as inputs to the classification network, together with the corresponding preprocessing standardisation.}
+\label{tab:features}
+\end{table}
+\subsection{Network architecture}
+The architectures of the transformer networks is shown in Figure~\refs. Both models adopt the encoder structure of the transformer~\refs, differing only in their treatment of the final layers. Input features are first embedded into a latent space through $n_{\text{embed}}$ fully connected layers, producing $d$-dimensional latent vectors. These are processed by $n_{\text{attblock}}$ transformer blocks, each consisting of a multi-headed self-attention mechanism followed by a feed-forward neural network. The latent dimension $d$ is held constant to allow the use of residual connections, whereby the block input is added to the transformed output~\refs. This technique improves gradient flow and stabilises training.\\
+\\
+In the classification network, the output of the final attention block is aggregated by a cross-attention pooling layer, which outperforms other pooling strategies such as max- and mean-pooling. The pooled features are mapped through a softmax layer to produce class probabilities, satisfying $\sum_{i} p_{i} = 1$. The reconstruction network instead applies a jet-pairing layer to identify jets associated with the Higgs boson decay, following the method in~\refs. A pairing score $S_{ij}$ is computed for each jet pair $(i,j)$ using the dot product of their latent feature vectors. The pair with the highest score, restricted to $j>i$, is taken as the Higgs candidate. The corresponding four-vector is then reconstructed, from which quantities such as $p_{T}^{H}$ are extracted.\\
+\\
+To improve class separation, the classification probabilities $p_{i}$ are transformed into discriminant observables $d_{i}$ defined as:
+\begin{equation}
+d_{i} = \frac{p_{i}}{\sum_{j \neq i} p_{j} \, \hat{N}_{ij}},
+\end{equation}
+where,
+\begin{equation}
+\hat{N}_{ij} = \frac{N_{j}}{\sum_{k \neq i} N_{k}},
+\end{equation}
+and $N_{j}$ denotes the predicted yield of class $j$. This weighting prevents high-yield backgrounds from dominating and yields more balanced discriminants, enabling effective separation of processes with very different cross-sections. These observables are used in the definition of the signal and control regions.\\
+\\
+An alternative set of observables, the so-called fractions, were also studied, defined as
+\begin{equation}
+f_{i} = \frac{p_{i} \, N_{i}}{\sum_{j} p_{j} \, N_{j}}.
+\end{equation}
+Although this construction provides a natural yield-weighted probability, it was found to penalise classes with smaller yields. In contrast, the discriminants $d_{i}$ not only offered slightly better classification performance, but also ensured more balanced control regions. For this reason, they were chosen as the final template variables in the profile likelihood fit used to extract the signal strength and cross-section.  
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Section_tthbb_analysis/figures/mva/transformer_structure_combined_int.pdf}
+    \caption{Enter Caption}
+    \label{fig:tranformer_class_reco}
+\end{figure}
+\subsection{Boosted Higgs Candidates Reconstruction}
+The bossted Higgs reconstruction is done using a separate set of NNs that our transformer network. The boosted classification DNN is designed to distinguish RC-jets into three categories: Higgs, top, and QCD, and serves as the primary algorithm for Higgs candidate identification. Its architecture comprises three fully connected hidden layers, each with 100 neurons, employing the ReLU activation function. A final softmax layer produces class probabilities $P(H)$, $P(t)$, and $P(\text{QCD})$, constrained such that: $P(H) + P(t) + P(\text{QCD}) = 1.$  The model is trained using the categorical cross-entropy loss function and optimised with stochastic gradient descent (SGD). Seventeen input features are provided, with jets ordered in $p_{T}$ within each event. The network is trained with 17 input features, constructed from $p_{T}$-ordered subjets within each RC-jet:  
+\begin{enumerate}
+  \item invariant mass of the RC-jet,  
+  \item number of subjets contained in the RC-jet,  
+  \item $b$-tagging working point (WP) of the leading subjet,  
+  \item $b$-tagging WP of the sub-leading subjet,  
+  \item maximum $b$-tagging WP among all subjets in the RC-jet,  
+  \item minimum $b$-tagging WP among all subjets in the RC-jet,  
+  \item sum of $b$-tagging WPs of all subjets, excluding the leading and sub-leading subjets,  
+  \item transverse momentum $p_{T}$ of the leading subjet,  
+  \item transverse momentum $p_{T}$ of the sub-leading subjet,  
+  \item substructure variable $d_{12}$,  
+  \item substructure variable $d_{23}$,  
+  \item substructure variable $Q_{w}$,  
+  \item invariant mass of all $b$-tagged subjets at the loosest 85\% WP,  
+  \item invariant mass of all non-$b$-tagged subjets,  
+  \item angular separation $\Delta R$ between the leading and sub-leading subjets,  
+  \item maximum $\Delta R$ separation among subjets in the RC-jet,  
+  \item minimum $\Delta R$ separation among subjets in the RC-jet.  
+\end{enumerate}
 
-
+\subsubsection{Network Reconstruction Performance}
+\begin{figure}[h!]
+    \centering
+    % First image
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=\linewidth]{Section_tthbb_analysis/figures/mva/stxs_migration_matrix_October_Retraining_discriminant_ljetsSR.pdf}
+        \caption{Single Lepton}
+        \label{fig:image1}
+    \end{subfigure}
+    \hfill
+    % Second image
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=\linewidth]{Section_tthbb_analysis/figures/mva/stxs_migration_matrix_October_Retraining_discriminant_dilepSR.pdf}
+        \caption{Di-lepton}
+        \label{fig:image2}
+    \end{subfigure}
+    \hfill
+    % Third image
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=\linewidth]{Section_tthbb_analysis/figures/mva/stxs_migration_matrix_October_Retraining_discriminant_ljetsSR_boost.pdf}
+        \caption{Single lepton boosted}
+        \label{fig:image3}
+    \end{subfigure}
+    \caption{Three images displayed side by side.}
+    \label{fig:three_images}
+\end{figure}
 \section{Analysis regions}
 
 

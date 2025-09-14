@@ -1,0 +1,50 @@
+\begin{table}[h!]
+\hspace*{-1.5cm}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|lllll|}
+\hline\hline
+Process & ME Generator & ME PDF & PS & Normalisation \\
+\hline
+\multicolumn{5}{|l|}{\textbf{Signal and other Higgs samples}} \\
+\hline
+$t\bar{t}H$   & Powheg Box V2 & \verb|NNPDF3.0nlo| & Pythia 8.230 & NLO+NLO (EW) \\
+              & Powheg Box V2 & \verb|NNPDF3.0nlo| & Herwig 7.04  & NLO+NLO (EW) \\
+$tHjb$        & MadGraph5\_aMC@NLO v2.6.2 & \verb|NNPDF3.0nlo| nf4 & Pythia 8.230 & -- \\
+$tWH$         & MadGraph5\_aMC@NLO v2.8.2 & \verb|NNPDF3.0nlo| & Pythia 8.245 & -- \\
+              & MadGraph5\_aMC@NLO v2.8.2 [DR] & \verb|NNPDF3.0nlo| & Pythia 8.245 & -- \\
+\hline
+\multicolumn{5}{|l|}{\textbf{$t\bar{t} +$ jets background}} \\
+\hline
+$t\bar{t}$    & Powheg Box V2 & \verb|NNPDF3.0nlo| & Pythia 8.230 & NNLO+NNLL \\
+              & Powheg Box V2 & \verb|NNPDF3.0nlo| & Herwig 7.04  & NNLO+NNLL \\
+              & Sherpa 2.2.10 & \verb|NNPDF3.0nlo| & Sherpa       & NNLO+NNLL \\
+$t\bar{t}+b\bar{b}$ & Powheg Box Res & \verb|NNPDF3.1nlo| nf4 & Pythia 8.230 & -- \\
+              & Powheg Box V2 & \verb|NNPDF3.1nlo| nf4 & Herwig 7.1.6 & NNLO+NNLL \\
+              & Sherpa 2.2.10 & \verb|NNPDF3.0nlo| nf4 & Sherpa       & -- \\
+\hline
+\multicolumn{5}{|l|}{\textbf{Other backgrounds}} \\
+\hline
+$tW$          & Powheg Box V2 [DR] & \verb|NNPDF3.0nlo| & Pythia 8.309 & NNLO+NNLL \\
+              & Powheg Box V2 [DS] & \verb|NNPDF3.0nlo| & Pythia 8.309 & NNLO+NNLL \\
+              & Powheg Box V2 [DS] & \verb|NNPDF3.0nlo| & Herwig 7.2.3 & NNLO+NNLL \\
+$t$-channel   & Powheg Box V2 & \verb|NNPDF3.0nlo| nf4 & Pythia 8.230 & NLO \\
+$s$-channel   & Powheg Box V2 & \verb|NNPDF3.0nlo| & Pythia 8.230 & NLO \\
+$t\bar{t}W$   & Sherpa 2.2.10 (NLO[1j], LO[2j]) & \verb|NNPDF3.0nlo| & Sherpa & NLO+NLO (EW) \\
+              & MadGraph5\_aMC@NLO v2.3.3 & \verb|NNPDF3.0nlo| & Pythia 8.210 & NLO+NLO (EW) \\
+$t\bar{t}Z (q\bar{q}, \nu\nu)$ & MadGraph5\_aMC@NLO v2.8.1 & \verb|NNPDF3.0nlo| & Pythia 8.244p & NLO+NLO (EW) \\
+              & MadGraph5\_aMC@NLO v2.8.1 & \verb|NNPDF3.0nlo| & Herwig 7.2.1 & NLO+NLO (EW) \\
+$W+$jets      & Sherpa 2.2.11 (NLO [2j], LO[5j]) & \verb|NNPDF3.0nlo| & Sherpa & NNLO \\
+$Z+$jets      & Sherpa 2.2.11 (NLO [2j], LO[5j]) & \verb|NNPDF3.0nlo| & Sherpa & NNLO \\
+$Z(\tau\tau)+$jets & Sherpa 2.2.14 (NLO [2j], LO[5j]) & \verb|NNPDF3.0nlo| & Sherpa & NNLO \\
+$VV$ (had.)   & Sherpa 2.2 & \verb|NNPDF3.0nlo| & Sherpa & -- \\
+$VV$ (lep.)   & Sherpa 2.2 & \verb|NNPDF3.0nlo| & Sherpa & -- \\
+$VV+jj$ (EW)  & Sherpa 2.2 (LO[EWI]) & \verb|NNPDF3.0nlo| & Sherpa & -- \\
+$t\bar{t}t\bar{t}$ & MadGraph5\_aMC@NLO v2.3.3 & \verb|NNPDF3.1nlo| & Pythia 8.230 & NLO+NLO (EW) \\
+$tWZ$         & MadGraph5\_aMC@NLO v2.6.2 [DR] & \verb|NNPDF3.0nlo| & Pythia 8.235 & -- \\
+$tZq$         & MadGraph5\_aMC@NLO v2.6.0 & \verb|NNPDF3.0nlo| & Pythia 8.230 & -- \\
+\hline\hline
+\end{tabular}
+\caption{Summary of the MC simulated samples used in the analysis, including the ME generator, PDF set, parton shower, and normalisation scheme. The nominal samples are listed first, followed by alternative samples used for systematic variations in signal and background modelling. The label ``nf4'' denotes the $N_f=4$ scheme of the NNPDF3.0 set~\refs. Higher-order cross-sections applied for normalisation are shown in the final column. Empty entries indicate that no additional $K$-factor was applied.}
+\label{tab:MC_samples}
+\end{table}
