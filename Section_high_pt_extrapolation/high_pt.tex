@@ -1,5 +1,5 @@
 \chapter{Uncertainty Extrapolation for High-$p_T$ Pflow Jets}
-\label{app:PCBTextrap}
+\label{chap:PCBTextrap}
 \chapterquote{I'm all energy, no technique.}%
 {Dwayne Spiteri, referring to his squash ability.}
 High-$p_T$ flavour tagging uncertainties are essential for analyses involving boosted regions. At high transverse momentum, the kinematic properties and structure of jets evolve significantly: jets become more collimated, substructure variables are altered, and the performance of flavour tagging algorithms begins to deviate from their behaviour in the lower-$p_T$ regime. Since PFlow jets combine calorimeter and tracking information, their response and tagging behaviour at high-$p_T$ are sensitive to detector effects and modelling limitations that may not be fully captured by simulations. Without properly quantified uncertainties, the scale factors (SFs) applied to match data and simulation could be miss-estimated, directly impacting signal efficiencies and background rates in searches for boosted objects, like the Higgs bosons, or new resonances.
@@ -69,7 +69,7 @@ where, $\Delta_{rel}(\text{SF}_{pt,ref})$ is the in-situ calibration SF relative
 For our desired flavour of Pflow jet we need to use the extrapolation uncertainty contained in Equation \ref{eq:extrapolation} and extrapolate all systematic uncertainties to evaluate them past the calibration threshold. The following plots are for $b$-jets at a 60\% WP and generated using Z' samples, which is a MC sample that is enriched with $t\bar{t}$ events in order to effectively evaluate the SFs at their desired $p_T$ beyond any calibration threshold. 
 
 \subsection{Tracking uncertainties}\label{sec:trackunc}
-As we see in Figures~\ref{fig:track} and~\ref{fig:trackextrap}, the relative tracking uncertainties and tracking extrapolation uncertainties respectively, the contributions to the overall extrapolation tracking uncertainty are minimal, peaking at $\approx$ 0.03 at 3 TeV. The tracking-related uncertainties are as follows: \verb|TRK_FAKE_RATE_LOOSE_TIDE| and \verb|TRK_FAKE_RATE_LOOSE| account for uncertainties in the fake track rate in data and simulation, with TIDE referring to a dedicated tuning for dense environments. The remaining uncertainties correspond to different sources of uncertainty in the track reconstruction efficiency for tracks passing loose quality criteria. \verb|TRK_EFF_LOOSE_TIDE| and \verb|TRK_EFF_LOOSE_PP0| stem from data-driven corrections and pileup modeling in the efficiency determination. \verb|TRK_EFF_LOOSE_PHYSMODEL| addresses uncertainties from the underlying physics modeling used in simulation. \verb|TRK_EFF_LOOSE_GLOBAL| represents a global uncertainty in track reconstruction efficiency applied across the detector. Finally, \verb|TRK_EFF_LOOSE_IBL| captures potential miss-modelling of the IBL, which is particularly relevant for high-$p_T$ tracks near the beamline. These components are combined in quadrature to form the total tracking uncertainty.
+As we see in Figures~\ref{fig:track} and~\ref{fig:trackextrap}, the relative tracking uncertainties and tracking extrapolation uncertainties respectively, the contributions to the overall extrapolation tracking uncertainty are minimal, peaking at $\approx$ 0.03 at 3 TeV. The tracking-related uncertainties are as follows: \verb|TRK_FAKE_RATE_LOOSE_TIDE| and \verb|TRK_FAKE_RATE_LOOSE| account for uncertainties in the fake track rate in data and simulation, with TIDE referring to a dedicated tuning for dense environments. The remaining uncertainties correspond to different sources of uncertainty in the track reconstruction efficiency for tracks passing loose quality criteria. \verb|TRK_EFF_LOOSE_TIDE| and \verb|TRK_EFF_LOOSE_PP0| stem from data-driven corrections and pileup modelling in the efficiency determination. \verb|TRK_EFF_LOOSE_PHYSMODEL| addresses uncertainties from the underlying physics modelling used in simulation. \verb|TRK_EFF_LOOSE_GLOBAL| represents a global uncertainty in track reconstruction efficiency applied across the detector. Finally, \verb|TRK_EFF_LOOSE_IBL| captures potential miss-modelling of the IBL, which is particularly relevant for high-$p_T$ tracks near the beamline. These components are combined in quadrature to form the total tracking uncertainty.
 \begin{figure}[htbp]
     % \centering
     % \begin{subfigure}[t]{0.9\textwidth}
@@ -95,7 +95,7 @@ As we see in Figures~\ref{fig:track} and~\ref{fig:trackextrap}, the relative tra
 
 \subsection{Jet Calibration Uncertainties} \label{sec:jetcalunc}
 
-Much like the tracking uncertainties, the jet calibration and jet calibration extrapolation uncertainties show in Figures \ref{fig:jetcal} and \ref{fig:jetextrap}, respectively, are similarly quite minimal. The peak of the distribution seen to be $\approx$ 0.05 at 3 TeV. The jet calibration uncertainties shown in  \ref{fig:jetcal} and \ref{fig:jetextrap} is comprises of: \verb|JET_SingleParticle_HighPt| arises from studies comparing data and simulation for isolated high-$p_T$ tracks and assessing the accuracy of momentum reconstruction. \verb|JET_EffectiveNP_*| represents compressed nuisance parameters derived from a combination of sources such as pileup, flavour composition, and detector modeling. These are obtained via diagonalization techniques to reduce the dimensionality of systematic uncertainties. \verb|JET_JER_*| accounts for mismatches in the jet energy resolution between data and Monte Carlo, impacting smearing and unfolding procedures. \verb|JET_EtaIntercalibration_*| captures uncertainties in the relative calibration between jets in different pseudorapidity regions, typically derived from di-jet balance techniques. Together, these uncertainties are combined in quadrature to form the total Jet-calibration uncertainty, which grows significantly in the high-$p_T$ regime due to tracking-based effects \cite{JER-JES}.
+Much like the tracking uncertainties, the jet calibration and jet calibration extrapolation uncertainties show in Figures \ref{fig:jetcal} and \ref{fig:jetextrap}, respectively, are similarly quite minimal. The peak of the distribution seen to be $\approx$ 0.05 at 3 TeV. The jet calibration uncertainties shown in  \ref{fig:jetcal} and \ref{fig:jetextrap} is comprises of: \verb|JET_SingleParticle_HighPt| arises from studies comparing data and simulation for isolated high-$p_T$ tracks and assessing the accuracy of momentum reconstruction. \verb|JET_EffectiveNP_*| represents compressed nuisance parameters derived from a combination of sources such as pileup, flavour composition, and detector modelling. These are obtained via diagonalization techniques to reduce the dimensionality of systematic uncertainties. \verb|JET_JER_*| accounts for mismatches in the jet energy resolution between data and Monte Carlo, impacting smearing and unfolding procedures. \verb|JET_EtaIntercalibration_*| captures uncertainties in the relative calibration between jets in different pseudorapidity regions, typically derived from di-jet balance techniques. Together, these uncertainties are combined in quadrature to form the total Jet-calibration uncertainty, which grows significantly in the high-$p_T$ regime due to tracking-based effects \cite{JER-JES}.
 % \begin{figure}[htbp]
 %     \centering
 %     \includegraphics[scale=0.15]{figures/App_btag_highpt_extrap/jet_detailed_1_uncs__1_.png}
@@ -130,18 +130,18 @@ Much like the tracking uncertainties, the jet calibration and jet calibration ex
 \end{figure}
 
 \subsection{Modelling Uncertainties} \label{sec:model}
-Compared to the systematics described in Sections~\ref{sec:trackunc} and~\ref{sec:jetcalunc} the modeling uncertainties are considerably higher as seen in Figure~\ref{fig:model}. With the main contributions coming from the parton shower and B-hadron interactions. When these are propagated in to the extrapolation uncertainty, as shown in Figure~\ref{fig:modelextrap}, these significantly inflate the overall value at any $p_T$ bin, peaking at 0.36 at 3 TeV. The Modeling uncertainties are: \verb|FSR| corresponds to the uncertainty from final-state radiation modeling and is typically assessed by varying the QCD radiation parameters or using alternative parton shower configurations. \verb|parton shower| represents uncertainties associated with different choices of parton shower generators (e.g., \textsc{Pythia} vs \textsc{Herwig}), which affect the development of the jet and the kinematics of the b-hadron. \verb|B-hadron interaction| accounts for mismodelling of b-hadron decays and their interactions with the detector material, which can influence the reconstruction of secondary vertices and impact parameter significance. The \verb|Total| uncertainty is the quadrature sum of all modeling components.
+Compared to the systematics described in Sections~\ref{sec:trackunc} and~\ref{sec:jetcalunc} the modelling uncertainties are considerably higher as seen in Figure~\ref{fig:model}. With the main contributions coming from the parton shower and B-hadron interactions. When these are propagated in to the extrapolation uncertainty, as shown in Figure~\ref{fig:modelextrap}, these significantly inflate the overall value at any $p_T$ bin, peaking at 0.36 at 3 TeV. The modelling uncertainties are: \verb|FSR| corresponds to the uncertainty from final-state radiation modelling and is typically assessed by varying the QCD radiation parameters or using alternative parton shower configurations. \verb|parton shower| represents uncertainties associated with different choices of parton shower generators (e.g., \textsc{Pythia} vs \textsc{Herwig}), which affect the development of the jet and the kinematics of the b-hadron. \verb|B-hadron interaction| accounts for mismodelling of b-hadron decays and their interactions with the detector material, which can influence the reconstruction of secondary vertices and impact parameter significance. The \verb|Total| uncertainty is the quadrature sum of all modelling components.
 
 % \begin{figure}[htbp]
 %     \centering
 %     \includegraphics[scale=0.15]{figures/App_btag_highpt_extrap/modelling_important_uncs.png}
-%     \caption{The decomposed modeling uncertainty containing: Final state radiation (FSR, light grey), B-hadron interaction (yellow), parton shower (dark grey) and the total combination of all modeling systematics (green). }
+%     \caption{The decomposed modelling uncertainty containing: Final state radiation (FSR, light grey), B-hadron interaction (yellow), parton shower (dark grey) and the total combination of all modelling systematics (green). }
 %         \label{fig:model}
 % \end{figure}
 % \begin{figure}[htbp]
 %     \centering
 %     \includegraphics[scale=0.15]{figures/App_btag_highpt_extrap/modelling_important_extrap_uncs.png}
-%     \caption{The modeling extrapolation uncertainty containing: Final state radiation (FSR, light grey), B-hadron interaction (yellow), parton shower (dark grey) and the total combination of all modeling systematics (green).}
+%     \caption{The modelling extrapolation uncertainty containing: Final state radiation (FSR, light grey), B-hadron interaction (yellow), parton shower (dark grey) and the total combination of all modelling systematics (green).}
 %         \label{fig:modelextrap}
 % \end{figure}
 \begin{figure}[htbp]
@@ -149,7 +149,7 @@ Compared to the systematics described in Sections~\ref{sec:trackunc} and~\ref{se
     % \begin{subfigure}[t]{0.9\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/App_btag_highpt_extrap/modelling_important_uncs.png}
-        \caption{Decomposed modeling uncertainty: FSR (light grey), B-hadron interaction (yellow), parton shower (dark grey), and total (green) for PFlow $b$-jets with DL1r at 60\% efficiency.}
+        \caption{Decomposed modelling uncertainty: FSR (light grey), B-hadron interaction (yellow), parton shower (dark grey), and total (green) for PFlow $b$-jets with DL1r at 60\% efficiency.}
         \label{fig:model}
     % \end{subfigure}
     
@@ -158,20 +158,20 @@ Compared to the systematics described in Sections~\ref{sec:trackunc} and~\ref{se
     % \begin{subfigure}[t]{0.9\textwidth}
     %     \centering
     %     \includegraphics[width=\linewidth]{figures/App_btag_highpt_extrap/modelling_important_extrap_uncs.png}
-    %     \caption{Modeling extrapolation uncertainty with the same components.}
+    %     \caption{modelling extrapolation uncertainty with the same components.}
     %     \label{fig:modelextrap}
     % \end{subfigure}
-    % \caption{Relative(top) and extrapolated (bottom) modeling uncertainties for Pflow $b$-jets with DL1r at 60\% efficiency.}
+    % \caption{Relative(top) and extrapolated (bottom) modelling uncertainties for Pflow $b$-jets with DL1r at 60\% efficiency.}
     % \label{ffig:model}
 \end{figure}
 \subsection{Global uncertainty}
-As discussed in Section~\ref{sec:model} the modeling uncertainties are the dominant contributors for the extrapolation uncertainty, this is confirmed in Figure~\ref{fig:globalunc}.
+As discussed in Section~\ref{sec:model} the modelling uncertainties are the dominant contributors for the extrapolation uncertainty, this is confirmed in Figure~\ref{fig:globalunc}.
 \begin{figure}[htbp]
     % \centering
     % \begin{subfigure}[t]{0.9\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/App_btag_highpt_extrap/global_uncs.png}
-        \caption{Nominal global uncertainty: modeling (green), tracking (orange), jet calibration (blue), and total (black) for PFlow $b$-jets with DL1r at 60\% efficiency.}
+        \caption{Nominal global uncertainty: modelling (green), tracking (orange), jet calibration (blue), and total (black) for PFlow $b$-jets with DL1r at 60\% efficiency.}
         \label{fig:globalunc}
     % \end{subfigure}
 

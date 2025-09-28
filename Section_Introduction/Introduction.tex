@@ -9,28 +9,42 @@
 %% Restart the numbering to make sure that this is definitely page #1!
 \pagenumbering{arabic}
 
-% \chapterquote{In the beginning there was nothing, which exploded}%
-% {Terry Pratchett, Lords and Ladies}
-
-% This is the introduction to the introduction to my thesis
-% \col{This is an example of red text indicating something that needs to be fixed in an editing pass}\\
-
-
-% \section{The Toppest of Physics}
-% \label{sec::intro}
-% This is the introduction to my thesis 
-
-% Here is an example figure of a leading order \ljets \ttbar decay:
-% \begin{figure}[p]
-% \centering
-% \includegraphics[width=0.75\linewidth]{Introduction/tennents_ttbar.png}
-% \caption[Short caption that shows up in list-of-figures]{Big caption what reads under the figure in the text}
-% \label{fig::example}
-% \end{figure}
-
 
 
 \chapterquote{think of a quote}%
 {quote}
-Ye nah, I got nothing here.
+This thesis presents a measurement of the cross-section of the Higgs boson production in association with a pair of top quarks and decaying to a pair of bottom quarks, $t\bar{t}H(b\bar{b})$. Measuring this process is particularly challenging because of its relatively small cross-section and the presence of large irreducible $t\bar{t}+$jets backgrounds. Despite these difficulties, it offers unique direct access to the interaction between the Higgs boson and the top quark, referred to as the top Yukawa coupling. As the top quark is the heaviest known fermion, its coupling to the Higgs boson is the strongest Yukawa interaction in the Standard Model (SM). A precise measurement of this coupling provides a powerful probe of new physics, since any significant deviation from the SM expectation could signal contributions from yet-unknown particles or interactions. As such, the result of this analysis is then re-interpreted within the Standard Model Effective Field Theory (SMEFT) framework in order to test for deviations in the SM measurement. To arrive at the final results, that are the constrains of the operators governing the $t\bar{t}H$ production mode in this framework, this thesis is constructed as follows.\\
+\\
+Chapter \ref{chap::Theory} provides an overview of the SM, laying out its construction and main features including the production of the Higgs boson and the $t\bar{t}H$ production mode. Then an overview of the SMEFT as it relates to $t\bar{t}H$ and describes how the main operators can affect the measurement of $t\bar{t}H$.
+\\
+\\
+Chapter \ref{chap::LHC} begins by describing the Large Hadron Collider accelerator chain. The ATLAS detector and the detector subsystems are then discussed.
+\\
+\\
+Chapter \ref{chap::QT} investigates the Inner Tracker upgrade that will move the Large Hadron Collider into the High-Luminosity era. Outlined here is the qualification task completed in order to be a qualified ATLAS author. The task was to create a set of reporting tools for the global upgrade team to track production across institutes and regions.
+\\
+\\
+Chapter \ref{chap::objects} provides the definitions and reconstruction techniques used to create the physics objects in the $t\bar{t}H(b\bar{b})$ analysis. Effort is concentrated in the discussion of particle flow jets and flavour tagging algorithms as this provides the main background for the high $p_T$ pseudo continuous $b$-tagging particle flow jet uncertainty extrapolation study detailed later.
+\\
+\\
+Chapter \ref{chap::MC} gives an overview of the Monte-Carlo Simulations and the techniques used in order to create appropriate simulated events to compare with data in a physics analysis. 
+\\
+\\
+Chapter \ref{chap:PCBTextrap} provides detail on my main contribution to the $t\bar{t}H(b\bar{b})$ analysis: the development and validation of the high $p_T$ pseudo continuous $b$-tagging particle flow jet uncertainty extrapolation. This allowed for the proper systematic treatment of the uncertainties of the $b$, $c$ and light flavour particle flow jets, produced above their calibration threshold, to be evaluated and folded into an analysis in a plug and play style. This had direct impact on the selected events in the high $p_T$ resolved and boosted regions of the $t\bar{t}H(b\bar{b})$ analysis. Helping the high $p_T$ regions also directly affected the statistical power in the context of a re-interpretation such as that used in the SMEFT analysis.
+\\
+\\
+Chapter \ref{chap:AnalTech} describes the main analysis techniques used in the $t\bar{t}H(b\bar{b})$ analysis, this is split up into town main sections: one on the foundation of the statistical model, profile likelihoods, and one on the machine learning techniques, multi-headed attention based transformer, used in the $t\bar{t}H(b\bar{b})$ analysis multi variate analysis strategy.
+\\
+\\
+Chapter \ref{chap::tth} details the $t\bar{t}H(b\bar{b})$ analysis in its entirety. First discussing the previous $t\bar{t}H(b\bar{b})$ ATLAS result, published in 2022, then going thorough the major components of the analysis. The event selection, event modelling, multi variate analysis strategy for event classification and Higgs boson reconstruction, definitions of the analysis regions, the systematic uncertainties of the analysis, the construction of the statistical model and fit studies conducted and finally the results are presented.
+\\
+\\
+Chapter \ref{chap::tth_eft} presents the SMEFT re-interpretation of the $t\bar{t}H(b\bar{b})$ analysis. The chapter opens with a discussion on the current state of $t\bar{t}H$ BSM interpretation from the Run-2 data set. The analysis methodology is then laid out followed by results and the discussion of individual and combined operator fits for the linear SMEFT framework and then individual fits for the quadratic fits.
+\\
+\\
+Chapter \ref{chap::conclusion} opens by discussing the impact of the results obtained and their limiting factors. The thesis is then concluded with a discussion on the outlook of potential future $t\bar{t}H(b\bar{b})$ measurements and the power they have in the world of re-interpretation. 
+
+
+
+
 %\end{document} % Depending on LaTeX setup this can be uncommented to compile chapters individually 

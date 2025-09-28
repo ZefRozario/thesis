@@ -1,7 +1,7 @@
 \chapter{Analysis Techniques}
 \label{chap:AnalTech}
-\chapterquote{think of a quote}%
-{quote}
+\chapterquote{Hesitation is defeat, my dear Sekiro.}%
+{Isshin Ashina}
 Thus far in this thesis, we have covered the theory of particle physics, how we detect and reconstruct the particles and the MC techniques. Yet a some questions still remain, such as: How do we separate events the into a signal and background event? And how do we construct a statistically robust framework, using our signal and background events? To answer the first question, usually a multivariate analysis incorporating a machine learning technique is used. For the $t\bar{t}H(b\bar{b})$ analysis a  multi-class neural network based on a permutation-invariant transformer architecture with attention mechanism is used \cite{attentionisallyouneed}. Using the output of this framework a combined profile likelihood fit that simultaneously determines the event yields for the signal and for the most important background components, while constraining the overall background model within the assigned systematic uncertainties is constructed.\\
 \\
 This chapter will serve as a general introduction to the transformer architecture and profile likelihood fit construction before we apply these concepts in Chapter \ref{chap::tth}.
@@ -71,7 +71,7 @@ NPs nominally have a central value of $\theta = 0$, describing the best possible
 \begin{equation}
     \text{Pull} = \frac{\hat{\theta} - \theta_0}{\Delta\theta},
 \end{equation} 
-where $\hat{\theta}$ is the fitted value of the NP, $\theta_0$ is the nominal (pre-fit) value and $\Delta\theta$ is the uncertainty of that NP (pre-fit or post-fit, depending on convention). These pulls can indicate potentially problematic modeling parameters or tensions in the fit. As a diagnostic tool a significant pull is usually the first step in any statistical detective work when trying to understand problems in the fit. 
+where $\hat{\theta}$ is the fitted value of the NP, $\theta_0$ is the nominal (pre-fit) value and $\Delta\theta$ is the uncertainty of that NP (pre-fit or post-fit, depending on convention). These pulls can indicate potentially problematic modelling parameters or tensions in the fit. As a diagnostic tool a significant pull is usually the first step in any statistical detective work when trying to understand problems in the fit. 
 \subsection{Asimov Data Sets}
 An Asimov fit is performed using a specially constructed dataset where each bin contains exactly the expected yield from the model without any statistical fluctuations. This dataset represents the median expectation under a given hypothesis (often the SM signal strength
 $\mu=1$ or the background-only case $\mu = 0$). Fitting the Asimov dataset allows one to evaluate the expected performance of the analysis, such as the anticipated uncertainty on the signal strength, the ranking of nuisance parameters, and the pulls on NPs, in the absence of statistical noise. By comparing the results of an Asimov fit to the fit on real data, one can identify deviations in nuisance parameter pulls or impacts that may indicate tensions between data and the model or underestimated systematic uncertainties. These comparisons are another key tool in the statistical detective's repertoire. 

@@ -8,6 +8,7 @@
 %% For Cambridge soft-bound version
 %\documentclass[hyperpdf,bindnopdf]{hepthesis}
 %% For Cambridge hard-bound version (must be one-sided)
+
 \documentclass[hyperpdf,oneside]{hepthesis}
 
 
@@ -15,8 +16,34 @@
 \usepackage{svg}
 \usepackage{graphicx}
 % \usepackage{feynmp}
-\usepackage{caption}
+\usepackage{caption} % if you use it
+\captionsetup{labelformat=default,labelsep=space}
+
+\makeatletter
+% Ensure the label text has no punctuation
+\renewcommand{\fnum@figure}{\figurename~\thefigure}
+\renewcommand{\fnum@table}{\tablename~\thetable}
+
+% Reapply clean numbering right after the class flips sections
+\AddToHook{cmd/frontmatter/after}{%
+  \renewcommand{\thefigure}{\arabic{figure}}%
+  \renewcommand{\thetable}{\arabic{table}}%
+}
+\AddToHook{cmd/mainmatter/after}{%
+  \renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
+  \renewcommand{\thetable}{\thechapter.\arabic{table}}%
+}
+\AddToHook{cmd/backmatter/after}{%
+  \renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
+  \renewcommand{\thetable}{\thechapter.\arabic{table}}%
+}
+\makeatother
+
+\show\thefigure
+
 \usepackage{subcaption}
+% \captionsetup{labelsep=space}
+% \renewcommand{\thefigure}{\thechapter.\arabic{figure}}
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usepackage{multirow}
@@ -38,8 +65,6 @@
 \usepackage{tikz}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{lmodern}
-% \usepackage{mathpazo}
-%\usepackage{euler}
 \usepackage{lineno}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -47,9 +72,22 @@
 \usepackage{flafter}
 \usepackage{adjustbox}
 \usepackage{amsmath}
+\usepackage{placeins}
+
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
 \linenumbers
 
 \newcommand*{\BASEPATH}{./}
+
+\show\thefigure 
 
 %% Put package includes etc. into preamble.tex for convenience
 \input{preamble}
@@ -99,6 +137,7 @@
     \input{Section_high_pt_extrapolation/high_pt}
     \input{Section_analysis_tech/Analysis_tech}
     \input{Section_tthbb_analysis/ttHbb_analysis}
+    \input{Section_tthbb_analysis/Fit_studies}
     \input{Section_eft_tth/tth_eft}
     \input{Section_conclusion/conclusion}
 
@@ -106,9 +145,9 @@
 \end{mainmatter}
 
 %% Produce the appendices
-% \begin{appendices}
-%   \input{appendices}
-% \end{appendices}
+\begin{appendices}
+  \input{appendices}
+\end{appendices}
 
 %% Produce the un-numbered back matter (e.g. colophon,
 %% bibliography, tables of figures etc., index...)

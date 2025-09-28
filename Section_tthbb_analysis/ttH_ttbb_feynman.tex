@@ -1,1 +1,62 @@
+\begin{figure}[t]
+  \centering
+  % smaller + cleaner layout (no manual coordinates)
+  \begin{fmffile}{tth_singlelep_hbb_small}
+  \begin{fmfgraph*}(200,135)
+    \fmfstraight
+    \fmfset{label.dist}{2pt}
+    \fmfset{arrow_len}{2.5mm}
+    \fmfset{curly_len}{2mm}
+    \fmfset{dot_size}{1.5thick}
 
+    % external legs
+    \fmfleft{g1,g2}
+    \fmfright{bbar,ell,nu,bb,bbbar,q,qbar,b}
+
+    % incoming gluons to production vertex
+    \fmf{gluon}{g1,vprod}
+    \fmf{gluon}{g2,vprod}
+    \fmflabel{$g$}{g1}
+    \fmflabel{$g$}{g2}
+
+    % t and tbar line with a Higgs emission point
+    \fmf{fermion}{vprod,t}         % t goes to the right
+    \fmf{fermion}{tbar,vprod}      % tbar goes to the right
+    \fmf{fermion}{t,vH,tbar}       % continuous t--H--tbar line (emission point vH)
+    \fmflabel{$t$}{t}
+    \fmflabel{$\bar t$}{tbar}
+
+    % Higgs and its decay
+    \fmf{dashes,label=$H$}{vH,h}
+    \fmf{fermion}{bb,h}
+    \fmf{fermion}{h,bbbar}
+    \fmflabel{$b$}{bb}
+    \fmflabel{$\bar b$}{bbbar}
+
+    % top decay: t -> b + W+ -> q q'
+    \fmf{fermion}{t,b}
+    \fmf{boson,label=$W^+$}{t,Wp}
+    \fmf{fermion}{q,Wp}
+    \fmf{fermion}{Wp,qbar}
+    \fmflabel{$b$}{b}
+    \fmflabel{$q$}{q}
+    \fmflabel{$\bar q'$}{qbar}
+
+    % antitop decay: tbar -> bbar + W- -> l- nu~
+    \fmf{fermion}{bbar,tbar}
+    \fmf{boson,label=$W^-$}{tbar,Wm}
+    \fmf{fermion}{ell,Wm}
+    \fmf{fermion}{Wm,nu}
+    \fmflabel{$\bar b$}{bbar}
+    \fmflabel{$\ell^-$}{ell}
+    \fmflabel{$\bar\nu$}{nu}
+
+    % tidy dots
+    \fmfdot{vprod,vH,Wp,Wm}
+  \end{fmfgraph*}
+  \end{fmffile}
+
+  \vspace{4pt}
+  \caption{Single-lepton topology for $t\bar tH$ with $H\to b\bar b$.}
+  \label{fig:tth_singlelep}
+\end{figure}

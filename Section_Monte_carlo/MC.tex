@@ -1,8 +1,8 @@
-\chapter{Monte-Carlo Simulation}
+\chapter{Monte-Carlo Simulations}
 \label{chap::MC}
 
-\chapterquote{Bigger...}%
-{Everyone when I ask them about the FCC}
+\chapterquote{You're always one spin away form winning. Don't stop...}%
+{Iain Mclean, when asked about healthy habits.}
 Monte-Carlo (MC) simulations are a key part of any ATLAS physics analysis as they provide a reference to data with defined physics inputs in order to understand the detector response. Generation of the MC events start: the Matrix Element (ME) for the hard-scattering process of interest. However, with any hard-scattering event comes soft emissions that if would be too computationally intensive to calculate in the same way as the hard scattering events and so these emissions are simulated using a Parton Shower (PS). The resulting partons then under go hadronization, using a non-perturbative model. Remnants of the protons after collisions can also enter the detector volume and interact further, or decay forming part of the underlying event. As each bunch crossing results in around 30-40 other interactions, pile-up also needs to be modelled. Lastly the detectors effects must be taken into account and the final-state particles must be passed through a simulation of the ATLAS detector geometry. An illustration of these stages can be seen in Figure \ref{fig:tth_MC}.
 
 \begin{figure}
