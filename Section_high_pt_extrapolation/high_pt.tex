@@ -1,7 +1,7 @@
-\chapter{Uncertainty Extrapolation for High-$p_T$ Pflow Jets}
+\chapter{Uncertainty Extrapolation for High-$p_T$ PFlow Jets}
 \label{chap:PCBTextrap}
 \chapterquote{I'm all energy, no technique.}%
-{Dwayne Spiteri, referring to his squash ability.}
+{Dr. Dwayne Spiteri, referring to his squash ability.}
 High-$p_T$ flavour tagging uncertainties are essential for analyses involving boosted regions. At high transverse momentum, the kinematic properties and structure of jets evolve significantly: jets become more collimated, substructure variables are altered, and the performance of flavour tagging algorithms begins to deviate from their behaviour in the lower-$p_T$ regime. Since PFlow jets combine calorimeter and tracking information, their response and tagging behaviour at high-$p_T$ are sensitive to detector effects and modelling limitations that may not be fully captured by simulations. Without properly quantified uncertainties, the scale factors (SFs) applied to match data and simulation could be miss-estimated, directly impacting signal efficiencies and background rates in searches for boosted objects, like the Higgs bosons, or new resonances.
 \\
 \\
@@ -26,9 +26,9 @@ In order to effectively derive accurate systematic uncertainties that assume the
 \\
 The $b$-tagging efficiency is defined as:
 \begin{equation*}
-    \epsilon_{b}= \frac{\# \text{of jets that are $b$-tagged} }{\text{Total \# of jets}}.
+    \epsilon_{b}= \frac{\# \text{of jets that are $b$-tagged} }{\text{Total \# of truth $b$ jets}}.
 \end{equation*}
-We use this to then define our data-to-simulation scale factors (SF) e.g for b-jets as:
+We use this to then define our data-to-simulation scale factors (SF) e.g for $b$-jets as:
 \begin{equation*}
     \text{SF}_{b,w}= \frac{\epsilon^{\text{data}}_{b,w}}{\epsilon^{\text{MC}}_{b,w}},
 \end{equation*}
@@ -68,7 +68,7 @@ where, $\Delta_{rel}(\text{SF}_{pt,ref})$ is the in-situ calibration SF relative
 \\
 For our desired flavour of Pflow jet we need to use the extrapolation uncertainty contained in Equation \ref{eq:extrapolation} and extrapolate all systematic uncertainties to evaluate them past the calibration threshold. The following plots are for $b$-jets at a 60\% WP and generated using Z' samples, which is a MC sample that is enriched with $t\bar{t}$ events in order to effectively evaluate the SFs at their desired $p_T$ beyond any calibration threshold. 
 
-\subsection{Tracking uncertainties}\label{sec:trackunc}
+\subsection{Tracking Uncertainties}\label{sec:trackunc}
 As we see in Figures~\ref{fig:track}, the relative tracking uncertainties, the contributions to the overall extrapolation tracking uncertainty are minimal, peaking at $\approx$ 0.03 at 3 TeV. The tracking-related uncertainties are as follows: \verb|TRK_FAKE_RATE_LOOSE_TIDE| and \verb|TRK_FAKE_RATE_LOOSE| account for uncertainties in the fake track rate in data and simulation, with TIDE referring to a dedicated tuning for dense environments. The remaining uncertainties correspond to different sources of uncertainty in the track reconstruction efficiency for tracks passing loose quality criteria. \verb|TRK_EFF_LOOSE_TIDE| and \verb|TRK_EFF_LOOSE_PP0| stem from data-driven corrections and pileup modelling in the efficiency determination. \verb|TRK_EFF_LOOSE_PHYSMODEL| addresses uncertainties from the underlying physics modelling used in simulation. \verb|TRK_EFF_LOOSE_GLOBAL| represents a global uncertainty in track reconstruction efficiency applied across the detector. Finally, \verb|TRK_EFF_LOOSE_IBL| captures potential miss-modelling of the IBL, which is particularly relevant for high-$p_T$ tracks near the beamline. These components are combined in quadrature to form the total tracking uncertainty.
 \begin{figure}[htbp]
     % \centering
@@ -95,7 +95,7 @@ As we see in Figures~\ref{fig:track}, the relative tracking uncertainties, the c
 
 \subsection{Jet Calibration Uncertainties} \label{sec:jetcalunc}
 
-Much like the tracking uncertainties, the jet calibration and jet calibration extrapolation uncertainties show in Figures \ref{fig:jetcal} are similarly quite minimal. The peak of the distribution seen to be $\approx$ 0.05 at 3 TeV. The jet calibration uncertainties shown in  \ref{fig:jetcal} is comprised of: \verb|JET_SingleParticle_HighPt| arises from studies comparing data and simulation for isolated high-$p_T$ tracks and assessing the accuracy of momentum reconstruction. \verb|JET_EffectiveNP_*| represents compressed nuisance parameters derived from a combination of sources such as pileup, flavour composition, and detector modelling. These are obtained via diagonalization techniques to reduce the dimensionality of systematic uncertainties. \verb|JET_JER_*| accounts for mismatches in the jet energy resolution between data and Monte Carlo, impacting smearing and unfolding procedures. \verb|JET_EtaIntercalibration_*| captures uncertainties in the relative calibration between jets in different pseudorapidity regions, typically derived from di-jet balance techniques. Together, these uncertainties are combined in quadrature to form the total Jet-calibration uncertainty, which grows significantly in the high-$p_T$ regime due to tracking-based effects \cite{JER-JES}.
+Much like the tracking uncertainties, the jet calibration and jet calibration extrapolation uncertainties show in Figures \ref{fig:jetcal} are similarly quite minimal. The peak of the distribution seen to be $\approx$ 0.05 at 3 TeV. The jet calibration uncertainties shown in Figure \ref{fig:jetcal} is comprised of: \verb|JET_SingleParticle_HighPt| arises from studies comparing data and simulation for isolated high-$p_T$ tracks and assessing the accuracy of momentum reconstruction. \verb|JET_EffectiveNP_*| represents compressed nuisance parameters derived from a combination of sources such as pileup, flavour composition, and detector modelling. These are obtained via diagonalization techniques to reduce the dimensionality of systematic uncertainties. \verb|JET_JER_*| accounts for mismatches in the jet energy resolution between data and Monte Carlo, impacting smearing and unfolding procedures. \verb|JET_EtaIntercalibration_*| captures uncertainties in the relative calibration between jets in different pseudorapidity regions, typically derived from di-jet balance techniques. Together, these uncertainties are combined in quadrature to form the total Jet-calibration uncertainty, which grows significantly in the high-$p_T$ regime due to tracking-based effects \cite{JER-JES}.
 % \begin{figure}[htbp]
 %     \centering
 %     \includegraphics[scale=0.15]{figures/App_btag_highpt_extrap/jet_detailed_1_uncs__1_.png}
@@ -130,7 +130,7 @@ Much like the tracking uncertainties, the jet calibration and jet calibration ex
 \end{figure}
 
 \subsection{Modelling Uncertainties} \label{sec:model}
-Compared to the systematics described in Sections~\ref{sec:trackunc} and~\ref{sec:jetcalunc} the modelling uncertainties are considerably higher as seen in Figure~\ref{fig:model}. With the main contributions coming from the parton shower and B-hadron interactions. When these are propagated in to the extrapolation uncertainty these significantly inflate the overall value at any $p_T$ bin, peaking at 0.36 at 3 TeV. The modelling uncertainties are: \verb|FSR| corresponds to the uncertainty from final-state radiation modelling and is typically assessed by varying the QCD radiation parameters or using alternative parton shower configurations. \verb|parton shower| represents uncertainties associated with different choices of parton shower generators (e.g., \textsc{Pythia} vs \textsc{Herwig}), which affect the development of the jet and the kinematics of the b-hadron. \verb|B-hadron interaction| accounts for mismodelling of b-hadron decays and their interactions with the detector material, which can influence the reconstruction of secondary vertices and impact parameter significance. The \verb|Total| uncertainty is the quadrature sum of all modelling components.
+Compared to the systematics described in Sections~\ref{sec:trackunc} and~\ref{sec:jetcalunc} the modelling uncertainties are considerably larger as seen in Figure~\ref{fig:model}. With the main contributions coming from the parton shower and B-hadron interactions. When these are propagated in to the extrapolation uncertainty these significantly inflate the overall value at any $p_T$ bin, peaking at 0.36 at 3 TeV. The modelling uncertainties are: \verb|FSR| corresponds to the uncertainty from final-state radiation modelling and is typically assessed by varying the QCD radiation parameters or using alternative parton shower configurations. \verb|parton shower| represents uncertainties associated with different choices of parton shower generators (e.g., \textsc{Pythia} vs \textsc{Herwig}), which affect the development of the jet and the kinematics of the b-hadron. \verb|B-hadron interaction| accounts for mismodelling of b-hadron decays and their interactions with the detector material, which can influence the reconstruction of secondary vertices and impact parameter significance. The \verb|Total| uncertainty is the quadrature sum of all modelling components.
 
 % \begin{figure}[htbp]
 %     \centering
@@ -164,7 +164,7 @@ Compared to the systematics described in Sections~\ref{sec:trackunc} and~\ref{se
     % \caption{Relative(top) and extrapolated (bottom) modelling uncertainties for Pflow $b$-jets with DL1r at 60\% efficiency.}
     % \label{ffig:model}
 \end{figure}
-\subsection{Global uncertainty}
+\subsection{Global Uncertainty}
 As discussed in Section~\ref{sec:model} the modelling uncertainties are the dominant contributors for the extrapolation uncertainty, this is confirmed in Figure~\ref{fig:globalunc}.
 \begin{figure}[htbp]
     % \centering
@@ -190,7 +190,7 @@ As discussed in Section~\ref{sec:model} the modelling uncertainties are the domi
 
 
 \section{Eigenvector Decomposition}
-Folding the full set of extrapolated uncertainties into any analysis would result in a very bloated fit model, as we would have several nuisance parameters, per flavour of jet. To get around this issue, we can construct a matrix containing the contribution of each uncertainty per $p_T$ bin for one flavour of jet. Conducting an eigenvector (EV) decomposition on This matrix, resulting in a set of EVs were the leading EVs are encoded with the majority of the information from the initial matrix, selecting these leading EVs while pruning the rest folding these into our analysis would greatly reduce the bloat In our fit model while still capturing effects of the extrapolated uncertainties.
+Folding the full set of extrapolated uncertainties into any analysis would result in a very bloated fit model, as we would have several nuisance parameters, per flavour of jet. To get around this issue, we can construct a matrix containing the contribution of each uncertainty per $p_T$ bin for one flavour of jet. Conducting an eigenvector (EV) decomposition on this matrix, resulting in a set of EVs were the leading EVs are encoded with the majority of the information from the initial matrix, selecting these leading EVs while pruning the rest folding these into our analysis would greatly reduce the bloat in our fit model while still capturing effects of the extrapolated uncertainties.
 \\
 Let us denote by $N$ the number of $p_T$ bins under consideration, and by $M$ the number of systematic uncertainty sources (e.g., tracking, pile-up, modelling, etc.) for one flavour of jet. The uncertainty contributions can be represented in a matrix
 \begin{equation*}
@@ -249,8 +249,8 @@ where $\mathbf{Q}_{(L)}$ contains only the first $L$ eigenvectors, and $\boldsym
 \\
 \\
 In practice, this technique allows us to include only the dominant $L$ orthogonal modes as nuisance parameters in the analysis, dramatically reducing the dimensionality of the fit model while faithfully preserving the core features of the extrapolated uncertainty space.
-\section{Post truncation validation}
-After some discussion with FTAG the number of EVs to keep after truncation were settled on per flavour and are shown in table.~\ref{table:EV}. The question remains: if the number of EVs retained contain enough information to effectively encapsulate uncertainties evaluated thus far.
+\section{Post Truncation Validation}
+After some discussion, with the internal flavour tagging group of ATLAS (FTAG), the number of EVs to keep after truncation were settled on per flavour and are shown in table~\ref{table:EV}. The question remains: if the number of EVs retained contain enough information to effectively encapsulate uncertainties evaluated thus far.
 \begin{center}
 \begin{table}[h!]
 
@@ -270,10 +270,10 @@ kept after truncation, $L$\\
         \label{table:EV}
 \end{table}
 \end{center}
-Figures \ref{fig:bev}, \ref{fig:cev} and \ref{fig:lev} show the full uncertainties for each $p_T$ bin, from immediately after calibration to 3 Tev, for each PCBT  WP, (black) and the uncertainties evaluated only using the truncated  set of EVs (red). As we see in Figure~\ref{fig:bev}, referring to $b$-jets, there is a max loss of information of $\approx$ 6\%. However, this is a 6\% loss of an overall uncertainty value of $\approx$ 5, leading to an overall precision loss of $<$ 0.3 in our final uncertainty value. Similarly, in Figure~\ref{fig:cev}, referring to $c$-jets, we see a maximum loss of information of $\approx$ 4\% of an original uncertainty value of 10 leading to an overall loss of 0.4. Finally, Figure~\ref{fig:lev}, referring to light-jets, we see a maximum information loss of $\approx$ 20\%. This is much larger than the previous flavours, however following the same logic as before, this is a $\approx$ 20\% loss of 16 resulting in an overall loss of 3.2 from our final uncertainty. The high level takeaway from this discussion is that: The bins immediately after calibration suffer the most form information loss in the truncated regime across all flavours. However, the magnitude of their information loss is minimal  due to the relative low value of the raw uncertainty, hence considered acceptable. 
+Figures \ref{fig:bev}, \ref{fig:cev} and \ref{fig:lev} show the full uncertainties for each $p_T$ bin, from immediately after calibration to 3 Tev, for each PCBT  WP, (black) and the uncertainties evaluated only using the truncated  set of EVs (red). As we see in Figure~\ref{fig:bev}, referring to $b$-jets, there is a max loss of information of $\approx$ 6\%. However, this is a 6\% loss of an overall uncertainty value of $\approx$ 5, leading to an overall precision loss of $<$ 0.3 in our final uncertainty value. Similarly, in Figure~\ref{fig:cev}, referring to $c$-jets, we see a maximum loss of information of $\approx$ 4\% of an original uncertainty value of 10 leading to an overall loss of 0.4. Finally, Figure~\ref{fig:lev}, referring to light-jets, we see a maximum information loss of $\approx$ 20\%. This is much larger than the previous flavours, however following the same logic as before, this is a $\approx$ 20\% loss of 16 resulting in an overall loss of 3.2 from our final uncertainty. The high level takeaway from this discussion is that: The bins immediately after calibration suffer the most from information loss in the truncated regime across all flavours. However, the magnitude of their information loss is minimal  due to the relative low value of the raw uncertainty, hence considered acceptable. 
 \\
 \\
-After considering the information loss with the truncated set of EVs, the loss was deemed minor and FTAG accepted the recommendation to reduce the number of EVs detailed in \ref{table:EV}. With this recommendation in hand, FTAG propagated this work into the final CDI of release 21 and so any analysis using PFlow jets and the PCBT methods with high-$p_T$ regions could benefit form this extrapolation method and will provide more reliable flavour-tagging uncertainties past the calibration threshold.
+After considering the information loss with the truncated set of EVs, the loss was deemed minor and FTAG accepted the recommendation to reduce the number of EVs detailed in \ref{table:EV}. With this recommendation in hand, FTAG propagated this work into the final CDI of release 21 and so any analysis using PFlow jets and the PCBT methods with high-$p_T$ regions could benefit from this extrapolation method and will provide more reliable flavour-tagging uncertainties past the calibration threshold.
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.7]{figures/App_btag_highpt_extrap/ratio_vec_4_b.png}

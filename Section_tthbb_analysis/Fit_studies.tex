@@ -1,8 +1,8 @@
-The analysis is performed under a blinded strategy to avoid bias in the interpretation of the results. This means that the data in the most sensitive signal regions is not inspected until the statistical model has been fully validated. Before unblinding, a series of dedicated fit studies is carried out using the blinded model to ensure that the any pulls in the model are understood and not a result of mis-modelling, and that the systematic uncertainties are properly implemented. After these studies we may proceed with unblinded and reveal our signal contributions.\\
+The analysis is performed under a blinded strategy to avoid bias in the interpretation of the results. This means that the data in the most sensitive signal regions is not inspected until the statistical model has been fully validated. Before unblinding, a series of dedicated fit studies is carried out using the blinded model to ensure that the any pulls in the model are understood and not a result of mis-modelling, and that the systematic uncertainties are properly implemented. After these studies we proceeded with the unblinding to reveal our signal contributions.\\
 \\
 This section will discuss the construction of statistical model and the fit studies conducted. A large number of fit studies were carried out between myself and the analysis team to validate the statistical model. I will briefly summarise a selection of these studies to illustrate the methodology and complexity of these studies. Finally, I present the validated, unblinded model that forms the basis of the measurement.
-\subsection{Constructing The Model}
-As mentioned in Chapter \ref{chap:AnalTech} the likelihood function is created with the RooStat framework \cite{roostats1,roostats2}, which is applied using the TRExFitter framework, and is based on the HistFactory framework \cite{histlab}. The minimisation is performed using the Minuit library implemented in ROOT \cite{minut,root}. The likelihood function used in this analysis is defined as the product of Poisson probabilities for each bin of the signal and background templates, given the observed data, together with Gaussian constraint terms that encode systematic uncertainties. Explicitly, the likelihood takes the form:
+\subsection{Constructing the Model}
+As mentioned in Chapter \ref{chap:AnalTech} the likelihood function is created within the RooStat framework \cite{roostats1,roostats2}, which is applied using TRExFitter, which is based on HistFactory \cite{histlab}. The minimisation is performed using the Minuit library implemented in ROOT \cite{minut,root}. The likelihood function used in this analysis is defined as the product of Poisson probabilities for each bin of the signal and background templates, given the observed data, together with Gaussian constraint terms that encode systematic uncertainties. Explicitly, the likelihood takes the form:
 \begin{equation}
 \mathcal{L}(\mu, \vec{k}, \vec{\theta}) = 
 \prod_{r \in \{\text{SR, CR}\}}
@@ -20,9 +20,9 @@ and the nuisance parameters $\vec{\theta}$. All nuisance parameters $\theta_j$ a
 
 
 \subsection{Fit Studies}
-Here we detail two fit studies conducted during the validation of the statistical model of the analysis. These studies were performed on various version of the fit. As such, steps could have been taken to relax these tensions and pulls for the final fit, shown in Section \ref{final_model}, and so some pulls will have relaxed. If pulls remain in the final fit these pull were well enough understood. Many other minor fit studies were conducted during this time most of which were simple decorrelations of NP to identify problem regions. The systematic variation plots were then inspected and either a change to the smoothing algorithm or implementing a newer version of CDI, which resulted in a relaxation of the pull. These minor studies are omitted for the sake of brevity.
+Here we detail two example fit studies conducted during the validation of the statistical model of the analysis which required additional investigation. These studies were performed on various versions of the fit. As such, steps were taken to relax tensions and pulls in the initial fits prior to the final fit. As, shown in Section \ref{final_model}, some pulls were relaxed. If pulls remain in the final fit these pull were well enough understood. Many other minor fit studies were conducted during this time most of which were simple decorrelations of NP to identify problem regions. The systematic variation plots were then inspected and either a change to the smoothing algorithm or implementing a newer version of CDI, which resulted in a relaxation of the pull. These minor studies are omitted for the sake of brevity.
 \subsubsection{$t\bar{t}\geq2b$ PS PH7 Pull In The Single Lepton Channel}
-A significant pull was observed in the single-lepton channel for the $t\bar{t}\geq 2b$ parton-shower PH7 (Powheg + Herwig 7) systematic. The presence of this pull indicated that the fit was using the nuisance parameter aggressively, suggesting non-trivial mismodelling effects. To identify the source, a systematic de-correlation across analysis regions was performed. This showed that the $t\bar{t}+c$ control region was the principal driver of the tension. The plots showing the pulls are shown below in Figure \ref{fig:tt2b_ps_PH7_pulls}
+A significant pull was observed in the single-lepton channel for the $t\bar{t}\geq 2b$ parton-shower PH7 (Powheg + Herwig 7) systematic. The presence of this pull indicated that the fit was using the nuisance parameter aggressively, suggesting non-trivial mismodelling effects. To identify the source, a systematic de-correlation across analysis regions was performed. This showed that the $t\bar{t}+c$ control region was the principal driver of the tension. The plots showing the pulls are shown below in Figure \ref{fig:tt2b_ps_PH7_pulls}.
 \begin{figure}[!htb]
   \centering
   \begin{subfigure}{0.45\textwidth}
@@ -134,11 +134,12 @@ Finally, we explored whether the pull could be relaxed by de-correlating the $k$
 \\
 This decorrelated $k$-factor approach, based on my recommendation, was adopted as in the final fit as shown in Figure \ref{fig:background norm}. 
 
-\subsection{Finalised Statistical Model}\label{final_model}
-Belo you can find the finalised statistical model represented by the $S+B$ fit showing the: background normalisation factors, Figure \ref{fig:background norm}, the $t\bar{t}$ specific background modelling systematic pulls, Figure \ref{ttbar_pulls_final}, the flavour tagging systematic pulls, Figure \ref{fig:flavou_pulls}. The number of finalised extrapolation uncertainties presented in Chapter \ref{chap:PCBTextrap} and seen in the final fit are different due to some being pruned out. Finnaly we have the other modelling systematic parameters shown in Figure \ref{fig:fitstudies_modelling}.
+\subsection{Finalised Statistical Model}
+\label{final_model}
+The finalised statistical model represented by the $S+B$ fit showing the background normalisation factors in Figure \ref{fig:background norm}. The $t\bar{t}$ specific background modelling systematic pulls in Figure \ref{ttbar_pulls_final}. The flavour tagging systematic pulls, Figure \ref{fig:flavou_pulls}. The number of finalised extrapolation uncertainties presented in Chapter \ref{chap:PCBTextrap} and seen in the final fit are different due to some being pruned out. Finally, we have the other modelling systematic parameters shown in Figure \ref{fig:fitstudies_modelling}.
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.6\linewidth]{Section_tthbb_analysis/figures/Final_fit/NormFactors_comp.png}
+    \includegraphics[width=1\linewidth]{Section_tthbb_analysis/figures/Final_fit/NormFactors_comp.png}
     \caption{Best-fit results for all free-floating normalization factors in a fit to observed data. The background normalization factor comparison includes fits to only the single lepton and di-lepton channels, respectively, as well as the combined fit to all channels. Entries of -10 indicate that the normalization factor is not defined.}
     \label{fig:background norm}
 \end{figure}
@@ -156,7 +157,7 @@ Belo you can find the finalised statistical model represented by the $S+B$ fit s
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.9\textwidth}
         \centering
         \begin{subfigure}{\linewidth}
             \includegraphics[width=\linewidth]{Section_tthbb_analysis/figures/Final_fit/NuisPar_comp_Modelling_other.png}

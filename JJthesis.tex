@@ -11,10 +11,22 @@
 
 \documentclass[hyperpdf,oneside]{hepthesis}
 
-
+% \usepackage{titlesec}
 %% Load special font packages here if you wish
 \usepackage{svg}
+% \usepackage{epstopdf}
 \usepackage{graphicx}
+
+\renewcommand*\chapterformat{\chapapp~\thechapter\enskip}   % "Chapter 1␠"
+\renewcommand*\sectionformat{\thesection\enskip}            % "1.1␠"
+\renewcommand*\subsectionformat{\thesubsection\enskip} 
+
+% \titleformat{\section}
+%   {\normalfont\Large\bfseries}  % formatting
+%   {\thesection}                 % label (number)
+%   {1em}                         % spacing
+%   {}                            % before-code
+
 % \usepackage{feynmp}
 \usepackage{caption} % if you use it
 \captionsetup{labelformat=default,labelsep=space}
@@ -27,15 +39,18 @@
 % Reapply clean numbering right after the class flips sections
 \AddToHook{cmd/frontmatter/after}{%
   \renewcommand{\thefigure}{\arabic{figure}}%
-  \renewcommand{\thetable}{\arabic{table}}%
+  \renewcommand{\thetable}{\arabic{table}}
+  % \renewcommand{\@chapappnum}{\thechapter} %
 }
 \AddToHook{cmd/mainmatter/after}{%
   \renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
-  \renewcommand{\thetable}{\thechapter.\arabic{table}}%
+  \renewcommand{\thetable}{\thechapter.\arabic{table}}
+  % \renewcommand{\@chapappnum}{\thechapter} %
 }
 \AddToHook{cmd/backmatter/after}{%
   \renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
-  \renewcommand{\thetable}{\thechapter.\arabic{table}}%
+  \renewcommand{\thetable}{\thechapter.\arabic{table}}
+  % \renewcommand{\@chapappnum}{\thechapter}%
 }
 \makeatother
 
@@ -74,6 +89,7 @@
 \usepackage{amsmath}
 \usepackage{placeins}
 
+
 \let\Oldsection\section
 \renewcommand{\section}{\FloatBarrier\Oldsection}
 
@@ -83,11 +99,12 @@
 \let\Oldsubsubsection\subsubsection
 \renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
 
-\linenumbers
+% \linenumbers
 
 \newcommand*{\BASEPATH}{./}
 
 \show\thefigure 
+
 
 %% Put package includes etc. into preamble.tex for convenience
 \input{preamble}
@@ -128,17 +145,17 @@
 %% Start the content body of the thesis
 \begin{mainmatter}
   %% Actually, more semantic chapter filenames are better, like "chap-bgtheory.tex"
-    % \input{Section_Introduction/Introduction}
-    % \input{Section_theory/theory}
-    % \input{Section_ATLAS_dect/LHC}
-    % \input{Section_QT/itk_qt}
-    % \input{Section_objects/objects}
-    % \input{Section_Monte_carlo/MC}
-    % \input{Section_high_pt_extrapolation/high_pt}
-    % \input{Section_analysis_tech/Analysis_tech}
+    \input{Section_Introduction/Introduction}
+    \input{Section_theory/theory}
+    \input{Section_ATLAS_dect/LHC}
+    \input{Section_QT/itk_qt}
+    \input{Section_objects/objects}
+    \input{Section_Monte_carlo/MC}
+    \input{Section_high_pt_extrapolation/high_pt}
+    \input{Section_analysis_tech/Analysis_tech}
     \input{Section_tthbb_analysis/ttHbb_analysis}
-    % \input{Section_eft_tth/tth_eft}
-    % \input{Section_conclusion/conclusion}
+    \input{Section_eft_tth/tth_eft}
+    \input{Section_conclusion/conclusion}
 
   %% To ignore a specific chapter while working on another, making the build faster, comment it out:
 \end{mainmatter}
@@ -155,4 +172,4 @@
 \end{backmatter}
 
 %% Close
-\end{document}}
+\end{document}

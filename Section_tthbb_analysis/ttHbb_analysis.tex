@@ -1,10 +1,10 @@
 \chapter{$t\bar{t}H(b\bar{b})$ Legacy Analysis}
 \label{chap::tth}
 \chapterquote{12 and 5}%
-{Dr. Elliot Watton}
-We now arrive to the first of two main results and analyses presented in this thesis; the measurement of the Higgs boson production in association with a pair of top quarks ($t\bar{t}H$), focusing on the decay channel $H \to b\bar{b}$, using data recorded by the ATLAS detector. The analysis is based on the full Run~2 dataset, collected between 2015 and 2018, corresponding to an integrated luminosity of $140~\text{fb}^{-1}$ at a centre-of-mass energy of $\sqrt{s} = 13~\text{TeV}$. This same dataset was previously used to measure the $t\bar{t}H(b\bar{b})$ production cross-section, which yielded a signal strength of $\mu_{t\bar{t}H} = 0.35^{+0.36}_{-0.34}$ \cite{tth-atlas-2018}. That result indicated a shortfall in the $H \to b\bar{b}$ decay channel compared with expectations from other Higgs decays, creating some tension that motivated a more refined re-analysis. We will refer to the current analysis as the legacy analysis and the previous analysis as the 2022 result.
+{Dr. Elliot Watton, on whisky and burgers.}
+We now arrive at the first of two main results and analyses presented in this thesis; the measurement of the Higgs boson production in association with a pair of top quarks ($t\bar{t}H$), focusing on the decay channel $H \to b\bar{b}$, using data recorded by the ATLAS detector. The analysis is based on the full Run~2 dataset, collected between 2015 and 2018, corresponding to an integrated luminosity of $140~\text{fb}^{-1}$ at a centre-of-mass energy of $\sqrt{s} = 13~\text{TeV}$. This same dataset was previously used to measure the $t\bar{t}H(b\bar{b})$ production cross-section, which yielded a signal strength of $\mu_{t\bar{t}H} = 0.35^{+0.36}_{-0.34}$ \cite{tth-atlas-2018}. That result indicated a shortfall in the $H \to b\bar{b}$ decay channel compared with expectations from other Higgs decays, creating some tension that motivated a more refined re-analysis. We will refer to the current analysis as the legacy analysis and the previous analysis as the 2022 result.
 \section{Overview}
-Before we can delve into the legacy analysis lets take a brief recap of the 2022 result, this will allow us to discuss some of its shortfalls and how they are improved for the legacy analysis. Thus, giving an overview of the key features on the legacy analysis.
+Before we can delve into the legacy analysis lets recap the 2022 result, which will allow us to discuss some of its shortfalls and how they are improved for the legacy analysis. This enables the key differences in the legacy analysis to be highlighted.
 \begin{figure}[!htb]
 
   \begin{subfigure}{0.32\textwidth}
@@ -232,20 +232,20 @@ STXS5 & $300 < p_T^H \leq 450$ \\
 STXS6 & $p_T^H > 450$ \\
 \hline
 \end{tabular}
-\caption{Commonly agreed STXS bins for $t\bar{t}H$ measurements, as defined by the LHC experiments.}
+\caption{Commonly agreed STXS bins for $t\bar{t}H$ measurements, as defined by the LHC working group.}
 \label{tab:stxs_bins}
 \end{table}
 \begin{figure}
     \centering
     \includegraphics[width=0.7\linewidth]{Section_tthbb_analysis//old_analysis_plots/STXS.pdf}
-    \caption{The differential result for 2022 result \cite{tth-atlas-2018}}
+    \caption{The differential result 2022 result for $\mu$ as a function of $p_T^H$\cite{tth-atlas-2018}.}
     \label{old_anal_stxs}
 \end{figure}
 
-\subsection{Improvements On The Previous analysis}
+\subsection{Improvements on the Previous analysis}
 A number of significant updates have been introduced in this re-analysis compared to the most recent public ATLAS result~\cite{tth-atlas-2018}. These changes span detector reconstruction, event selection, signal discrimination, and background modelling, each contributing to improved sensitivity to the $t\bar{t}H(b\bar{b})$ process.\\
 \\
-First, the analysis is based on \texttt{Athena} release~21, which incorporates a new ATLAS detector reconstruction framework. This includes refined particle-flow (PFlow) jet reconstruction and the DL1r b-tagging algorithm, together with updated calibrations. As a consequence, the full jet energy resolution model is employed, accompanied by an improved treatment of b-tagging uncertainties, including the recommended high-$p_{T}$ extrapolations. \\
+First, the analysis is based on \texttt{Athena} release~21, which incorporates a new ATLAS detector reconstruction framework. This includes refined particle-flow (PFlow) jet reconstruction and the DL1r b-tagging algorithm, together with updated calibrations \cite{DL1}. As a consequence, the full jet energy resolution model is employed, accompanied by an improved treatment of b-tagging uncertainties, including the recommended high-$p_{T}$ extrapolations. \\
 \\
 The event pre-selections have also been relaxed to increase statistics. In the single-lepton channel, events are accepted with at least five jets ($p_{T}>25~\text{GeV}$, $|\eta|<2.5$), of which at least three must be b-tagged at the 70\% working point (WP) of the DL1r algorithm. For the dilepton channel, the requirement is reduced to at least three jets, with at least three tagged at the 85\% WP and two at the 70\% WP. Additionally, a dedicated boosted selection is introduced in the single-lepton channel, requiring at least four jets, with three b-tagged at the 85\% WP, and one reclustered jet with $p_{T}>300~\text{GeV}$.\\
 \\
@@ -257,18 +257,18 @@ Additional updates include the introduction of fake-lepton estimates to account 
 \\
 Finally, the signal region definition incorporates refinements motivated by the Higgs simplified template cross-section (STXS) framework: the lowest-$p_{T}$ bin is now split into the $[0,60]~\text{GeV}$ and $[60,120]~\text{GeV}$ intervals, as in STXS version~1.2, ensuring consistency with other Higgs decay channels such as $H\to\gamma\gamma$.\\
 \\
-Taken together, these methodological developments substantially improve both the statistical reach and the systematic control of the analysis, enabling a more precise determination of the $t\bar{t}H(b\bar{b})$ production rate than in previous studies.  
+Taken together, these methodological developments substantially improve both the statistical reach and the systematic control of the analysis, enabling a more precise determination of the $t\bar{t}H(b\bar{b})$ production rate than in previous studies. These improvements are detailed below. 
 
 
 
 
 \section{Event Selection}
-There are four main stage to the event selection that define the phase space for these analysis, these stages are designed to increase the selection for possible $t\bar{t}H$ events while also reducing the background. The four main stages are: the raw ATLAS Run-2 dataset, the trigger selection, objects definitions and finally channel and region definitions. This section provides an overview on these stages.
+There are four main stages to the event selection that define the phase space for these analyses, these stages are designed to increase the selection for possible $t\bar{t}H$ events while also reducing the background. The four main stages are: the raw ATLAS Run-2 dataset, the trigger selection, objects definitions and finally channel and region definitions. This section provides an overview on these stages.
 
 \subsection{ATLAS Run-2 Dataset}
-This analysis uses the full ATLAS Run-2 dataset. The dataset was recorded during the 2015-2018 data taking stage and consists of propton-proton collision events at a centre of mass energy $\sqrt{s}=13$TeV with a total integrated luminosity of 140fb$^{-1}$. The events considered for analysis are required to pass the ATLAS data quality criteria, meaning that at the time of recording all detector subsystems were required to be operational and performing at a high level. Runs that pass this criteria are consider for the Good Run List (GLR) which concatenates blocks of data together to be used in physics analyses.
+This analysis uses the full ATLAS Run-2 dataset. The dataset was recorded during the 2015-2018 data taking stage and consists of proton-proton collision events at a centre of mass energy $\sqrt{s}=13$~TeV with a total integrated luminosity of 140fb$^{-1}$. The events considered for analysis are required to pass the ATLAS data quality criteria, meaning that at the time of recording all detector subsystems were required to be operational and performing at a high level. Runs that pass this criteria are consider for the Good Run List (GRL) which concatenates blocks of data together to be used in physics analyses.
 \subsection{Trigger Selection}
-The events selected for this analysis, for both the single and di-lepton channels, are required to pass a set of un-prescaled single-lepton triggers that have different $p_T$ thresholds. Only Single-lepton triggers are used in order to remain orthogonal with multi-lepton events. Un-prescaled refers to the absence of a trigger rate scale factor, so all events that pass the criteria are used.The trigger system employs a logical OR combination, allowing an event to be recorded if it satisfies at least one of the available triggers. This strategy maintains high efficiency across the relevant thresholds, ensuring, for instance, that high-$p_T$ leptons which do not meet isolation requirements are still retained. To be selected, an event must either pass a low-$p_T$ trigger with an isolation condition on the lepton, or a higher-$p_T$ trigger with looser identification and no isolation requirement. For electrons, the lowest threshold corresponds to $p_T = 24\ \mathrm{GeV}$, paired with a medium identification working point and no isolation. The highest electron threshold is $p_T = 120\ \mathrm{GeV}$, where a loose identification and no isolation are required. For muons, the lowest threshold is $p_T = 20\ \mathrm{GeV}$, with medium identification and a loose isolation requirement, while the highest threshold is $p_T = 50\ \mathrm{GeV}$, with medium identification and no isolation. Table \ref{tab:single_lepton_triggers} shows the summary of the single-lepton triggers used in the analysis on the Run-2 data.
+The events selected for this analysis, for both the single and di-lepton channels, are required to pass a set of un-prescaled single-lepton triggers that have different $p_T$ thresholds. Only single-lepton triggers are used in order to remain orthogonal with multi-lepton events. Un-prescaled refers to the absence of a trigger rate scale factor, so all events that pass the criteria are used. The trigger system employs a logical OR combination, allowing an event to be recorded if it satisfies at least one of the available triggers. This strategy maintains high efficiency across the relevant thresholds, ensuring, for instance, that high-$p_T$ leptons which do not meet isolation requirements are still retained. To be selected, an event must either pass a low-$p_T$ trigger with an isolation condition on the lepton, or a higher-$p_T$ trigger with looser identification and no isolation requirement. For electrons, the lowest threshold corresponds to $p_T = 24\ \mathrm{GeV}$, paired with a medium identification working point and no isolation. The highest electron threshold is $p_T = 120\ \mathrm{GeV}$, where a loose identification and no isolation are required. For muons, the lowest threshold is $p_T = 20\ \mathrm{GeV}$, with medium identification and a loose isolation requirement, while the highest threshold is $p_T = 50\ \mathrm{GeV}$, with medium identification and no isolation. Table \ref{tab:single_lepton_triggers} shows a summary of the single-lepton triggers used the Run-2 data analyses.
 \begin{table}[h!]
 \centering
 \begin{tabular}{lcc|cc|cc}
@@ -294,7 +294,7 @@ Events are required to contain at least one reconstructed vertex with at least t
 Electrons must have $p_{T} > 10$~GeV and be reconstructed within $|\eta| < 2.47$, excluding the transition region $1.37 < |\eta| < 1.52$. Muons are required to have $p_{T} > 10$~GeV and $|\eta| < 2.5$. Electron (muon) candidates must satisfy the MEDIUM (LOOSE) identification criteria. Impact parameter requirements are imposed: $|z_{0}| < 0.5$~mm for both, and $|d_{0}|/\sigma(d_{0}) < 5~(3)$ for electrons (muons), respectively.  
 \\
 \\
-Jets are reconstructed using the anti-$k_{T}$ algorithm with radius $R=0.4$ and must satisfy $p_{T} > 25$~GeV and $|\eta| < 2.5$. Events containing jets that fail quality requirements, designed to reject non-collision backgrounds or detector noise, are discarded. For jets with $p_{T} < 60$~GeV, the tight working point of the JVT algorithm is applied to suppress pile-up contributions.  
+Jets are reconstructed using the anti-$k_{T}$ algorithm with radius $R=0.4$ and must satisfy $p_{T} > 25$~GeV and $|\eta| < 2.5$. Events containing jets that fail quality requirements, designed to reject non-collision backgrounds or detector noise, are discarded. For jets with $p_{T} < 60$~GeV, the tight working point of the jet vertex tagging algorithm \cite{JetFitter} is applied to suppress pile-up contributions.  
 \\
 \\
 $b$-jets are identified with the DL1r algorithm, a neural-network method that exploits track impact parameters, displaced vertices, and jet kinematics. Each jet is assigned a pseudo-continuous score, enabling classification at multiple efficiency working points (85\%, 77\%, 70\%, and 60\%). Scale factors are applied to simulation to correct for differences between data and Monte Carlo in tagging efficiencies and mis-tag rates.  
@@ -302,7 +302,7 @@ $b$-jets are identified with the DL1r algorithm, a neural-network method that ex
 \\
 In boosted single-lepton topologies, reclustered jets are built from the small-$R$ jets using the anti-$k_{T}$ algorithm with $R=1.0$. These jets are required to have $p_{T} > 200$~GeV and $|\eta| < 2.0$, an invariant mass $M > 50$~GeV, at least two constituent small-$R$ sub-jets, and an angular separation $\Delta R > 1.0$ from all selected electrons.
 \subsection{Channel Definitions}
-The final stage of event selections is categorising into channels based on the decay mode of the $W$-bosons produced in the top-quark decays. The relaxation of the $b$-tagging requirements on this iteration of the analysis, results in more signal and background events and to allow better control of their subsequent modelling, and improved statistics for the training of the machine-learning algorithms used to classify the events. The channel selection criteria is summarised in Table \ref{tab:selection_requirements}.
+The final stage of the event selection is categorising the channels based on the decay mode of the $W$-bosons produced in the top-quark decays. The relaxation of the $b$-tagging requirements on this iteration of the analysis, results in more signal and background events and to allow better control of their subsequent modelling, and improved statistics for the training of the machine-learning algorithms used to classify the events. The channel selection criteria are summarised in Table \ref{tab:selection_requirements}.
 \subsubsection{Di-lepton Channel}
 In the di-lepton channel, events must contain exactly two electrons or muons satisfying the baseline lepton criteria. At least one lepton is required to have $p_{T} > 27$~GeV and to match a trigger lepton within $\Delta R < 0.15$. The di-lepton invariant mass must exceed 15~GeV to suppress low-mass Drell-Yan backgrounds, and events with $83 < m_{\ell\ell} < 99$~GeV are excluded to reduce $Z$-boson contributions. In the $ee$ channel, the sub-leading electron must have $p_{T} > 15$~GeV, while for $\mu\mu$ and $\mu e$ channels the threshold is $p_{T} > 10$~GeV. Events containing hadronic $\tau$ candidates are vetoed to preserve orthogonality with other $t\bar{t}H$ analyses. Selected events must include at least three jets, with at least three $b$-tagged at the 85\% efficiency working point and at least two at the 70\% working point.  
 \subsubsection{Single-lepton Channel}
@@ -322,18 +322,18 @@ $\ell$+jets boosted  & $\geq 4$ & --       & $\geq 3$ & 1 & $\leq 1$ & $\geq 1$ 
 \caption{Object selection requirements for both the di-lepton and single-lepton channels, with the latter divided into resolved and boosted categories. Shown are the minimum number of jets, the number of $b$-tagged jets at 70\% WP and 85\% WP, the number of selected electrons or muons ($e/\mu$), the number of hadronic tau candidates ($\tau_{\text{had}}$), and the number of RC jets. RC jets must additionally satisfy $p_{T} > 300$~GeV.}
 \label{tab:selection_requirements}
 \end{table}
-\section{Event modelling}
-In order to model the signal and background events, MC generators are used. The generators that are used to create the particular MC sample are shown in Table \ref{tab:MC_samples}. This section shall highlight the differences of each MC sample and so provide some insight to their generation.
-\subsection{Signal modelling}
+\section{Event Modelling}
+In order to model the signal and background events, MC generators are used. The generators used to create the particular MC samples are shown in Table \ref{tab:MC_samples}. This section highlights the differences of each MC sample and so provides an insight to their generation.
+\subsection{Signal Modelling}
 The $t\bar{t}H$ signal is modelled using the \textsc{Powheg-Box}~V2 generator~\cite{powheg-box} at NLO accuracy with the NNPDF3.0NLO set of parton distribution functions~\cite{pdfs_run_2} in the five-flavour scheme. The $h_{\text{damp}}$ parameter is set to $\tfrac{3}{4}(m_{t}+\bar{m}_{t}+m_{H}) = 352.5$~GeV, while the renormalisation and factorisation scales are chosen as $\mu_{R}=\mu_{F}= \sqrt[3]{m_{T}(t)\,m_{T}(\bar{t})\,m_{T}(H)}$, where $m_{T}$ denotes the transverse mass. Parton showering and hadronisation are simulated with \textsc{Pythia}~8.230~\cite{PYTHIA8}.  
 \\
 \\
 To evaluate systematic uncertainties associated with the parton shower and matching scheme, two alternative samples are produced. In one case, \textsc{Powheg-Box}~V2 is interfaced with \textsc{Herwig}~7.04~\cite{herwig} instead of \textsc{Pythia}. In the other, the nominal generator settings are retained but interfaced with \textsc{Pythia}~8.230 using \texttt{pthard}=1, modifying the definition of the hardness scale in the matching procedure.\\
 \\
 All $t\bar{t}H$ decay modes are generated, although only a small contribution from non-$H\to b\bar{b}$ channels survives the analysis selection. The simulated samples are normalised to the predicted inclusive $t\bar{t}H$ cross section, $\sigma_{t\bar{t}H} = 507^{+35}_{-50}$~fb, which includes both NLO QCD and electroweak corrections.  
-\subsection{Background modelling}
+\subsection{Background Modelling}
 \subsubsection{$t\bar{t}+b\bar{b}$}
-To reduce the modelling uncertainties previously observed in the $t\bar{t}+1b$ processes, dedicated samples are generated at NLO in the four-flavour scheme using the \textsc{Powheg-Box Res} generator~\cite{Jezo:2015aia} interfaced with \textsc{OpenLoops}~\cite{Cascioli:2011va}. The \verb|NNPDF3.1nlo| $n_{f}=4$ PDF set is employed, and parton showering and hadronisation are provided by \textsc{Pythia}~8.244. Both the matrix-element and shower generators are configured with specialised settings to further constrain the associated uncertainties.The renormalisation and factorisation scales are defined as:
+To reduce the modelling uncertainties previously observed in the $t\bar{t}+b\bar{b}$ processes, dedicated samples are generated at NLO in the four-flavour scheme using the \textsc{Powheg-Box Res} generator~\cite{Jezo:2015aia} interfaced with \textsc{OpenLoops}~\cite{Cascioli:2011va}. The \verb|NNPDF3.1nlo| $n_{f}=4$ PDF set is employed, and parton showering and hadronisation are provided by \textsc{Pythia}~8.244. Both the matrix-element and shower generators are configured with specialised settings to further constrain the associated uncertainties. The renormalisation and factorisation scales are defined as:
 \begin{equation}
 \mu_{R} = \tfrac{1}{2} \sum_{i=t,\bar{t},b,\bar{b},j} m_{T,i}
 \end{equation}
@@ -344,11 +344,11 @@ while the damping parameter is set to:
 \begin{equation}
 h_{\text{damp}} = \tfrac{1}{2} \sum_{i=t,\bar{t},b,\bar{b}} m_{T,i}.
 \end{equation}
-A $b$-quark mass of $m_{b}=4.95$~GeV is used to ensure consistency with $b$ quarks from top decays. In addition to the nominal sample, three dedicated variations are produced to assess systematic effects. These probe the choice of parton-shower and hadronisation model (using \textsc{Herwig}~7.04 instead of \textsc{Pythia}), the matrix-element–shower matching scheme (varying the \texttt{pthard} setting in \textsc{Pythia}~8.244 to 1), and the recoil model (switching from global to dipole recoil in \textsc{Pythia}~8.244).\\
+In addition to the nominal sample, three dedicated variations are produced to assess systematic effects. These probe the choice of parton-shower and hadronisation model (using \textsc{Herwig}~7.04 instead of \textsc{Pythia}), the matrix-element–shower matching scheme (varying the \texttt{pthard} setting in \textsc{Pythia}~8.244 to 1), and the recoil model (switching from global to dipole recoil in \textsc{Pythia}~8.244).\\
 \\
 A $b$-quark mass of $m_{b}=4.95$~GeV is used, consistent with the $b$ quarks produced in top decays. In addition to the nominal sample, three variations are generated to probe systematic uncertainties. The first tests the parton-shower and hadronisation model by replacing \textsc{Pythia}~8.244 with \textsc{Herwig}~7.04. The second explores the matrix-element–parton-shower matching by setting \texttt{pthard}=1 in \textsc{Pythia}~8.244. The final variation alters the recoil scheme, switching from the global recoil configuration used in the nominal sample to the dipole recoil option in \textsc{Pythia}~8.244.  
 \subsubsection{$t\bar{t}$ Inclusive modelling}
-In addition to the dedicated $t\bar{t}+b\bar{b}$ samples, the remaining $t\bar{t}+$jets background is taken from inclusive five-flavour scheme $t\bar{t}$ samples, excluding events classified as $t\bar{t}+1b$. The inclusive $t\bar{t}$ process is generated with \textsc{Powheg-Box}~V2 at NLO QCD accuracy and interfaced with \textsc{Pythia}~8.230 for parton showering and hadronisation, using settings similar to those of the $t\bar{t}H$ signal samples. The \texttt{hdamp} parameter is set to $1.5\,m_{t}$, and the renormalisation and factorisation scales are defined as:
+In addition to the dedicated $t\bar{t}+b\bar{b}$ samples, the remaining $t\bar{t}+$jets background is taken from inclusive five-flavour scheme $t\bar{t}$ samples, excluding events classified as $t\bar{t}\geq1b$. The inclusive $t\bar{t}$ process is generated with \textsc{Powheg-Box}~V2 at NLO QCD accuracy and interfaced with \textsc{Pythia}~8.230 for parton showering and hadronisation, using settings similar to those of the $t\bar{t}H$ signal samples. The \texttt{hdamp} parameter is set to $1.5\,m_{t}$, and the renormalisation and factorisation scales are defined as:
 \begin{equation*}
     \mu_{R} = \mu_{F} = \sqrt{m_{t}^{2} + p_{T}^{2}}.
 \end{equation*}
@@ -357,10 +357,10 @@ Three additional variations are produced to assess modelling uncertainties. The 
 \input{Section_tthbb_analysis/tables/event_MC}
 
 \section{Multivariate Analysis Techniques}
-In order to classify events into signal or background, advanced Multivariate Analysis (MVA) techniques are used. Similar MVA techniques are used to reconstruct Higgs Boson candidate from the $b$-jets in an event through an explicit matching procedure. This allows us to then categories the Higgs events into STXS bins based on the reconstructed Higgs $p_T$. For the classification and reconstruction tasks required of this analysis, the transformer architecture outlined in Chapter \ref{chap:AnalTech}.
+In order to classify events into signal or background, advanced Multivariate Analysis (MVA) techniques are used. Similar MVA techniques are used to reconstruct Higgs boson candidates from the $b$-jets in an event through an explicit matching procedure. This allows us to then categories the Higgs events into STXS bins based on the reconstructed Higgs $p_T$. For the classification and reconstruction tasks required of this analysis, the transformer architecture outlined in Chapter \ref{chap:AnalTech}.
 \subsection{Event Classification and Higgs Reconstruction}
 \subsubsection{Network Overview Inputs}
-The multi-class classification transformer is trained to assign probabilities $p_i$ for an event to originate from either the $t\bar{t}H$ signal or one of five $t\bar{t}$ background categories, yielding six output classes: $t\bar{t}H$, $t\bar{t}+\geq2b$, $t\bar{t}+1b$, $t\bar{t}+1B$, $t\bar{t}+\geq1c$, and $t\bar{t}+$light. The flavour categories are defined according to the number of additional $b$-, $c$-, or light jets in the event.\\
+The multi-class classification transformer is trained to assign probabilities $p_i$ for an event to originate from either the $t\bar{t}H$ signal or one of five $t\bar{t}$ background categories, yielding six output classes: $t\bar{t}H$, $t\bar{t}+\geq2b$, $t\bar{t}+1b$, $t\bar{t}+1B$, $t\bar{t}+\geq1c$, and $t\bar{t}+$light. The flavour categorise are defined according to the number of additional $b$-, $c$-, or light jets in the event.\\
 \\
 The network input consists of reconstructed physics objects such as: jets, leptons, and the missing transverse momentum $E_{T}^{\text{miss}}$. Each object is represented by a vector of low-level kinematic features, primarily its four-momentum, supplemented by additional information. The features include the Cartesian momentum components $(p_{x}, p_{y}, p_{z})$, the energy, transverse momentum $p_{T}$, mass, pseudorapidity $\eta$, and azimuthal angle $\phi$. To improve convergence, redundant features such as $\sin\phi$ and $\cos\phi$ are provided explicitly, encoding the periodicity of the azimuthal angle. Jet-specific inputs include the DL1r pseudo-continuous $b$-tagging score, while leptons are augmented with type, charge, and object-type flags. Where applicable, feature distributions are standardised to zero mean and unit variance, as summarised in Table~\ref{tab:features}.\\
 \\
@@ -439,7 +439,7 @@ Although this construction provides a natural yield-weighted probability, it was
     \label{fig:tranformer_class_reco}
 \end{figure}
 \subsection{Boosted Higgs Candidates Reconstruction}
-The bossted Higgs reconstruction is done using a separate set of NNs that our transformer network. The boosted classification DNN is designed to distinguish RC-jets into three categories: Higgs, top, and QCD, and serves as the primary algorithm for Higgs candidate identification. Its architecture comprises three fully connected hidden layers, each with 100 neurons, employing the ReLU activation function. A final softmax layer produces class probabilities $P(H)$, $P(t)$, and $P(\text{QCD})$, constrained such that: $P(H) + P(t) + P(\text{QCD}) = 1.$  The model is trained using the categorical cross-entropy loss function and optimised with stochastic gradient descent (SGD). Seventeen input features are provided, with jets ordered in $p_{T}$ within each event. The network is trained with 17 input features, constructed from $p_{T}$-ordered subjets within each RC-jet:  
+The boosted Higgs reconstruction uses a separate set of NNs from our transformer network. The boosted classification DNN is designed to distinguish RC-jets into three categories: Higgs, top, and QCD, and serves as the primary algorithm for Higgs candidate identification. Its architecture comprises three fully connected hidden layers, each with 100 neurons, employing the ReLU activation function. A final softmax layer produces class probabilities $P(H)$, $P(t)$, and $P(\text{QCD})$, constrained such that: $P(H) + P(t) + P(\text{QCD}) \approx 1.$  The model is trained using the categorical cross-entropy loss function and optimised with stochastic gradient descent (SGD). Seventeen input features are provided, with jets ordered in $p_{T}$ within each event. These features are constructed using physics-motivated RC-jet substructure observables chosen for their known discriminating power between Higgs, top, and QCD jets. Overtraining is controlled through odd–even event splitting, early stopping based on training–validation divergence. Validated by stable retraining performance and good Data/MC agreement of both inputs and network outputs \cite{bruno_thesis}. The network is trained with 17 input features, constructed from $p_{T}$-ordered subjets within each RC-jet:  
 \begin{enumerate}
   \item invariant mass of the RC-jet,  
   \item number of subjets contained in the RC-jet,  
@@ -459,7 +459,7 @@ The bossted Higgs reconstruction is done using a separate set of NNs that our tr
   \item maximum $\Delta R$ separation among subjets in the RC-jet,  
   \item minimum $\Delta R$ separation among subjets in the RC-jet.  
 \end{enumerate}
-\section{Analysis Regions And Pre-Fit modelling}
+\section{Analysis Regions and Pre-Fit modelling}
 Once the events pass the kinematic preselection, events are classified into their respective channels and regions. In the single-lepton (dilepton) channel, the selection is further divided into eight (five) control regions and six (six) resolved signal regions, defined according to the STXS binning scheme. The single-lepton channel also benefits from a dedicated boosted selection, whose events are subsequently included in the STXS 5 and 6 regions. In contrast, no boosted signal region is defined for the di-lepton channel, owing to the limited statistical power of this decay mode. The signal and background region septation for the single lepton channel is shown in Figure \ref{fig:region-split}.\\
 \\
 The assignment of events to analysis regions follows a hierarchical procedure.  
@@ -480,19 +480,19 @@ For the single-lepton $t\bar{t}+\geq 2b$ control regions, a coarser split is use
 With events split into their assumed classes by the MVA strategy, pre-fit checks can occur to inspect the in order to validate the MVA strategy and catch any major mis-modelling issues that occurred. This is accomplished with Data/MC comparisons to check region purity or simply checking the truth MC fractions would suffice, using these methods the Higgs reconstruction and event classification can be checked for all regions, signal and background, and for both channels single lepton and di-lepton.
 \\
 \\
-\begin{figure}[h!]
+\begin{sidewaysfigure}[h!]
     \centering
     \includegraphics[width=1\linewidth]{Section_tthbb_analysis//figures//mva/transformer_full_flowchart_1lsplit.pdf}
 \caption{Flowchart illustrating the event classification and Higgs boson $p_{T}$ reconstruction strategy employed in the analysis.}
 
     \label{fig:region-split}
-\end{figure}
+\end{sidewaysfigure}
 In all distributions presented figures below, the $t\bar{t}+$jets normalisation scaling factors are applied together with the $H_{T}$ re-weighting factors. The data/MC comparisons include the full uncertainty envelope from all systematic variations, with the exception of the free-floating $t\bar{t}+$jets normalisation factors, which carry no predefined pre-fit uncertainty. All discriminant outputs shown in the distributions are rescaled to the range $[0,1]$ by applying a logistic transformation, defined as
 \begin{equation}
     f(x) = \frac{1}{1 + e^{-x}} \, .
 \end{equation}
 \subsection{Higgs Reconstruction Performance}
-The performance of the reconstruction transformer and boosted DNN is shown in Figure \ref{fig:reco-performance}. This is particularly important for differential measurements and demonstrates great separation power as indicated by the high fraction of truth MC in their correct STXS bin.
+The performance of the reconstruction transformer and boosted DNN is shown in Figure \ref{fig:reco-performance}. This is particularly important for differential measurements and demonstrates improved separation power as indicated by the high fraction of truth MC in their correct STXS bin.
 \begin{figure}[h!]
     \centering
     % First image
@@ -519,7 +519,7 @@ The performance of the reconstruction transformer and boosted DNN is shown in Fi
 }
     \label{fig:reco-performance}
 \end{figure}
-\subsection{Pre-Fit modelling}
+\subsection{Pre-Fit Modelling}
 For this section only the single lepton pre-fit modelling distributions are shown, the di-lepton pre-fit modelling can be found in Appendix \ref{app:pre-fit_di-lepton}. The single lepton pre-fit modelling validation can be broken up into two main sets of plots: the region composition plots, shown in Figure \ref{fig:1l_region_comp} and the data/MC distribution plots for both signal, shown in Figure \ref{fig:1l_data_mc_pre_fit_SR} and background regions, shown in Figure \ref{fig:1l_data_mc_pre_fit_CR}.\\
 \\
 Each CR is enriched in the targeted $t\bar{t}+$jets flavour component. In particular, the $t\bar{t}+$light regions are very pure, with more than 50\% of events originating from the $t\bar{t}+$light process. The $t\bar{t}+\geq 2b$ and $t\bar{t}+\geq 1c$ regions are also found to be relatively pure, with around 50\% of the events coming from the respective processes. In the signal SR, the $t\bar{t}+\geq 2b$ background dominates, while the $t\bar{t}+1b$ process provides the second largest contribution in the lower $p_{T}^{H}$ bins. Other background categories only become significant at higher $p_{T}^{H}$.\\
@@ -674,7 +674,7 @@ Thirteen independent uncertainty sources are considered, represented by 12 effec
 Systematic uncertainties in $b$-tagging arise from the efficiency calibration for $b$-jets and from the mis-tag rates for $c$- and light-flavour jets in the DL1r algorithm. Uncertainties are evaluated through a principal component analysis, yielding a total of 45 eigenvalues for $b$-jets, 20 for $c$-jets, and 20 for light-flavour jets. Additional uncertainties are introduced at high $p_{T}$ due to the limited kinematic coverage of the calibrations. These extrapolation uncertainties are the same derived in Chapter \ref{chap:PCBTextrap}. 
 \subsubsection{Missing Transverse Momentum}
 All uncertainties related to the energy scale and resolution of the reconstructed physics objects described above are propagated to the $E_{T}^{\text{miss}}$ algorithms.  In addition to these hard contributions, extra uncertainties are included for the soft terms to account for discrepancies between data and simulation~\cite{missing_transverse}.  In total, three independent nuisance parameters are considered.  
-\subsection{Signal modelling Uncertainties}
+\subsection{Signal Modelling Uncertainties}
 The impact of parton distribution function and $\alpha_{s}$ variations on the total $t\bar{t}H$ cross-section is estimated to be about $\pm 3.6\%$~\cite{Lonnblad2005PartonShowers}, while the effect on the $p_{T}^{H}$ distribution is found to be negligible. Additional theoretical uncertainties on the $t\bar{t}H$ cross-section are considered from possible migrations between STXS bins.\\
 \\
 To probe the uncertainty from initial-state radiation (ISR), dedicated weights are used in the matrix element and parton shower simulations. The renormalisation and factorisation scales, $\mu_{R}$ and $\mu_{F}$, are varied by a factor of 0.5 in combination with the Var3c up tune~\cite{PYTHIA8}, corresponding to enhanced parton radiation, and by a factor of 2 with the Var3c down tune to simulate reduced radiation. A similar approach is applied for final-state radiation (FSR), where the renormalisation scale of the QCD emission in the parton shower is varied by factors of 0.5 and 2.\\
@@ -738,7 +738,7 @@ For these processes, the associated systematic uncertainties and their sources a
         $tWZ$~\cite{Alwall:2014hca} & Cross-section & $\pm 50\%$ \\
         \hline
         $tHjb$ & Cross-section (PDFs) & $\pm 3.7\%$ \\
-                     & Factorisation and normalisation & $+6.5\%/-14.9\%$ \\
+                     & Factorisation and normalisation & $+6.5\%/ -14.9\%$ \\
         \hline
         $tWH$ & Cross-section (PDFs) & $\pm 3.7\%$ \\
                     & Factorisation and normalisation & $+6.5\%/-6.7\%$ \\
@@ -754,7 +754,7 @@ For these processes, the associated systematic uncertainties and their sources a
 \section{Statistical Model and Fit Studies}
 \input{Section_tthbb_analysis/Fit_studies}
 \section{Results}
-The results are presented in two categories. The \textit{inclusive measurement} refers to results where the STXS regions are combined, either across both signal channels or within each channel separately, by combining the STXS regions. This provides a single measurement of the overall $t\bar{t}H$ signal strength without resolving the individual kinematic regions or an overall per channel result. The \textit{differential measurement} instead keeps the STXS regions separate, while combining the single-lepton and di-lepton channels. This allows the signal strength to be determined as a function of the Higgs boson transverse momentum, thereby probing the kinematic dependence of the $t\bar{t}H$ production process.
+The results are presented in two categories. The \textit{inclusive measurement} refers to results where the STXS regions are combined, either across both signal channels or within each channel separately, by combining the STXS regions. This provides a single measurement of the overall $t\bar{t}H$ signal strength without resolving the individual kinematic regions or an overall per channel result. The \textit{differential measurement} instead keeps the STXS regions separate, while combining the single-lepton and di-lepton channels. This allows the signal strength to be determined as a function of the Higgs boson transverse momentum, thereby probing the kinematic dependence of the $t\bar{t}H$ production process. The global goodness of fit is 87\% for the $\sigma_{t\bar{t}H}/\sigma_{\text{SM}}$ measurement in $p_T$ bins, highlighting that good post-fit modelling is achieved.
 \subsection{Inclusive}
 An excess of events over the background is observed (expected) with a significance of 4.6~(5.4) standard deviations, from a combined profile-likelihood fit to data across all signal and control regions. The measured $t\bar{t}H$ signal strength for $m_{H}=125.09$~\GeV is:
 \begin{equation}
@@ -777,8 +777,7 @@ with a relative uncertainty of $^{+25\%}_{-22\%}$, consistent with the SM expect
 The overall sensitivity is driven by the single-lepton channel, where systematic uncertainties dominate.  
 In contrast, the di-lepton channel is primarily limited by the available dataset size.\\
 \\
-The fitted normalisation factors for the \ttjets background processes, which are treated as free parameters in the likelihood fit, are listed in Table~\ref{tab:norm_factors}.  
-These values are consistent between the single-lepton and di-lepton channels within two standard deviations. For the \ttb process, the normalisation factor is found to be slightly larger in the di-lepton channel than in the single-lepton channel.\\
+The fitted normalisation factors for the \ttjets background processes, which are treated as free parameters in the likelihood fit, are listed in Table~\ref{tab:norm_factors}. The normalisation factors for the $t\bar{t}+1b$, $t\bar{t}+\geq 1c$, and $t\bar{t}+$light backgrounds are allowed to float independently in the single-lepton and di-lepton channels, while those for the $t\bar{t}+\geq 2b$ and $t\bar{t}+1B$ processes are constrained to be correlated across the two channels. This configuration is motivated by dedicated studies of different correlation assumptions in the combined fit. The adopted setup provides sufficient flexibility in the fit model while simultaneously minimising pulls and constraints on nuisance parameters when fitting to data. These values are consistent between the single-lepton and di-lepton channels within two standard deviations. For the \ttb process, the normalisation factor is found to be slightly larger in the di-lepton channel than in the single-lepton channel.\\
 \\
 Relative to the previous analysis of the same dataset, the current strategy selects 64\% (29\%) new events in the single-lepton (di-lepton) signal regions. The statistical correlation between the two analyses is estimated using a bootstrap method to be 19\%, assuming independent systematic uncertainties. This assumption is justified by the fact that the dominant \ttbin background is treated with a different systematic model, and that experimental uncertainties have been updated. Based on this, the probability that the current measurement is compatible with the result reported in \cite{tth-atlas-2018} is estimated to be 21\%. The fitted normalisation factors for the $t\bar{t}+$jets background processes, treated as free parameters in the likelihood fit, are summarised in Table \ref{tab:norm_factors}. The values are consistent between the single-lepton and di-lepton channels within two standard deviations.  For the $t\bar{t}+1b$ process, the normalisation factor is found to be slightly larger in the di-lepton channel than in the single lepton channel.\\
 \\
@@ -786,14 +785,16 @@ Figure~\ref{fig:POI_data_combined} shows the measured values of $\sigma_{t\bar{t
 \begin{table}[!htb]
     \centering
     \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{lccccc}
-        \hline\hline
-        \textbf{Normalisation factor} & $t\bar{t}+$light & $t\bar{t}+\geq1c$ & $t\bar{t}+1b$ & $t\bar{t}+1B$ & $t\bar{t}+\geq2b$ \\
-        \hline
-        Single-lepton & $0.78^{+0.08}_{-0.08}$ & $1.51^{+0.19}_{-0.18}$ & $1.06^{+0.10}_{-0.10}$ & $1.15^{+0.15}_{-0.14}$ & $0.94^{+0.08}_{-0.08}$ \\
-        Dilepton      & $0.88^{+0.11}_{-0.10}$ & $1.36^{+0.10}_{-0.10}$ & $1.24^{+0.09}_{-0.09}$ & -- & -- \\
-        \hline\hline
-    \end{tabular}
+\begin{tabular}{lccccc}
+    \hline\hline
+    \textbf{Normalisation factor} & $t\bar{t}+$light & $t\bar{t}+\geq1c$ & $t\bar{t}+1b$ & $t\bar{t}+1B$ & $t\bar{t}+\geq2b$ \\
+    \hline
+    Single-lepton & $0.78^{+0.08}_{-0.08}$ & $1.51^{+0.19}_{-0.18}$ & $1.06^{+0.10}_{-0.10}$ & 
+    \multirow{2}{*}[]{$1.15^{+0.15}_{-0.14}$} & 
+    \multirow{2}{*}[]{$0.94^{+0.08}_{-0.08}$} \\
+    Dilepton      & $0.88^{+0.11}_{-0.10}$ & $1.36^{+0.10}_{-0.10}$ & $1.24^{+0.09}_{-0.09}$ &  &  \\
+    \hline\hline
+\end{tabular}
     \caption{Best-fit values of the $t\bar{t}+$jets normalisation factors obtained from the fit to data with a single inclusive $t\bar{t}H$ signal strength parameter. Independent normalisation factors for $t\bar{t}+1b$, $t\bar{t}+\geq1c$ and $t\bar{t}+$light components are used in the dilepton and single-lepton channels. Before the fit, the $t\bar{t}+$light and $t\bar{t}+\geq1c$ components are normalised to the $t\bar{t}$ cross-section computed at NNLO in QCD including the resummation of NNLL soft-gluon terms, while the $t\bar{t}+\geq1b$ normalisation is taken from the $t\bar{t}b\bar{b}$ MC simulation.}
     \label{tab:norm_factors}
 \end{table}
@@ -811,7 +812,6 @@ Uncertainties are shown separately for the measurement and for the theoretical p
     \caption{Post-fit correlations between the measured values of the $t\bar{t}H$ cross-section, $\sigma_{t\bar{t}H}$, in bins of the truth Higgs boson transverse momentum, $p_{T}^{H}$.}
     \label{fig:POI_corrs}
 \end{figure}
-\newpage
 \subsection{Differential}
 The individual channel fit with STXS breakdown is shown in Figure \ref{fig:diff_results}. The di-lepton channel is dominated by statistical uncertainties across all bins, demonstrating the weak statistical power of the channel.
 \begin{figure}[!htb]
@@ -833,7 +833,7 @@ The individual channel fit with STXS breakdown is shown in Figure \ref{fig:diff_
         \caption{}
     \end{subfigure}
     
-    \caption{The measured $t\bar{t}H$ cross-sections in bins of the Higgs boson transverse momentum, $p_{T}^{H}$, for $|y| \leq 2.5$, following the full STXS stage~1.2 binning scheme, together with the inclusive cross-section. All results are normalised to the SM prediction and obtained from a profile-likelihood fit to data in the single-lepton channel (top) and di-lepton channel (bottom), including all corresponding signal and control regions. The total uncertainty on each measured cross-section is indicated by the black error bar, with statistical and systematic components shown in yellow and blue, respectively.  
+    \caption{The measured $t\bar{t}H$ cross-sections in bins of the Higgs boson transverse momentum, $p_{T}^{H}$, for $|y| \leq 2.5$, following the full STXS stage~1.2 binning scheme, together with the inclusive cross-section. All results are normalised to the SM prediction and obtained from a profile-likelihood fit to data in the single-lepton channel (a) and di-lepton channel (b), including all corresponding signal and control regions. The total uncertainty on each measured cross-section is indicated by the black error bar, with statistical and systematic components shown in yellow and blue, respectively.  
 Theoretical uncertainties on the SM prediction are represented by the hashed grey band.}
     \label{fig:diff_results}
 \end{figure}
@@ -853,7 +853,7 @@ The first and last bins include the underflow and overflow contributions, respec
 
     \label{fig:summary_dist_SB}
 \end{figure}
-\subsection{Post-Fit modelling}
+\subsection{Post-Fit Modelling}
 The post-fit summary plots for the control regions and signal regions of the analysis are shown in the following distributions. Data is shown as black points, with the $t\bar{t}H$ signal contributions in red, scaled by $\sigma_\text{obs}/\sigma_\text{SM}$. The shaded uncertainty band represents the total statistical and systematic uncertainties, including their correlations. The lower panels display the ratio of data to the total post-fit yield. Excellent post-fit agreement is observed within the quoted uncertainties.  
 
 \subsubsection{Single Lepton}

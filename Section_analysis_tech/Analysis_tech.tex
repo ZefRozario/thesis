@@ -2,13 +2,13 @@
 \label{chap:AnalTech}
 \chapterquote{Hesitation is defeat, my dear Sekiro.}%
 {Isshin Ashina}
-Thus far in this thesis, we have covered the theory of particle physics, how we detect and reconstruct the particles and the MC techniques. Yet a some questions still remain, such as: How do we separate events the into a signal and background event? And how do we construct a statistically robust framework, using our signal and background events? To answer the first question, usually a multivariate analysis incorporating a machine learning technique is used. For the $t\bar{t}H(b\bar{b})$ analysis a  multi-class neural network based on a permutation-invariant transformer architecture with attention mechanism is used \cite{attentionisallyouneed}. Using the output of this framework a combined profile likelihood fit that simultaneously determines the event yields for the signal and for the most important background components, while constraining the overall background model within the assigned systematic uncertainties is constructed.\\
+Thus far in this thesis, we have covered the theory of particle physics, how we detect and reconstruct the particles and the MC techniques. Yet some questions still remain, such as: How do we separate events the into a signal and background event? And how do we construct a statistically robust framework, using our signal and background events? To answer the first question, usually a multivariate analysis incorporating a machine learning technique is used. For the $t\bar{t}H(b\bar{b})$ analysis a  multi-class neural network based on a permutation-invariant transformer architecture with attention mechanism is used \cite{attentionisallyouneed}. Using the output of this framework a combined profile likelihood fit that simultaneously determines the event yields for the signal and for the most important background components, while constraining the overall background model within the assigned systematic uncertainties is constructed.\\
 \\
 This chapter will serve as a general introduction to the transformer architecture and profile likelihood fit construction before we apply these concepts in Chapter \ref{chap::tth}.
 
 \section{Profile Likelihoods}
 \subsection{Poisson Distributions}
-In each $pp$ collision at the LHC, the final state may originate from the signal process or from a variety of background processes. These cannot be separated event-by-event with perfect accuracy, but their relative contributions can be inferred statistically using the measured distributions in signal- and control-enriched regions. The data in these regions are organized into histograms of discriminant variables, such as the output of a neural network classifier or a reconstructed mass or Higgs $p_T$. Each of these events has a small probability of producing the final state of interest. This matches the conditions under which the Poisson distribution applies: rare independent trials with a constant rate. The Poisson model correctly describes both low-statistics bins and high-statistics bins (where it smoothly approximates a Gaussian). Therefore, the likelihood in each bin is taken as the Poisson probability of the observed count given the predicted mean from signal and background. We define the Poisson distribution as:
+In each $pp$ collision at the LHC, the final state may originate from the signal process or from a variety of background processes. These cannot be separated event-by-event with perfect accuracy, but their relative contributions can be inferred statistically using the measured distributions in signal- and control-enriched regions. The data in these regions are organized into histograms of discriminant variables, such as the output of a neural network classifier or a reconstructed invariant mass or Higgs boson $p_T$. Each of these events has a small probability of producing the final state of interest. This matches the conditions under which the Poisson distribution applies: rare independent trials with a constant rate. The Poisson model correctly describes both low-statistics bins and high-statistics bins (where it smoothly approximates a Gaussian distribution). Therefore, the likelihood in each bin is taken as the Poisson probability of the observed count given the predicted mean from signal and background. We define the Poisson distribution as:
 \begin{equation}
 P(n |\nu) = \frac{\nu^n e^{-\nu}}{n!},
 \end{equation}
@@ -42,13 +42,13 @@ where $N_{\text{Sig},i}^s$ is the number of expected signal events from a signal
     \label{mu}
     \mu_s = \frac{\sigma^s}{\sigma_{\text{SM}}^s},
 \end{equation}
-where $\sigma^s$ is the observed cross-section of the measured signal process, $s$ and $\sigma_{\text{SM}}^s$ is the expected SM cross-section for the same process. When quoting signal strength for an inclusive measurement only one $\mu$ is used. For a Simplified Template Cross-Section\footnote{This is aa agreed framework that partitions Higgs production processes into kinematic regions to enable precise, model-independent measurements of Higgs properties.} (STXS) measurement a $\mu$ is used for each STXS region.The resulting binned likelihood function is given my:
+where $\sigma^s$ is the observed cross-section of the measured signal process, $s$ and $\sigma_{\text{SM}}^s$ is the expected SM cross-section for the same process. When quoting signal strength for an inclusive measurement only one $\mu$ is used. For a Simplified Template Cross-Section\footnote{This is an agreed framework that partitions Higgs production processes into kinematic regions to enable precise, model-independent, measurements of Higgs properties.} (STXS) measurement a $\mu$ is used for each STXS region. The resulting binned likelihood function is given my:
 \begin{equation}\label{binnedlikelihood}
     \mathcal{L}(\mu,k,\theta) = \prod_i^M\frac{N^{\mathrm{exp}}_i(\mu, k, \theta)^{N_i}}{N_i!} \; e^{-N^{\mathrm{exp}}_i(\mu, k, \theta)},
 \end{equation}
 where $M$ is the total number of bins and $N_i$ is the number of events in bin $i$. Equation \ref{mu} shows that large or small values of cross-section can lead to speculation of the presence of new physics, provided no large systematic or modelling uncertainty dominates this potential deviation. A change of bias ($\mu \rightarrow$Wilson Coefficient) in Equation \ref{binnedlikelihood} can be used to re-interpret a SM measurement in the EFT framework discussed in Section \ref{sec:SMEFT}.
 \subsection{Profile Likelihoods and Test Statistic}
-The profile likelihood fit is the statistical framework used to extract the best-fit value of a Parameter Of Interest (POI). Here its $\mu$, while consistently incorporating the effects of systematic uncertainties Nuisance Parameters (NPs) and normalisation factors. In this approach, for each tested value of $\mu$, the likelihood is maximized with respect to all nuisance parameters, yielding the profile likelihood:
+The profile likelihood fit is the statistical framework used to extract the best-fit value of a Parameter Of Interest (POI). Here its $\mu$, while consistently incorporating the effects of systematic uncertainties, NPs and normalisation factors. In this approach, for each tested value of $\mu$, the likelihood is maximized with respect to all nuisance parameters, yielding the profile likelihood:
 \begin{equation}
     \mathcal{L}(\mu) = \mathcal{L}(\mu,\hat{\hat{k}}, \hat{\hat{\theta}}),
 \end{equation} 
@@ -62,7 +62,7 @@ This test statistic is used both to construct confidence intervals for $\mu$, an
 \subsection{Significance}
 The deviation from the background-only hypothesis is quantified by the signal significance $S$, defined as:  
 \begin{equation}
-S = \sqrt{\lambda_0},
+S = \sqrt{\lambda_{q_0}},
 \end{equation}
 where $\lambda_0$ is the likelihood ratio evaluated at $\mu=0$ (background only). The significance expresses how strongly the observed result deviates from the background-only expectation, typically quoted in units of standard deviations ($\sigma$). In particle physics, two common thresholds are used: a significance of at least $3\sigma$ is referred to as evidence, corresponding to a $p$-value of approximately $0.3\%$, while a significance of $5\sigma$ is required for a discovery, corresponding to a $p$-value of about $3\times10^{-7}$. Here, the $p$-value represents the probability of observing a deviation as large as, or larger than, the measured result under the assumption that the background-only hypothesis is true.
 
@@ -92,7 +92,7 @@ The Transformer architecture uses attention mechanisms to capture connection bet
 \subsubsection{Dot-Product Self-Attention}
 The core operation of self-attention, denoted \textbf{sa[$\bullet$]}, is to determine the relevance of one input object to another via a similarity measure. 
 Given a set of $N$ input vectors 
-$\{x_1, x_2, \dots, x_N\}$, where $x_m \in \mathbb{R}^{D \times 1}$\footnote{In the context of the $t\bar{t}H(b\bar{b})$ analysis the inputs will be particle objects such as $p_T$, mass, PCBT bin and so on.},
+$\{x_1, x_2, \dots, x_N\}$, where $x_m \in \mathbb{R}^{D \times 1}$,\footnote{In the context of the $t\bar{t}H(b\bar{b})$ analysis the inputs will be particle objects such as $p_T$, mass, PCBT bin and so on.}
 we first compute a \emph{query} vector $q_n$ for the object and a \emph{key} vector $k_m$ for each object in the set:
 \begin{equation}
 q_n = b_q + \Omega_q x_n, \quad k_m = b_k + \Omega_k x_m,
@@ -109,7 +109,7 @@ The raw similarity scores $s_{nm}$ quantify how closely the query vector of obje
 \begin{equation}
 a[x_m, x_n] = \frac{\exp(s_{nm})}{\sum_{j=1}^N \exp(s_{nj})}.
 \end{equation}
-The softmax has two important effects: It exponentiates the scores, which accentuates differences between high and low similarity values, thereby sharpening the focus of the attention mechanism. It also normalises the set of scores for each $n$ so that they form a valid probability distribution over the $N$ input objects. These weights satisfy:
+The softmax function has two important effects: It exponentiates the scores, which accentuates differences between high and low similarity values, thereby sharpening the focus of the attention mechanism. It also normalises the set of scores for each $n$ so that they form a valid probability distribution over the $N$ input objects. These weights satisfy:
 \begin{equation}
 a[x_m, x_n] \ge 0, \quad \sum_{m=1}^N a[x_m, x_n] = 1,
 \end{equation}
@@ -192,7 +192,7 @@ In the context of the $t\bar{t}H(b\bar{b})$ analysis, cross-attention provides a
 \\
 In this setup, the query vectors pose the question: \emph{``Which reconstructed objects are most relevant for refining my current event-level hypothesis?''} The keys encode each object's properties, allowing the network to determine their relevance, and the values carry the information that will be incorporated into the updated event-level representation.\\
 \\
-Through training, the attention mechanism learns to focus on objects that are most informative for distinguishing $t\bar{t}H(b\bar{b})$ signal events from background processes, such as identifying $b$-jets from the Higgs decay or leptons from top quark decays. In this way, cross-attention enables a targeted, learned transfer of information from the object level to the hypothesis level, improving the network's discriminative power.
+Through training, the attention mechanism learns to focus on objects that are most informative for distinguishing $t\bar{t}H(b\bar{b})$ signal events from background processes, such as identifying $b$-jets from the Higgs boson decay or leptons from top quark decays. In this way, cross-attention enables a targeted, learned transfer of information from the object level to the hypothesis level, improving the network's discriminative power.
 
 \subsubsection{Multi-Headed Cross-Attention}
 As with self-attention, cross-attention can be extended to multiple heads, with each head using its own parameter set:
